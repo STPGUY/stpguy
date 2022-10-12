@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/AlanTuringLi/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/AlanTuringLi/css/main.css?v=6.7.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/AlanTuringLi/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/AlanTuringLi/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/AlanTuringLi/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/AlanTuringLi/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+  <meta name="description" content="洛谷网课">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基础多项式">
+<meta property="og:url" content="https://alanturingli.gitee.io/AlanTuringLi/2020/07/29/%E5%9F%BA%E7%A1%80%E5%A4%9A%E9%A1%B9%E5%BC%8F/index.html">
+<meta property="og:site_name" content="AlanTuring&#39;s Blog">
+<meta property="og:description" content="洛谷网课">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://alanturingli.gitee.io/AlanTuringLi/2020/07/29/%E5%9F%BA%E7%A1%80%E5%A4%9A%E9%A1%B9%E5%BC%8F/FFT.png">
+<meta property="og:image" content="https://alanturingli.gitee.io/AlanTuringLi/2020/07/29/%E5%9F%BA%E7%A1%80%E5%A4%9A%E9%A1%B9%E5%BC%8F/TD.png">
+<meta property="og:image" content="https://alanturingli.gitee.io/AlanTuringLi/2020/07/29/%E5%9F%BA%E7%A1%80%E5%A4%9A%E9%A1%B9%E5%BC%8F/TD2.png">
+<meta property="og:image" content="https://alanturingli.gitee.io/AlanTuringLi/2020/07/29/%E5%9F%BA%E7%A1%80%E5%A4%9A%E9%A1%B9%E5%BC%8F/TD3.png">
+<meta property="og:image" content="https://alanturingli.gitee.io/AlanTuringLi/2020/07/29/%E5%9F%BA%E7%A1%80%E5%A4%9A%E9%A1%B9%E5%BC%8F/TD4.png">
+<meta property="article:published_time" content="2020-07-29T00:25:23.000Z">
+<meta property="article:modified_time" content="2022-07-27T11:24:41.034Z">
+<meta property="article:author" content="AlanTuring">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="多项式">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alanturingli.gitee.io/AlanTuringLi/2020/07/29/%E5%9F%BA%E7%A1%80%E5%A4%9A%E9%A1%B9%E5%BC%8F/FFT.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://AlanTuringLi.gitee.io/AlanTuringLi/2020/07/29/基础多项式/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>基础多项式 | AlanTuring's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/AlanTuringLi/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AlanTuring's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">A long way to go</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/AlanTuringLi/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/AlanTuringLi/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/AlanTuringLi/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/AlanTuringLi/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://AlanTuringLi.gitee.io/AlanTuringLi/AlanTuringLi/2020/07/29/%E5%9F%BA%E7%A1%80%E5%A4%9A%E9%A1%B9%E5%BC%8F/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AlanTuring"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/AlanTuringLi/images/shixiang.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlanTuring's Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">基础多项式
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-07-29 08:25:23" itemprop="dateCreated datePublished" datetime="2020-07-29T08:25:23+08:00">2020-07-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2022-07-27 19:24:41" itemprop="dateModified" datetime="2022-07-27T19:24:41+08:00">2022-07-27</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/AlanTuringLi/2020/07/29/%E5%9F%BA%E7%A1%80%E5%A4%9A%E9%A1%B9%E5%BC%8F/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/AlanTuringLi/2020/07/29/%E5%9F%BA%E7%A1%80%E5%A4%9A%E9%A1%B9%E5%BC%8F/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/AlanTuringLi/2020/07/29/%E5%9F%BA%E7%A1%80%E5%A4%9A%E9%A1%B9%E5%BC%8F/" class="leancloud_visitors" data-flag-title="基础多项式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">14k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">13 mins.</span>
+              
+            </div>
+          
+
+          
+              <div class="post-description">洛谷网课</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="快速傅里叶变换"><a href="#快速傅里叶变换" class="headerlink" title="快速傅里叶变换"></a>快速傅里叶变换</h1><h2 id="多项式"><a href="#多项式" class="headerlink" title="多项式"></a>多项式</h2><p>一个环 $R$ 上的关于 $x$ 的多项式可以写作 </p>
+<script type="math/tex; mode=display">
+A(x) = \sum_{i=0}^na_ix^i</script><p>其中 $a_i \in \mathbb{R}$</p>
+<p>$x$ 被称为这个多项式的自由元</p>
+<p>多项式的次数被定义为其最高非零次项的次数，记为 $\deg A(x)$</p>
+<h2 id="多项式运算"><a href="#多项式运算" class="headerlink" title="多项式运算"></a>多项式运算</h2><p>设 $A(x),\; B(x)$ 是次数不超过 $n$ 的多项式</p>
+<p>那么加法和减法运算被定义为： </p>
+<script type="math/tex; mode=display">
+A(x) \pm B(x) = \sum^n_{i=0} (a_i \pm b_i)x^i</script><p>显然可以在 $O(n)$ 时间内计算这两个多项式的和或差</p>
+<h2 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h2><p>设 $a, b$ 是两个数列，那么这两个数列的卷积 $c$ 的定义为 </p>
+<script type="math/tex; mode=display">
+c_k = \sum_{i+j=k} a_ib_j</script><h2 id="多项式乘法"><a href="#多项式乘法" class="headerlink" title="多项式乘法"></a>多项式乘法</h2><p>两个多项式的乘积被定义为：</p>
+<script type="math/tex; mode=display">
+A(x)B(x)=\sum_{i=0}^n\sum_{i=0}^na_ib_jx^{i+j}=\sum_{k=0}^{2n}c_kx^k</script><p>其中 $c$ 是 $a$ 与 $b$ 的卷积</p>
+<p>朴素的按定义计算多项式乘法的时间复杂度是 $O(n^2)$ 的</p>
+<h2 id="多项式点值表示"><a href="#多项式点值表示" class="headerlink" title="多项式点值表示"></a>多项式点值表示</h2><p>给定一个不超过 $n$ 次的多项式 $A(x)$ 以及 $n + 1$ 个不同的点 $x_0,\cdots,x_n$,令 $y_i = A(x_i)$</p>
+<p>则这 $n + 1$ 组 $(xi , yi)$ 唯一的确定了这个多项式 $A(x)$</p>
+<p>这些 $(x_i,y_i)$ 称作这个多项式的点值表示</p>
+<p>如果给出 $A(x)$ 和 $B(x)$ 分别在 $x_0,\cdots,x_n$ 下的点值，则可以在 $O(n)$ 时间内得到 $A(x) \pm B(x)$ 或 $A(x)B(x)$ 在同一组位置处的点值</p>
+<h2 id="系数与点值表示"><a href="#系数与点值表示" class="headerlink" title="系数与点值表示"></a>系数与点值表示</h2><p>给出 $n$ 次多项式 $A(x)$ 的各项系数，可以通过求值计算多项式的点值表示</p>
+<p>给出 $n$ 次多项式 $A(x)$ 的点值表示，可以通过待定系数，解方程得到多项式的各项系数</p>
+<p>得到多项式的各项系数</p>
+<p>如何在多项式的系数和点值表示之间快速转换？</p>
+<p>这促使我们考虑一组特殊的点值</p>
+<h2 id="单位根"><a href="#单位根" class="headerlink" title="单位根"></a>单位根</h2><p><a target="_blank" rel="noopener" href="https://alansblog.ink/2020/07/19/复数入门/#四-单位根"><strong>仅供参考</strong></a></p>
+<p>满足 $x^n−1=0$ 的 $x$ 被称作 $n$ 次单位根</p>
+<p>设 $\omega$ 是 $n$ 次单位根</p>
+<p>如果 $ω_0,ω_1,\cdots, ω_m(m=n-1)$ 恰好生成了所有的 $n$ 次单位根（即两两不同），则称 $ω$ 为本原单位根</p>
+<p>这等价于 $n$ 是 最小的使得 $\omega^n−1=0$ 的正整数。我们用 $\omega_n$ 来表示一个 $n$ 次本原单位根</p>
+<p>在复数域 $\mathbb{C}$ 上，$\omega_n = \exp(\frac{2πi}n)=\cos\frac{2π}n +i\sin\frac{2π}n$ 是一个本原单位根</p>
+<p>下文首先考虑 $\mathbb{C}$ 上的多项式</p>
+<p>在有限域（即模素数的情况）中，本原单位根与数论中的原根有关</p>
+<h2 id="离散傅里叶变换"><a href="#离散傅里叶变换" class="headerlink" title="离散傅里叶变换"></a>离散傅里叶变换</h2><p>设 $a$ 是长度为 $n$ 的数列，对 $0 \le k &lt; n$，令</p>
+<script type="math/tex; mode=display">
+b_k=\sum_{i=0}^{n-1}a_i\cdot{\omega_n}^{ki}</script><p>则称 $b$ 为 $a$ 的离散傅里叶变换 $(DFT)$ ，记作 $b = F(a)$</p>
+<p>容易看出，令 $A(x) = \sum a_ix^i$，则 $b_k$ 就是 $A(x)$ 在 ${ω_n}^k$ 处的点值</p>
+<p>因此计算 $a$ 的 $DFT$ 与计算 $A(x)$ 在 ${\omega_n}^0,{\omega_n}^1,\cdots,{\omega_n}^{n−1}$ 处的点值表示是等价的</p>
+<h2 id="离散傅里叶变换的逆变换"><a href="#离散傅里叶变换的逆变换" class="headerlink" title="离散傅里叶变换的逆变换"></a>离散傅里叶变换的逆变换</h2><p>对于长度为 $n$ 的序列 $a, b$，回忆 $DFT$ 的定义 :</p>
+<script type="math/tex; mode=display">
+b_k=\sum_{i=0}^{n-1}a_i{\omega_n}^{ki}(0\le k<n)\qquad(1)</script><p>下面我们来证明 $(1)$ 的逆变换$(IDFT)$如下 :</p>
+<script type="math/tex; mode=display">
+a_k=\frac 1n\sum_{i=0}^{n-1}b_i{\omega_n}^{-ki}(0\le k<n)\qquad(2)</script><p>考虑将$(1)$代入$b_i$, 有:</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+\sum_{i=0}^{n-1}b_i{\omega_n}^{-ki}&=\sum_{i=0}^{n-1}{\omega_n}^{-ki}\sum_{j=0}^{n-1}{\omega_n}^{ij}a_j\\
+&=\sum_{j=0}^{n-1}a_j\sum_{i=0}^{n-1}{\omega_n}^{-ki}{\omega_n}^{ij}\\
+&=\sum_{j=0}^{n-1}a_j\sum_{i=0}^{n-1}{\omega_n}^{i(j-k)}
+\end{align*}</script><p>我们考虑式子中的$\sum\limits_{i=0}^{n-1}{\omega_n}^{i(j-k)}$这一部分</p>
+<p>若 $j=k$ , 则</p>
+<script type="math/tex; mode=display">
+\sum_{i=0}^{n-1}{\omega_n}^{i(j-k)}=\sum_{i=0}^{n-1}1=n</script><p>若 $j=k$, 则由 $0\le j, k\le n$, 有$|j-k| &lt; n$, 故${\omega_n}^{j-k}\ne1$</p>
+<p>因此可以由等比数列数列求和的结论得到</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+\sum_{i=0}^{n-1}{\omega_n}^{i(j-k)}&=\sum_{i=0}^{n-1}({\omega_n}^{j-k})^i\\
+&=\frac{1-({\omega_n}^{j-k})^n}{1-{\omega_n}^{j-k}}\\
+&=\frac{1-({\omega_n}^n)^{j-k}}{1-{\omega_n}^{j-k}}\\
+&=\frac{1-1}{1-{\omega_n}^{j-k}}=0
+\end{align*}</script><p>因此, 有</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+\frac 1n\sum_{i=0}^{n-1}b_i{\omega_n}^{-ki}&=\frac 1n\sum_{i=0}^{n-1}{\omega_n}^{-ki}\sum_{j=0}^{n-1}{\omega_n}^{ij}a_j\\
+&=\frac 1n\sum_{j=0}^{n-1}a_j\sum_{i=0}^{n-1}{\omega_n}^{i(j-k)}\\
+&=\frac 1nna_k=a_k
+\end{align*}</script><p>即$(2)$成立</p>
+<p>类似的，可以证明由 $(2)$ 成立可以推出 $(1)$ 成立，故这两式是互逆的</p>
+<p>这就是 $IDFT$</p>
+<p>$IDFT$ 是 $DFT$ 的逆变换，也就意味着已知多项式在单位根处的点值，$IDFT$ 能够求出多项式的各项系数. 在这种意义上，这个 过程也可以看作插值</p>
+<h2 id="循环卷积"><a href="#循环卷积" class="headerlink" title="循环卷积"></a>循环卷积</h2><p>对于两个长度为 $n$ 的序列 $a, b$，定义</p>
+<script type="math/tex; mode=display">
+c_k=\sum_{(i+j)\;mod\;n\;=\;k}a_ib_j</script><p>则称 $c$ 为 $a$ 与 $b$ 的循环卷积，记为 $c = a ∗ b$</p>
+<p>关于循环卷积与 $DFT$，我们有如下定理：</p>
+<script type="math/tex; mode=display">
+F(a*b)=F(a)\cdot F(b)</script><p>其中 $\cdot$ 表示逐点乘积</p>
+<h2 id="快速傅里叶变换1"><a href="#快速傅里叶变换1" class="headerlink" title="快速傅里叶变换1"></a>快速傅里叶变换1</h2><p>按定义，我们可以 $O(n^2)$ 实现 $DFT$ 或 $IDFT$. 快速傅里叶变换是快速计算 $DFT$ 的方法，时间复杂度为 $O(n \log n)$</p>
+<p>当 $n$ 为 $2$ 的幂次的时候，我们可以使用 $Cooley–Tukey$ 算法来实现 $FFT$</p>
+<h2 id="单位根的一些性质"><a href="#单位根的一些性质" class="headerlink" title="单位根的一些性质"></a>单位根的一些性质</h2><p>考虑 $\omega_n$ 与$ω_m(m=2n)$, 我们有</p>
+<script type="math/tex; mode=display">
+({\omega_{2n}}^k)^2={\omega_n}^k\\
+{\omega_{2n}}^{n+k}=-{\omega_{2n}}^k</script><p>设 $n = 2m$. 我们考虑将 $A(x)$ 的项按次数的奇偶性分类：</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+A(x)=\sum_{0\le i<n}a_ix^i&=\sum_{0\le i<m}a_{2i}x^{2i}+\sum_{0\le i<m}a_{2i+1}x^{2i+1}\\
+&=\sum_{0\le i<m}a_{2i}x^{2i}+x\sum_{0\le i<m}a_{2i+1}x^{2i}
+\end{align*}</script><p>定义</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+A_0(x)&=\sum_{0\le i<m}a_{2i}x^i\\
+A_1(x)&=\sum_{0\le i<m}a_{2i+1}x^i
+\end{align*}</script><p>那么 $A_0(x)$, $A_1(x)$ 都是次数不超过 $m$ 的多项式，并且有</p>
+<script type="math/tex; mode=display">
+A(x)=A_0(x^2)+xA_1(x^2)</script><h2 id="蝴蝶操作"><a href="#蝴蝶操作" class="headerlink" title="蝴蝶操作"></a>蝴蝶操作</h2><p>结合单位根的性质，对于 $0 ≤ k &lt; m$，我们有</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+A({ω_n}^k) &= A_0(({ω_n}^k)^2 ) + {ω_n}^kA_1(({ω_n}^k)^2) \\
+&= A_0({ω_m}^k)+ {ω_n}^kA_1({ω_m}^k)\\
+A({ω_n}^{m+k})&= A_0(({ω_n}^{m+k})^2)+{ω_n}^{m+k}A_1(({ω_n}^{m+k} )^2)\\
+&= A_0({ω_m}^k)−{ω_n}^kA_1({ω_m}^k)
+\end{align*}</script><p>以上两式常被称为蝴蝶操作</p>
+<h2 id="快速傅里叶变换2"><a href="#快速傅里叶变换2" class="headerlink" title="快速傅里叶变换2"></a>快速傅里叶变换2</h2><p>通过蝴蝶操作的过程可以看出，如果我们得到了 $A_0(x), A_1(x)$ 在点 ${ω_m}^0,{ω_m}^1, . . . , {ω_m}^{m−1}$ 处的点值，我们可以在 $O(n)$ 时间内计算出 $A(x)$ 在 ${ω_n}^0 , {ω_n}^1,\cdots, {ω_n}^{n−1}$ 处的点值</p>
+<p>而计算 $A0, A1$ 的点值的过程可以递归分治进行</p>
+<p>根据主定理，我们可以在 $O(n \log n)$ 的时间内求出所要的 $A(x)$ 的点值表示</p>
+<p>为了快速的进行 $IDFT$，对比 $DFT$ 与 $IDFT$ 的表达式，可以发现我们只需要将 $FFT$ 过程中用到的 $ω_n$ 全部替换为 $ω_n^{-1}$，最后再 乘以 $\frac 1n$ 即可。</p>
+<p><img src="./FFT.png" alt=""></p>
+<h2 id="位逆序置换"><a href="#位逆序置换" class="headerlink" title="位逆序置换"></a>位逆序置换</h2><p>可以观察到，令 $rev(x)$ 表示将 $x$ 的二进制位的顺序反转之后得到的数字，令 </p>
+<script type="math/tex; mode=display">
+a_i^\prime=a_{rev(i)}</script><p>则每次需要对 $a$ 进行的蝴蝶操作在 $a\prime$ 中变成了对两个相邻的序列的操作</p>
+<p>把 $a$ 转化为 $a\prime$ 的过程常称为位逆序置换</p>
+<h2 id="非递归的-FFT-实现"><a href="#非递归的-FFT-实现" class="headerlink" title="非递归的 $FFT$ 实现"></a>非递归的 $FFT$ 实现</h2><p>因此得到 $a\prime$ 后，我们首先对 $a\prime$ 的每一对相邻的长度为 $1$ 的子序 列做蝴蝶操作，然后对每一对相邻的长度为 $2$ 的子序列$\cdots\cdots$最 后对两个长度为 $\frac n2$ 的子序列做蝴蝶操作，我们就完成了对 $a$ 的 $FFT$</p>
+<p>$DFT$ 与 $FFT$ 都是在 $\mathbb{C}$ 中进行的过程</p>
+<p>在很多时候，我们往往是在对整数进行操作，并且经常要对某个素数 $p$ 取模</p>
+<p>注意到单位根在 $DFT$ 中起了重要的作用，我们来考虑在模素数的时候是否存在和单位跟性质类似的元素</p>
+<h2 id="原根"><a href="#原根" class="headerlink" title="原根"></a>原根</h2><p>设 $p$ 是素数. 由费马小定理，我们知道对于任意 $a$ 满足 $p - a$， 有</p>
+<script type="math/tex; mode=display">
+a^{p-1}\equiv1\pmod p</script><p>$g$ 称为模 $p$ 的原根，当且仅当 $g_0 , g_1 ,\cdots, g_q(q=p−2)$ 在模 p 意义下互 不相同。 可以证明，模质数的原根总是存在的</p>
+<p>原根的性质和本原单位根非常类似. 换句话说，在 $\mod p$ 意义 下，$g$ 可以被看做一个 $p − 1$ 次本原单位根</p>
+<h2 id="数论变换"><a href="#数论变换" class="headerlink" title="数论变换"></a>数论变换</h2><p>设 $n$ 满足 $n | p − 1$. 令 $ωn = g^{\frac{p−1}n} $. 那么有</p>
+<script type="math/tex; mode=display">
+{\omega_n}^n=(g^{\frac{p-1}n})^n\equiv1\pmod p</script><p>并且 ${ω_n}^0 , {ω_n}^1 ,\cdots, {ω_n}^{n−1}$ 互不相同</p>
+<p>于是 $ω_n$ 在 $\mod p$ 意义下具有 $n$ 次本原单位根的性质。我们 以利用它类似的定义 $DFT$. 这被称为数论变换$NTT$</p>
+<h3 id="快速数论变换"><a href="#快速数论变换" class="headerlink" title="快速数论变换"></a>快速数论变换</h3><p>如果 $n = 2k$，则也可以利用与 $FFT$ 类似的方式快速的计算数论变换。 但是因为 $2^k = n | p − 1$，这意味着快速数论变换对所选取的素数模数有着特殊的要求</p>
+<p>比如常见的模数</p>
+<script type="math/tex; mode=display">
+P_{UOJ}=998244353=7\times17\times2^{23}+1</script><h2 id="FFT-的基本应用"><a href="#FFT-的基本应用" class="headerlink" title="$FFT$ 的基本应用"></a>$FFT$ 的基本应用</h2><p>$FFT$ 计算的是 $DFT$，因此 $FFT$ 的直接应用主要与卷积有关</p>
+<ul>
+<li>直接计算卷积 </li>
+<li>进行多项式相关运算 </li>
+<li>卷积与字符串匹配</li>
+</ul>
+<h3 id="计算卷积"><a href="#计算卷积" class="headerlink" title="计算卷积"></a>计算卷积</h3><p>注意到利用 $FFT$，我们能直接进行的是长度为 $2^k$ 的循环卷积</p>
+<p>如果要进行一般的卷积运算，注意到两个长度为 $n$ 的序列的卷积长度为 $2n − 1$，因此一般会选择 $k$ 使得 $2^k \ge 2n − 1$，然后对序列进行长度为 $2^k$ 的 $FFT$</p>
+<p>如果要进行一般的长度的循环卷积，则使用普通卷积来模拟</p>
+<blockquote>
+<ul>
+<li><p>利用 FFT 进行多项式乘法 </p>
+<blockquote>
+<p>多项式乘法就是系数进行卷积的过程，因此可以使用 FFT 计算</p>
+</blockquote>
+</li>
+<li><p>利用 FFT 进行高精度乘法</p>
+<blockquote>
+<p>高精度乘法就是多项式乘法，只需处理进位即可</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h2 id="卷积与字符串匹配"><a href="#卷积与字符串匹配" class="headerlink" title="卷积与字符串匹配"></a>卷积与字符串匹配</h2><p>假设 $x, y$ 是两个用正整数表示的字符，那么 $x = y$ 当且仅当 $(x − y)^2 = 0$</p>
+<p>若 $a = (ai) $与 $b = (bi)$ 是长度分别是 $n, m$ 的两个字符串，那么 $b$ 在 $a$ 的第 $k$ 个位置匹配当且仅当</p>
+<script type="math/tex; mode=display">
+\sum_{i=1}^m(a_{i+k}-b_i)^2=\sum_{i=1}^m{a_{i+k}}^2+\sum_{i=1}^m{b_i}^2-2\sum_{i=1}^ma_{i+k}b_i=0</script><p>注意到其中前两项容易计算，而第三项可以化为卷积，因此可以使用 $FFT$ 计算</p>
+<h2 id="含有通配符的字符串匹配"><a href="#含有通配符的字符串匹配" class="headerlink" title="含有通配符的字符串匹配"></a>含有通配符的字符串匹配</h2><p>如果 $b$ 中含有一种特殊的字符（通配符）可以与 $a$ 的任意字符匹配，如何求 $b$ 在 $a$ 中的匹配？ </p>
+<p>不妨把通配符用 $0$ 表示，如果 $x$ 是普通字符，$y$ 可能是通配符， 那么 $x$ 与 $y$ 匹配当且仅当 $x = y$ 或 $y = 0$，也就是 $y(x − y)^2 = 0$</p>
+<p>那么字符串的匹配就可以表达为：</p>
+<script type="math/tex; mode=display">
+\sum_{i=1}^mb_i(a_{i+k}-b_i)^2=\sum_{i=1}^m{a_{i+k}}^2b_i+\sum_{i=1}^m{b_i}^3-2\sum_{i=1}^ma_{i+k}{b_i}^2=0</script><p>类似的，这个转化后也可以利用 $FFT$ 计算</p>
+<h1 id="多项式与形式幂级数"><a href="#多项式与形式幂级数" class="headerlink" title="多项式与形式幂级数"></a>多项式与形式幂级数</h1><h2 id="形式幂级数"><a href="#形式幂级数" class="headerlink" title="形式幂级数"></a>形式幂级数</h2><p>环 $R$ 上的形式幂级数形如</p>
+<script type="math/tex; mode=display">
+A(x)=\sum_{n\ge0}a_nx^n</script><p>其中 $a_n\in R$. x 称为这个形式幂级数的自由元</p>
+<p>多项式是仅有有限项非零的形式幂级数</p>
+<p>因此，形式幂级数可以 看成是对多项式的推广</p>
+<p> 一般形式幂级数中的自由元不带入具体数值</p>
+<h2 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h2><p>形式幂级数的运算规则与多项式的运算规则是类似的 </p>
+<p>同样多项式类似，形式幂级数的乘法对应两个无穷数列的卷积</p>
+<h2 id="生成函数"><a href="#生成函数" class="headerlink" title="生成函数"></a>生成函数</h2><p>可以看出，形式幂级数 $A(x)$ 自然的对应着一个无穷的数列 $a = (a_0, a_1, a_2, \cdots)$</p>
+<p>因此 $A(x)$ 称为数列 $a$ 的生成函数</p>
+<h2 id="模意义下的多项式"><a href="#模意义下的多项式" class="headerlink" title="模意义下的多项式"></a>模意义下的多项式</h2><p>设 $A(x), B(x), P(x)$ 是多项式。我们称 $A(x) ≡ B(x) \pmod {R(x)}$，如果存在多项式 $Q(x)$，使得</p>
+<script type="math/tex; mode=display">
+A(x)-B(x)=P(x)Q(x)</script><p>因此，多项式也可以在模意义下讨论</p>
+<p>在实际运算中，我们时常只关心多项式（形式幂级数）的前有限 项，并且希望多项式（形式幂级数）在这种意义下参与运算</p>
+<p>如 果只关心前 $n$ 项，我们采用记号 $\mod x^n$ 表示</p>
+<h2 id="形式幂级数的逆元"><a href="#形式幂级数的逆元" class="headerlink" title="形式幂级数的逆元"></a>形式幂级数的逆元</h2><p>设 $A(x)$ 是形式幂级数。如果 $a_0\ne0$, 那么存在形式幂级数 $B(x)$，使得 $A(x)B(x) = 1$. 这时，称 $B(x)$ 是 $A(x)$ 的逆元，记 作 $B(x) = \frac1{A(x)}$</p>
+<p>通过比较系数，我们可以得到:</p>
+<script type="math/tex; mode=display">
+\sum_{i=0}^ka_ib_{k-i}=[k=0]\Rightarrow
+\begin{cases}
+b_0=\frac 1{a_0}\\
+b_n=-\frac 1{a_0}\sum\limits_{i=0}^{n-1}a_{n-i}b_i
+\end{cases}</script><h2 id="形式幂级数的除法"><a href="#形式幂级数的除法" class="headerlink" title="形式幂级数的除法"></a>形式幂级数的除法</h2><p>通过定义逆元，我们可以定义除以一个形式幂级数为乘以其逆元</p>
+<h2 id="斐波那契数列"><a href="#斐波那契数列" class="headerlink" title="斐波那契数列"></a>斐波那契数列</h2><p>定义斐波那契数列满足 $f(0) = f(1) = 1, f(n) = f(n−1) + f(n−2)$<br>求斐波那契数列的生成函数</p>
+<p>可以发现我们有 $F(x) = (x + x^2 )F(x) + 1$. 因此答案是</p>
+<script type="math/tex; mode=display">
+F(x)=\frac 1{1-x-x^2}</script><h2 id="逆元的计算"><a href="#逆元的计算" class="headerlink" title="逆元的计算"></a>逆元的计算</h2><p>假设我们已经计算出了 $B_0(x) = B(x) \mod x^k$，那么我们有</p>
+<script type="math/tex; mode=display">
+A(x)B_0(x)\equiv1\pmod {x^k}</script><p>这意味着</p>
+<script type="math/tex; mode=display">
+(A(x)B_0(x)-1)^2\equiv0\pmod {x^{2k}}</script><p>那么我们有</p>
+<script type="math/tex; mode=display">
+B(x)\equiv B_0(x)(2-A(x)B_0(x))\pmod{x^{2k}}</script><p>由此可以计算出 $g(x)$ 的前 $2k$ 项</p>
+<p>根据主定理，计算 $B(x) \mod x^n$ 的时间复杂度为 $O(n \log n)$</p>
+<h2 id="导数与积分"><a href="#导数与积分" class="headerlink" title="导数与积分"></a>导数与积分</h2><p>设 $A(x) = \sum\limits_{n≥0}a_nx^n$ 是形式幂级数。定义 $A(x)$ 的（形式）导数为</p>
+<script type="math/tex; mode=display">
+A\prime(x)=\frac{\mathrm d}{\mathrm dx}A(x)=\sum_{n\ge1}na_nx^{n-1}</script><p>类似的，定义定义 $A(x)$ 的（形式）积分为</p>
+<script type="math/tex; mode=display">
+\int A(x)\mathrm x=\sum_{n\ge0}\frac1{n+1}a_nx^{n+1}</script><h2 id="对数"><a href="#对数" class="headerlink" title="对数"></a>对数</h2><p>（自然）对数可以由下式定义：</p>
+<script type="math/tex; mode=display">
+\log(1 + x)=\sum_{n≥1}(−1)^{n−1}\frac{x^n}n</script><p>设 $A(x)$ 是形式幂级数。如果 $[x^0]A(x) = 1$, 则 $A(x)$ 的对数也可以类似定义：</p>
+<script type="math/tex; mode=display">
+\log A(x)=\sum_{n\ge1}(-1)^{n-1}\frac{(A(x)-1)^n}n</script><p>我们有</p>
+<script type="math/tex; mode=display">
+\frac{\mathrm d}{\mathrm dx}\log A(x)=\frac{A\prime(x)}{A(x)}</script><p>因此，</p>
+<script type="math/tex; mode=display">
+\log A(x)=\int\frac{A\prime(x)}{A(x)}\mathrm dx</script><h2 id="等幂和"><a href="#等幂和" class="headerlink" title="等幂和"></a>等幂和</h2><p>给出 $n$ 个数 $α<em>1, . . . , α_n$ 定义 $p_k = \sum\limits^n</em>{i=1} α_i^k$</p>
+<p>对于 $1 \le k \le n$， 求 $p_k, n ≤ 10^5$</p>
+<p>注意到 $\sum\limits_{k≥0} α_kx^k = \frac1 {1−αx}$因此</p>
+<p><img src="./TD.png" alt=""></p>
+<p><img src="./TD2.png" alt=""></p>
+<h2 id="指数"><a href="#指数" class="headerlink" title="指数"></a>指数</h2><p><img src="./TD3.png" alt=""></p>
+<p><img src="./TD4.png" alt=""></p>
+<center> <a href="./基础多项式.pdf">附件下载 </center><link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/AlanTuringLi/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
+          
+            <a href="/AlanTuringLi/tags/%E5%A4%9A%E9%A1%B9%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i> 多项式</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/AlanTuringLi/2020/07/28/%E4%BB%8E1%E5%BC%80%E5%A7%8B%E7%9A%84%E6%95%B0%E8%AE%BA/" rel="next" title="从1开始的数论">
+                <i class="fa fa-chevron-left"></i> 从1开始的数论
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/AlanTuringLi/2020/08/02/%E6%9D%8E%E8%B6%85%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="prev" title="李超线段树">
+                李超线段树 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/AlanTuringLi/images/shixiang.jpg"
+                alt="AlanTuring"/>
+            
+              <p class="site-author-name" itemprop="name">AlanTuring</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                  <a href="/AlanTuringLi/archives">
+                    <span class="site-state-item-count">115</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/AlanTuringLi/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">65</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/AlanJimmy" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;AlanJimmy" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=bg0EAQcLHC4fH0ANAQM" title="E-Mail &amp;rarr; http:&#x2F;&#x2F;mail.qq.com&#x2F;cgi-bin&#x2F;qm_share?t&#x3D;qm_mailme&amp;email&#x3D;bg0EAQcLHC4fH0ANAQM" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.luogu.com.cn/user/57896" title="Luogu &amp;rarr; https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;57896" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>Luogu</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://wpa.qq.com/msgrd?v=3&uin=1391226409&site=qq&menu=yes" title="qq &amp;rarr; http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;1391226409&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>qq</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                巨佬们
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://jklover.hs-blog.cf/" title="http:&#x2F;&#x2F;jklover.hs-blog.cf&#x2F;" rel="noopener" target="_blank">姥爷</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://denerate-cool.github.io/DeNeRATe.github.io/" title="https:&#x2F;&#x2F;denerate-cool.github.io&#x2F;DeNeRATe.github.io&#x2F;" rel="noopener" target="_blank">DeNeRATe</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://widsnoy.top/" title="https:&#x2F;&#x2F;widsnoy.top&#x2F;" rel="noopener" target="_blank">widsnoy</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.luogu.com.cn/blog/xzc/" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;xzc&#x2F;" rel="noopener" target="_blank">JK_LOVER</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/autoint/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;autoint&#x2F;" rel="noopener" target="_blank">autoint</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://dcoitheshadow.github.io/" title="https:&#x2F;&#x2F;dcoitheshadow.github.io&#x2F;" rel="noopener" target="_blank">TheShadow</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2"><span class="nav-number">1.</span> <span class="nav-text">快速傅里叶变换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E9%A1%B9%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">多项式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E8%BF%90%E7%AE%97"><span class="nav-number">1.2.</span> <span class="nav-text">多项式运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%B7%E7%A7%AF"><span class="nav-number">1.3.</span> <span class="nav-text">卷积</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E4%B9%98%E6%B3%95"><span class="nav-number">1.4.</span> <span class="nav-text">多项式乘法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%82%B9%E5%80%BC%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.5.</span> <span class="nav-text">多项式点值表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E6%95%B0%E4%B8%8E%E7%82%B9%E5%80%BC%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.6.</span> <span class="nav-text">系数与点值表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E4%BD%8D%E6%A0%B9"><span class="nav-number">1.7.</span> <span class="nav-text">单位根</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2"><span class="nav-number">1.8.</span> <span class="nav-text">离散傅里叶变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E7%9A%84%E9%80%86%E5%8F%98%E6%8D%A2"><span class="nav-number">1.9.</span> <span class="nav-text">离散傅里叶变换的逆变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E5%8D%B7%E7%A7%AF"><span class="nav-number">1.10.</span> <span class="nav-text">循环卷积</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A21"><span class="nav-number">1.11.</span> <span class="nav-text">快速傅里叶变换1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E4%BD%8D%E6%A0%B9%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%A7%E8%B4%A8"><span class="nav-number">1.12.</span> <span class="nav-text">单位根的一些性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%9D%B4%E8%9D%B6%E6%93%8D%E4%BD%9C"><span class="nav-number">1.13.</span> <span class="nav-text">蝴蝶操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A22"><span class="nav-number">1.14.</span> <span class="nav-text">快速傅里叶变换2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8D%E9%80%86%E5%BA%8F%E7%BD%AE%E6%8D%A2"><span class="nav-number">1.15.</span> <span class="nav-text">位逆序置换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E9%80%92%E5%BD%92%E7%9A%84-FFT-%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.16.</span> <span class="nav-text">非递归的 $FFT$ 实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E6%A0%B9"><span class="nav-number">1.17.</span> <span class="nav-text">原根</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E8%AE%BA%E5%8F%98%E6%8D%A2"><span class="nav-number">1.18.</span> <span class="nav-text">数论变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%95%B0%E8%AE%BA%E5%8F%98%E6%8D%A2"><span class="nav-number">1.18.1.</span> <span class="nav-text">快速数论变换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FFT-%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%BA%94%E7%94%A8"><span class="nav-number">1.19.</span> <span class="nav-text">$FFT$ 的基本应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E5%8D%B7%E7%A7%AF"><span class="nav-number">1.19.1.</span> <span class="nav-text">计算卷积</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%B7%E7%A7%AF%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D"><span class="nav-number">1.20.</span> <span class="nav-text">卷积与字符串匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AB%E6%9C%89%E9%80%9A%E9%85%8D%E7%AC%A6%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D"><span class="nav-number">1.21.</span> <span class="nav-text">含有通配符的字符串匹配</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E4%B8%8E%E5%BD%A2%E5%BC%8F%E5%B9%82%E7%BA%A7%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">多项式与形式幂级数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%A2%E5%BC%8F%E5%B9%82%E7%BA%A7%E6%95%B0"><span class="nav-number">2.1.</span> <span class="nav-text">形式幂级数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97"><span class="nav-number">2.2.</span> <span class="nav-text">运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0"><span class="nav-number">2.3.</span> <span class="nav-text">生成函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%84%8F%E4%B9%89%E4%B8%8B%E7%9A%84%E5%A4%9A%E9%A1%B9%E5%BC%8F"><span class="nav-number">2.4.</span> <span class="nav-text">模意义下的多项式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%A2%E5%BC%8F%E5%B9%82%E7%BA%A7%E6%95%B0%E7%9A%84%E9%80%86%E5%85%83"><span class="nav-number">2.5.</span> <span class="nav-text">形式幂级数的逆元</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%A2%E5%BC%8F%E5%B9%82%E7%BA%A7%E6%95%B0%E7%9A%84%E9%99%A4%E6%B3%95"><span class="nav-number">2.6.</span> <span class="nav-text">形式幂级数的除法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97"><span class="nav-number">2.7.</span> <span class="nav-text">斐波那契数列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%86%E5%85%83%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="nav-number">2.8.</span> <span class="nav-text">逆元的计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E6%95%B0%E4%B8%8E%E7%A7%AF%E5%88%86"><span class="nav-number">2.9.</span> <span class="nav-text">导数与积分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E6%95%B0"><span class="nav-number">2.10.</span> <span class="nav-text">对数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AD%89%E5%B9%82%E5%92%8C"><span class="nav-number">2.11.</span> <span class="nav-text">等幂和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E6%95%B0"><span class="nav-number">2.12.</span> <span class="nav-text">指数</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AlanTuring</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Symbols count total: </span>
+    
+    <span title="Symbols count total">408k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    
+    <span title="Reading time total">6:11</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v6.3.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/AlanTuringLi/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/AlanTuringLi/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/AlanTuringLi/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/AlanTuringLi/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/AlanTuringLi/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/AlanTuringLi/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/AlanTuringLi/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/AlanTuringLi/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/AlanTuringLi/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/AlanTuringLi/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  <script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script>
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item) > -1;
+    });
+    new Valine({
+      el: '#comments' ,
+      verify: false,
+      notify: true,
+      appId: 'xfCvMyIii2sAR6xyEmPsmrcf-gzGzoHsz',
+      appKey: 'FXxS7zIdRRCD0wjKftm4QMT8',
+      placeholder: 'Just go go',
+      avatar: 'mp',
+      meta:guest,
+      pageSize: '10' || 10,
+      visitor: false
+    });
+  </script>
+
+
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/AlanTuringLi/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "xfCvMyIii2sAR6xyEmPsmrcf-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "xfCvMyIii2sAR6xyEmPsmrcf-gzGzoHsz",
+                'X-LC-Key': "FXxS7zIdRRCD0wjKftm4QMT8",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/AlanTuringLi/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script>
+  
+    bookmark.scrollToMark('auto', "#more");
+  
+  </script>
+
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+          if (result) $(this).text('Copied');
+          else $(this).text('Copy failed');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function () {
+          $b.text('Copy');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>
