@@ -6797,4 +6797,76 @@ s(n,m)&=\sum_{a=1}^n\sum_{b=1}^m[a\perp b]\\
         <tag>算法基础</tag>
       </tags>
   </entry>
+  <entry>
+    <title>T20221120</title>
+    <url>/AlanTuringLi/2022/11/20/T20221120/</url>
+    <content><![CDATA[<h1 id="A-Awa开小车"><a href="#A-Awa开小车" class="headerlink" title="A   Awa开小车"></a>A   <a href="https://ac.nowcoder.com/acm/contest/44887/A">Awa开小车</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Awa正在玩一款名叫明日方舟的游戏。 </p>
+<p>这款游戏在一个高度为n，宽度为m的网格上进行，玩家可以部署干员在格子上来击败敌人。</p>
+<p>在这个问题中，我们定义第x行，第y列的格子的坐标为(x,y)，也就是说，从左上角到左下角依次为(1,1),(2,1),…,(n-1,1),(n,1)，从左上角到右上角依次为(1,1),(1,2),…,(1,m-1),(1,m)，右下角的格子坐标为(n,m) </p>
+<p>在最新的一次活动中，场地上会有一个名叫“小车发射器”的装置，Awa在这里召唤小车！同时，Awa可以在其他格子上部署<strong>导向板</strong>：当小车开到一个<strong>未触发</strong>的导向板上时，小车就会按照导向板指向的方向前进，而当小车<strong>开出地图</strong>了，小车就会自爆！（在这个问题中，小车的油非常充足，只要没有自爆就会沿着当前行驶方向一直移动，同时，我们不考虑小车发射器的碰撞体积，也就是说<strong>小车发射器发射完小车就会消失，不会影响小车的后续运动</strong>） </p>
+<p>当然，因为Awa的干员练度达到了力大砖飞的境界，他并不需要通过小车的帮助来击败敌人，因此，他非常随意的在地图上摆满了导向板，然后开动小车。同时，他非常好奇<strong>小车一共能转向多少次</strong>，因为小车开的太慢了，Awa懒得去数，因此他把这个问题扔给了你。 </p>
+<p>90度和180度转弯都算作“一次转向”，每个导向板只会在第一次走到的时候被触发，初始位置的导向板会被触发。</p>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>第一行四个正整数 $n,m,x,y$，表示矩形区域大小为 $n$ 行 $m$ 列，以及小车发射器的位置 $(x,y)$<br>（对应位置上的方向就是小车的初始方向）之后 $n$ 行每行 $m$ 个字符 $U,D,L,R$ 之一，表示该格子的导向板类型，或者小车的初始方向。</p>
+<p>$U$：向上；     $D$：向下；      $L$：向左；      $R$：向右</p>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>一个非负整数，表示小车的转向次数</p>
+<blockquote>
+<p>模拟就好了，没什么难度</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        CODE
+    </div>
+    <div class='spoiler-content'>
+        <p>&gt;</p>
+<blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m, x, y, ans;</span><br><span class="line"><span class="type">int</span> mx[] = &#123;<span class="number">1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line"><span class="type">int</span> my[] = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">-1</span>&#125;;</span><br><span class="line">std::string board[<span class="number">105</span>];</span><br><span class="line"><span class="type">bool</span> vis[<span class="number">105</span>][<span class="number">105</span>];</span><br><span class="line">std::map &lt;<span class="type">char</span>, <span class="type">int</span>&gt; id;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    id[<span class="string">&#x27;U&#x27;</span>] = <span class="number">1</span>, id[<span class="string">&#x27;D&#x27;</span>] = <span class="number">0</span>;</span><br><span class="line">    id[<span class="string">&#x27;L&#x27;</span>] = <span class="number">3</span>, id[<span class="string">&#x27;R&#x27;</span>] = <span class="number">2</span>;</span><br><span class="line">    std::ios::<span class="built_in">sync_with_stdio</span> (<span class="number">0</span>);</span><br><span class="line">    std::cin.<span class="built_in">tie</span> (<span class="literal">nullptr</span>);</span><br><span class="line">    std::cin &gt;&gt; n &gt;&gt; m &gt;&gt; x &gt;&gt; y;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">        std::cin &gt;&gt; board[i];</span><br><span class="line"></span><br><span class="line">    x--, y--;</span><br><span class="line">    <span class="type">int</span> nx = x + mx[id[board[x][y]]];</span><br><span class="line">    <span class="type">int</span> ny = y + my[id[board[x][y]]];</span><br><span class="line">    <span class="keyword">while</span> (nx &gt;= <span class="number">0</span> &amp;&amp; nx &lt; n &amp;&amp; ny &gt;= <span class="number">0</span> &amp;&amp; ny &lt; m) &#123;</span><br><span class="line">        vis[x][y] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (vis[nx][ny]) board[nx][ny] = board[x][y];</span><br><span class="line">        <span class="keyword">if</span> (board[x][y] ^ board[nx][ny]) ++ans;</span><br><span class="line">        x = nx, y = ny;</span><br><span class="line">        nx = x + mx[id[board[x][y]]];</span><br><span class="line">        ny = y + my[id[board[x][y]]];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    std::cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+
+    </div>
+</div>
+</blockquote>
+<h1 id="B-JokerXuan的明星梦"><a href="#B-JokerXuan的明星梦" class="headerlink" title="B   JokerXuan的明星梦_"></a>B   <a href="https://ac.nowcoder.com/acm/contest/44887/B">JokerXuan的明星梦_</a></h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><blockquote>
+<p>过于冗杂，略</p>
+</blockquote>
+<h2 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h2><p>第一行输入一个正整数 $T(1 \le T \le 3 \times 10^5)$ ，表示从薛之谦开始发博客到自己忘记密码过去了多少天。</p>
+<p>接下来 $T$ 行，每行有一个字符串 $S(hh:mm)$ 表示发博客的时间或 “<strong>null</strong>“ 表示当天没有发博客，如果发了博客，当天的幸运数字为 $X(0 \le X \le 2^{30})$ 。</p>
+<h2 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h2><p>一共 $T$ 行。</p>
+<p>每行一个正整数代表当天的幸运数字 $A$ 。</p>
+<p>&gt;<br>&gt;</p>
+<blockquote>
+<p>本质上是需要知道最终的幸运数字二进制下的状态。</p>
+<p><strong>想法一</strong>：用一个二位数组，表示第 $k$ 位最初为 $0/1$ 经过所有操作后的状态，可以更新 <strong>null</strong>，期望时间复杂度 $O(kn)$。</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        CODE
+    </div>
+    <div class='spoiler-content'>
+        <p>&gt;</p>
+<blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">&gt;<span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">&gt;std::bitset &lt;31&gt; num;</span><br><span class="line">&gt;std::bitset &lt;31&gt; update[<span class="number">2</span>];</span><br><span class="line">&gt;<span class="type">int</span> n, x, tim;</span><br><span class="line"></span><br><span class="line">&gt;<span class="type">char</span> opt[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">&gt;<span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">upt</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">31</span>; ++i) </span><br><span class="line">       <span class="keyword">if</span> (num[i]) num[i] = update[<span class="number">1</span>][i];</span><br><span class="line">       <span class="keyword">else</span> num[i] = update[<span class="number">0</span>][i];</span><br><span class="line">&gt;&#125;</span><br><span class="line"></span><br><span class="line">&gt;<span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   <span class="built_in">scanf</span> (<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">   <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">31</span>; ++i) update[<span class="number">1</span>][i] = <span class="number">1</span>;</span><br><span class="line">   <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">       <span class="built_in">scanf</span>  (<span class="string">&quot;%s&quot;</span>, opt);</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> (opt[<span class="number">0</span>] == <span class="string">&#x27;n&#x27;</span>) <span class="built_in">upt</span>();</span><br><span class="line">       <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="built_in">sscanf</span> (opt, <span class="string">&quot;%d&quot;</span>, &amp;tim);</span><br><span class="line">           <span class="built_in">scanf</span> (<span class="string">&quot;%d&quot;</span>, &amp;x);</span><br><span class="line">           </span><br><span class="line">           <span class="keyword">if</span> (i == <span class="number">0</span>) num = x;</span><br><span class="line">           <span class="keyword">else</span> <span class="keyword">if</span> (tim &lt; <span class="number">12</span>)</span><br><span class="line">               num &amp;= x, update[<span class="number">0</span>] &amp;= x, update[<span class="number">1</span>] &amp;= x;</span><br><span class="line">           <span class="keyword">else</span> <span class="keyword">if</span> (<span class="number">12</span> &lt;= tim &amp;&amp; tim &lt; <span class="number">18</span>) </span><br><span class="line">               num |= x, update[<span class="number">0</span>] |= x, update[<span class="number">1</span>] |= x;</span><br><span class="line">           <span class="keyword">else</span> </span><br><span class="line">               num ^= x, update[<span class="number">0</span>] ^= x, update[<span class="number">1</span>] ^= x;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       std::cout &lt;&lt; num.<span class="built_in">to_ullong</span>() &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;<span class="comment">//bitset作为十进制数输出</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+
+    </div>
+</div>
+<p>进一步考虑优化 $upt$ 函数，能否优化掉这个 $log$ ?</p>
+<p>考虑什么样的变化可以对答案产生贡献 ？</p>
+<p>$1\rightarrow1\quad 0\rightarrow1$</p>
+<p>即答案可以看作操作数 与 或 按位取反再与 $0/1$ 开头的前缀，和上面有点相似。</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        CODE
+    </div>
+    <div class='spoiler-content'>
+        <p>&gt;</p>
+<blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">&gt;<span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">&gt;std::bitset &lt;31&gt; num[<span class="number">3</span>];</span><br><span class="line">&gt;<span class="type">int</span> n, x, tim;</span><br><span class="line"></span><br><span class="line">&gt;<span class="type">char</span> opt[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">&gt;<span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   <span class="built_in">scanf</span> (<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">   num[<span class="number">1</span>] = (<span class="number">1</span> &lt;&lt; <span class="number">31</span>) - <span class="number">1</span>;</span><br><span class="line">   <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">       <span class="built_in">scanf</span>  (<span class="string">&quot;%s&quot;</span>, opt);</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> (opt[<span class="number">0</span>] == <span class="string">&#x27;n&#x27;</span>) </span><br><span class="line">           num[<span class="number">2</span>] = (num[<span class="number">2</span>] &amp; num[<span class="number">1</span>]) | (~num[<span class="number">2</span>] &amp; num[<span class="number">0</span>]);</span><br><span class="line">       <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="built_in">sscanf</span> (opt, <span class="string">&quot;%d&quot;</span>, &amp;tim);</span><br><span class="line">           <span class="built_in">scanf</span> (<span class="string">&quot;%d&quot;</span>, &amp;x);</span><br><span class="line">           </span><br><span class="line">           <span class="keyword">if</span> (i == <span class="number">0</span>) num[<span class="number">2</span>] = x;</span><br><span class="line">           <span class="keyword">else</span> <span class="keyword">if</span> (tim &lt; <span class="number">12</span>)</span><br><span class="line">               num[<span class="number">2</span>] &amp;= x, num[<span class="number">0</span>] &amp;= x, num[<span class="number">1</span>] &amp;= x;</span><br><span class="line">           <span class="keyword">else</span> <span class="keyword">if</span> (<span class="number">12</span> &lt;= tim &amp;&amp; tim &lt; <span class="number">18</span>) </span><br><span class="line">               num[<span class="number">2</span>] |= x, num[<span class="number">0</span>] |= x, num[<span class="number">1</span>] |= x;</span><br><span class="line">           <span class="keyword">else</span> </span><br><span class="line">               num[<span class="number">2</span>] ^= x, num[<span class="number">0</span>] ^= x, num[<span class="number">1</span>] ^= x;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       std::cout &lt;&lt; num[<span class="number">2</span>].<span class="built_in">to_ullong</span>() &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+
+    </div>
+</div>
+</blockquote>
+<link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <tags>
+        <tag>ACM</tag>
+      </tags>
+  </entry>
 </search>
