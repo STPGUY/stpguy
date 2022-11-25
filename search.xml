@@ -6915,4 +6915,98 @@ s(n,m)&=\sum_{a=1}^n\sum_{b=1}^m[a\perp b]\\
         <tag>ACM</tag>
       </tags>
   </entry>
+  <entry>
+    <title>如何理解递归</title>
+    <url>/AlanTuringLi/2022/11/25/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E9%80%92%E5%BD%92/</url>
+    <content><![CDATA[<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>函数在一任何语言里，都起着无比重要的作用。但是对初学者来说，计算机的函数可能会比较抽象，那么就先来看看数学里的函数。</p>
+<p>数学里的函数可以简单的看作一个数集通过一定法则到另一个数集的映射。</p>
+<p>那么，在计算机中，带有返回值的函数也可以同样理解。只不过计算机的函数的功能远远大于数学中函数的，除了得到值于值之间的关系，你可以在一个函数中写出你想拥有的任何功能 （<del>只要你会写</del>）。</p>
+<p>而无返回值的函数就由此诞生了，它不需要值于值之间的对应关系，或者这个对应关系可以通过指针参数来完成导致它不需要返回值。</p>
+<p>例如，在数学中，我们可以定义如下函数：</p>
+<script type="math/tex; mode=display">
+f(x)=\frac{sinx}{x}</script><p>同样的，在 $C$ 语言中，我们可以通过构造一个函数实现相同的功能：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">sin</span>(x) / x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然，在 $C$ 语言中，你可以定义很多带有多个自变量（参数）、或者更为抽象的函数：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">count_num</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> t)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (x) &#123;</span><br><span class="line">		<span class="keyword">if</span> (x % <span class="number">10</span> == t) ++count;</span><br><span class="line">        x /= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;<span class="comment">//统计数字x中，各位数字t出现的次数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">sort</span><span class="params">(<span class="type">int</span> x[], <span class="type">bool</span> cmp(<span class="type">int</span>, <span class="type">int</span>))</span></span>;<span class="comment">//排序函数，就不细写了</span></span><br></pre></td></tr></table></figure>
+<p>至此，你可以认为，在计算机中，函数的概念是包括了数学的函数，也远大于数学的函数的。</p>
+<h1 id="函数的调用"><a href="#函数的调用" class="headerlink" title="函数的调用"></a>函数的调用</h1><p>在理解指针之前，先不考虑函数做参数的情况。</p>
+<p>同样的，这个部分也可以和数学类比：</p>
+<script type="math/tex; mode=display">
+f(x) = g(x) + h(x) + \varphi(x)</script><p>那么在程序里，也可以有同样的写法：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">g</span>(x) + <span class="built_in">h</span>(x) + <span class="built_in">phi</span>(x);</span><br><span class="line">&#125;<span class="comment">//都是有返回值的函数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">g</span>(x);</span><br><span class="line">    <span class="built_in">h</span>(x);</span><br><span class="line">    <span class="built_in">phi</span>(x);</span><br><span class="line">&#125;<span class="comment">//也有可能表示的是一种没有返回值的功能</span></span><br></pre></td></tr></table></figure>
+<h2 id="特例：递归"><a href="#特例：递归" class="headerlink" title="特例：递归"></a>特例：递归</h2><p>其实递归与函数的调用是没有本质的区别的，无非就是调用的自己。</p>
+<p>数学里也有类似的例子，例如：</p>
+<script type="math/tex; mode=display">
+已知f(1) = 1,\;f(x) =kf(n/k), \quad 求f(k)</script><p>可以看见，这里也有对自己的调用。</p>
+<p>那么这个问题用程序怎么解决？（<del>虽然肉眼能看出来，但是写写递归有助于理解</del>）</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        CODE
+    </div>
+    <div class='spoiler-content'>
+        <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>; </span><br><span class="line">	<span class="keyword">return</span> x * <span class="built_in">f</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+</div>
+<p>那么在来一个抽象一点的。</p>
+<p>你站在第零级台阶（地面上），在你的面前有 $n$ 级台阶，每次你可以跨一级或者两级台阶，问你有多少种方案可以到达第 $n$ 级台阶？</p>
+<blockquote>
+<p>提示：用 $f(x)$ 表示走到第 $x$ 级台阶的方案数 </p>
+</blockquote>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        CODE
+    </div>
+    <div class='spoiler-content'>
+        <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (x == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (x == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">f</span>(x - <span class="number">1</span>) + <span class="built_in">f</span>(x - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如何理解？</p>
+<p>已知 $f(x)$ 表示的是走到第 $x$ 级台阶的方案数，那么 $f(x)$ 可以怎么表示呢？</p>
+<p>反过来想，上一步可能在那里？</p>
+<p>从 $x - 1$ 跨一步到 $x$，从 $x - 2$ 跨两步到 $x$。</p>
+<p>那么就可以得到 $f(x) = f(x - 1) + f(x - 2)$</p>
+<p>这就是斐波那契数列的一个实现方式——递归</p>
+</blockquote>
+
+    </div>
+</div>
+<h3 id="例题-数的计算"><a href="#例题-数的计算" class="headerlink" title="例题  数的计算"></a>例题 <a href="https://www.luogu.com.cn/problem/P1028"> 数的计算</a></h3><p>这个题略有一些抽象，因为你可能不知道怎么用函数去表达这个答案。</p>
+<p>那么请你再仔细读一次题，去找到一个和题目有相似之处的子问题。</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        想法
+    </div>
+    <div class='spoiler-content'>
+        <p>想知道以 $x$ 开头的方案数，就是求所有小于等于以 $\frac x2$ 开头的数的方案之和。</p>
+<p>由此可以写出代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;<span class="comment">//细节处理，加零可看作就是x本身不往后添加任何数字</span></span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= x / <span class="number">2</span>; ++i)</span><br><span class="line">        ans += <span class="built_in">f</span>(i);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+</div>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        CODE
+    </div>
+    <div class='spoiler-content'>
+        <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;<span class="comment">//细节处理，加零可看作就是x本身不往后添加任何数字</span></span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= x / <span class="number">2</span>; ++i)</span><br><span class="line">        ans += <span class="built_in">f</span>(i);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span> (<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="built_in">printf</span> (<span class="string">&quot;%d\n&quot;</span>, <span class="built_in">f</span>(n));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+</div>
+<p>当然，你也可以发现一个问题，就是这样写你拿不到满分。</p>
+<p>为什么呢，当 $n$ 足够大时，你会发现有很多数其实是被重复计算过了的，那么只需要用一个数组保存一下这个答案，当再次调用它时，可以直接返回这个答案。</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        CODE
+    </div>
+    <div class='spoiler-content'>
+        <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> count[<span class="number">1005</span>] = &#123;<span class="number">1</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (count[x]) <span class="keyword">return</span> count[x];<span class="comment">//已经知道答案的，就不需要再次计算了</span></span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= x / <span class="number">2</span>; ++i)</span><br><span class="line">        ans += <span class="built_in">f</span>(i);</span><br><span class="line">    <span class="keyword">return</span> count[x] = ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span> (<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="built_in">printf</span> (<span class="string">&quot;%d\n&quot;</span>, <span class="built_in">f</span>(n));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+</div>
+<p>还有一个八皇后，就暂时不急了，有空了再更新一下博客吧~</p>
+<link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
 </search>
