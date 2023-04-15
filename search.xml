@@ -7009,4 +7009,30 @@ f(x) = g(x) + h(x) + \varphi(x)</script><p>那么在程序里，也可以有同�
         <tag>学习笔记</tag>
       </tags>
   </entry>
+  <entry>
+    <title>强连通分量(CSS)</title>
+    <url>/AlanTuringLi/2023/01/09/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F-SCC/</url>
+    <content><![CDATA[<h1 id="前置芝士"><a href="#前置芝士" class="headerlink" title="前置芝士"></a>前置芝士</h1><p><strong>强连通：</strong>有向图 $G$ 中任意两个节点相连</p>
+<p>$DFS$ <strong>树：</strong></p>
+<ul>
+<li>树边（$tree\;edge$）：搜索到为访问的点</li>
+<li>返祖边（$back\;tree$）：指向祖先节点，亦称回边</li>
+<li>横叉边（$cross\;edge$）：搜索到并非祖先节点的已访问的节点</li>
+<li>前向边（$forward\;edge$）：搜索到子树中的节点</li>
+</ul>
+<h1 id="Tarjan-求-SCC"><a href="#Tarjan-求-SCC" class="headerlink" title="$Tarjan$ 求 $SCC$"></a>$Tarjan$ 求 $SCC$</h1><p><strong>定理：</strong>一个 $SCC$ 一定存在于以 $G$ 为根的子树中，其中 $G$ 是这个 $SCC$ 中的一个点</p>
+<p>在该算法中需要维护以下几个变量：</p>
+<ul>
+<li>$dfn_u$：在搜索过程中结点 $u$ 的搜索次序</li>
+<li>$low_u$：在 $u$ 的子树中能回溯到的最早的已在栈中的结点</li>
+</ul>
+<p>容易发现，当 $dfn_u\;=\;low_u$ 时，一定存在一个 $SCC$</p>
+<p><strong>代码如下：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Tarjan</span><span class="params">(<span class="type">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Low[u] = Dfn[u] = ++Tim;</span><br><span class="line">    Stac[++Top] = u, Vis[u] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> v : edge[u])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!Dfn[v])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">Tarjin</span> (v);</span><br><span class="line">            Low[u] = <span class="built_in">min</span>(Low[u], Low[v]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (Vis[v])Low[u] = <span class="built_in">min</span>(Low[u], Dfn[v]); <span class="comment">//前向边</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (Dfn[u] == Low[u])</span><br><span class="line">    &#123;</span><br><span class="line">        Tot++;</span><br><span class="line">        <span class="keyword">while</span>(Stac[Top + <span class="number">1</span>] != u)</span><br><span class="line">        &#123;</span><br><span class="line">            Color[Stac[Top]] = Tot;</span><br><span class="line">            Vis[Stac[Top--]] = <span class="number">0</span>;</span><br><span class="line">            Sum[Tot]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <tags>
+        <tag>图论</tag>
+        <tag>SCC</tag>
+      </tags>
+  </entry>
 </search>
