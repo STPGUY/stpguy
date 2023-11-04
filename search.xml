@@ -3627,7 +3627,7 @@ m=\sum_{i=0}^{k-1}m_i\cdot p^i</script><p>那么有</p>
       </tags>
   </entry>
   <entry>
-    <title>$\LaTeX$[置顶]</title>
+    <title>$&#92;LaTeX$[置顶]</title>
     <url>/AlanTuringLi/2223/10/22/latex/</url>
     <content><![CDATA[<h1 id="声调-变音符号"><a href="#声调-变音符号" class="headerlink" title="声调/变音符号"></a>声调/变音符号</h1><figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="keyword">\dot</span>&#123;a&#125; <span class="keyword">\ddot</span>&#123;a&#125; <span class="keyword">\acute</span>&#123;a&#125; <span class="keyword">\grave</span>&#123;a&#125;<span class="built_in">$</span></span><br></pre></td></tr></table></figure>
 <p> $\dot{a}\quad \ddot{a}\quad \acute{a}\quad \grave{a}$</p>
@@ -7033,6 +7033,14 @@ f(x) = g(x) + h(x) + \varphi(x)</script><p>那么在程序里，也可以有同�
       <tags>
         <tag>图论</tag>
         <tag>SCC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>fc MOS BJT</title>
+    <url>/AlanTuringLi/2023/11/04/fc-MOS-BJT/</url>
+    <content><![CDATA[<link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <tags>
+        <tag>模拟电子电路</tag>
       </tags>
   </entry>
 </search>
