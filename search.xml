@@ -7093,4 +7093,86 @@ s(n,m)&=\sum_{a=1}^n\sum_{b=1}^m[a\perp b]\\
         <tag>最短路</tag>
       </tags>
   </entry>
+  <entry>
+    <title>HFSS入门-波导优化设计</title>
+    <url>/AlanTuringLi/2023/11/06/HFSS%E5%85%A5%E9%97%A8-%E6%B3%A2%E5%AF%BC%E4%BC%98%E5%8C%96%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[<h1 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h1><iframe src="//player.bilibili.com/player.html?aid=385016188&bvid=BV1vZ4y1q7gt&cid=749447813&p=3&high_quality=1&danmaku=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 500px; max-width: 100%；align:center; padding:20px 0;"> </iframe>
+
+<ul>
+<li>定义输出变量 $Power31、Power21、Power11$，分别表示 $Port\;3\;2\;1$ 的输出功率。<ul>
+<li>$Power11 = mag(S(P1, P1))*mag(S(P1, P1))$</li>
+<li>$Power21=mag(S(P2, P1))*mag(S(P2, P1))$</li>
+<li>$Power31=mag(S(P3, P1))*mag(S(P3,P1))$</li>
+</ul>
+</li>
+<li>参数扫描分析。<ul>
+<li>分析 $10GHz$ 时端口输出功率随隔片位置的变化曲线。</li>
+</ul>
+</li>
+<li>优化设计，找出隔片位置使得 $10GHz$ 时 $Port\;3$ 的输出功率时 $Port \;2$ 功率的两倍。<ul>
+<li>目标函数：$Power31-2Power21=0$</li>
+</ul>
+</li>
+</ul>
+<h1 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h1><blockquote>
+<p>Optimetrics -&gt; Add -&gt; Parametric </p>
+<p><img src="./扫描变量声明.png" alt="扫描变量声明"></p>
+</blockquote>
+<p><img src="./输出变量声明.png" alt="输出变量声明"></p>
+<p><img src="./扫描变量内容.png" alt="扫描变量内容"></p>
+<h1 id="参数扫描分析"><a href="#参数扫描分析" class="headerlink" title="参数扫描分析"></a>参数扫描分析</h1><blockquote>
+<p>在 $Offset$ 变量条件下分析即可</p>
+</blockquote>
+<p><img src="./变量结果输出.png" alt="变量结果输出"></p>
+<p><img src="./随Offset的变化图.gif" alt="随Offset的变化图"></p>
+<h1 id="优化设计"><a href="#优化设计" class="headerlink" title="优化设计"></a>优化设计</h1><p><img src="./优化函数设计.png" alt="优化函数设计"></p>
+<blockquote>
+<p>设置完优化函数后，在优化函数选项下分析即可</p>
+</blockquote>
+<p><img src="./优化结果列表.png" alt="优化结果列表"></p>
+<h1 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h1><p><img src="./最终结果.png" alt="最终结果"></p>
+<p><img src="./表面磁场分布.png" alt="最终表面磁场分布"></p>
+<link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <tags>
+        <tag>HFSS入门</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HFSS功能概述</title>
+    <url>/AlanTuringLi/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/</url>
+    <content><![CDATA[<blockquote>
+<p>这篇博客的主要内容来自《HFSS 射频仿真设计 实例大全》</p>
+</blockquote>
+<h1 id="HFSS-功能概述"><a href="#HFSS-功能概述" class="headerlink" title="$HFSS$ 功能概述"></a>$HFSS$ 功能概述</h1><ul>
+<li>$HFSS$ 基础知识</li>
+<li>$HFSS$  的边界条件</li>
+<li>$HFSS$ 中的激励源</li>
+<li>$HFSS$ 仿真常用设置</li>
+</ul>
+<h2 id="HFSS-基础知识"><a href="#HFSS-基础知识" class="headerlink" title="$HFSS$ 基础知识"></a>$HFSS$ 基础知识</h2><ul>
+<li><p>数值求解方法：$HFSS$ 利用有限元的方法（FEM）的数值求解方式进行求解。</p>
+</li>
+<li><p>自适应求解过程：<img src="./求解过程.png" alt="求解过程"></p>
+</li>
+<li><p>$HFSS$ 求解步骤：<img src="./求解步骤.png" alt="求解步骤"></p>
+</li>
+<li><p>$HFSS$ 三种求解方式：<strong>驱动模式</strong>、<strong>终端模式</strong>、<strong>本征模式</strong></p>
+<ul>
+<li><p>驱动模式：能够应对一般 $HFSS$ 的求解，尤其对包含微带、波导等传输线的模型适用。</p>
+</li>
+<li><p>终端模式：一般用于处理包含多种传输线、如求解处理信号完整性问题。</p>
+</li>
+<li><p>本征模式：一般用于用于求解给定结构模型的谐振频率。</p>
+<blockquote>
+<p>驱动模式和终端驱动模式很相似，两者的区别在于给出的结果类型。用驱动模型求解的S参数是用入射波和反射波的功率计算得到的，而用终端驱动模式求解的S参数是根据终端的电压和电流得到的。例如，在仿真共面波导或者平行微带传输线时，用驱动模型求解得到的是沿着结构传输的奇偶模，而终端驱动模式求解得到的是共模和差模。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <tags>
+        <tag>HFSS入门</tag>
+      </tags>
+  </entry>
 </search>
