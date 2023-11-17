@@ -7425,4 +7425,495 @@ s(n,m)&=\sum_{a=1}^n\sum_{b=1}^m[a\perp b]\\
         <tag>微波工程</tag>
       </tags>
   </entry>
+  <entry>
+    <title>HFSS中的激励方式</title>
+    <url>/AlanTuringLi/2023/11/14/HFSS%E4%B8%AD%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="关于激励方式"><a href="#关于激励方式" class="headerlink" title="关于激励方式"></a>关于激励方式</h1><p>$\text{HFSS}$ 中，激励是一种定义在三维物体表面或者二维物体上的激励源，这种激励源可以是电磁波激励、电压源或者电流源。激励端口是一种允许能量进入或流出几何结构的特殊边界条件类型：</p>
+<ul>
+<li>波端口 ($\text{Wave Port}$)</li>
+<li>集总端口 ($\text{Lumped Port}$)</li>
+<li>$\text{Floquet}$ 端口 ($\text{Floquet Port}$)</li>
+<li>$\text{Incident Wave}$</li>
+<li>$\text{Voltage}$</li>
+<li>$\text{Current}$</li>
+<li>$\text{Magnetic Bias}$</li>
+</ul>
+<h2 id="1-波端口激励-text-Wave-Port"><a href="#1-波端口激励-text-Wave-Port" class="headerlink" title="1. 波端口激励 ($\text{Wave Port}$)"></a>1. 波端口激励 ($\text{Wave Port}$)</h2><p>默认的情况下，所有三维物体和背景之间的接触面都是理想的导体边界，没有能量可以进出:波端口设置在背景面上，用作模型的激励源并提供一个能量进入/流出的窗口。</p>
+<p>$\text{HFSS}$ 软件设定入射到端口上的每个模式的平均功率为 $\text{1W}$ 。求解时，首先端口 $1$ 被 $\text{1W}$ 的信号激励，其他端口设置为 $\text{0W}$ : 在该解产生后，端口 $2$ 被 $\text{1W}$ 的信号激励，他端口设置为 $\text{0W}$，如此循环：最后的解是所有解的叠加。</p>
+<p>波端口一般设置在背景平面上，不允许端口平面弯曲。</p>
+<h3 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h3><p>对于给定横截面的波导或传输线，特定频率下有一系列的解满足相应的边界条件和麦克斯韦方程组，每个解都称之为一种模式，或者说一种波型。</p>
+<p>通常，模式是根据电场和磁场沿导波系统传输方向上有无分量这一情况来命名的，假设导波系统沿 $\text{Z}$ 轴放置，上述分量是指 $\text{Z}$ 向的电场分量 $E<em>{\mathrm{Z}}$ 和磁场分量 $H</em>{\mathrm Z}$ 。对于 $E<em>{\mathrm Z} =0、H</em>{\mathrm Z}=0$ 一类的模，称之为横电磁模，即 $\text{TEM}$ 模: 对于 $E<em>{\mathrm Z} =0、H</em>{\mathrm Z}\ne 0$ 一类的模，称之为横电模，即 $\text{TE}$ 模：对于$E_{\mathrm z}\ne0、Hz=0$ 一类的模，称之为横磁模，即 $\text{TM}$ 模。</p>
+<p>默认情况下，$\text{HFSS}$ 只计算主模，即模式 $\text{1}$。但是某些情况下，计算中包含高阶模式的影响是必须的。</p>
+<h3 id="端口校准"><a href="#端口校准" class="headerlink" title="端口校准"></a>端口校准</h3><p>波端口必须被校准以确保一致的结果:校准的目的有两个:确定场的方向、设置电压积分路径。</p>
+<p>积分校准线: 对于模式驱动 $\text{(Driven Modal)}$  ，波端口使用积分线校准，积分校准线具有以下作用：</p>
+<ul>
+<li>作为在端口对电场进行积分计算电压的积分路径 $\text{HFSS}$ 利用计算出的电压来计算波端口的特性阻抗。</li>
+<li>定义每个波端口上场的正方向;对于任何一个波端口，$wt=0$ 时的场至少有两个方向，通过校准线来确定一个正方向；如果同一端口如果场有两个以上可能方向，如圆端口，这时使用极化电场 $\text{(Polarize E Field)}$ 的选项。</li>
+</ul>
+<p>对于有多个模式问题的求解，在定义波端口时每个模式都需要设置一个积分校准线。</p>
+<h3 id="text-S-参数的归一化处理"><a href="#text-S-参数的归一化处理" class="headerlink" title="$\text S$ 参数的归一化处理"></a>$\text S$ 参数的归一化处理</h3><ul>
+<li>模式：<ul>
+<li>对于给定横截面的波导或传输线，特定频率下有一系列的场模式满足 $\text{Maxwell}$ 方程组，这些模式的线性叠加都可以在波导中存在；一般来说，传播常数和特性祖抗总是随着频率变化的，每个频点，都有相应的计算结果。</li>
+</ul>
+</li>
+<li>广义 $\text S$  参数：<ul>
+<li>正确定义了波端口后，$\text{HFSS}$ 在仿真计算中包括的每个模式在端口处都是完全匹配的；因此，每个模式的 $\text S$ 参数和波端口，将会根据不同频率下的特性祖抗进行归一化，这种类型的 $\text S$ 参数叫做广义 $\text S$ 参数。</li>
+</ul>
+</li>
+<li>归一化 $\text S$  参数：<ul>
+<li>在实验测量（如矢量网络分析仪)和）路仿真器 (如 $\text{ADS}$，$\text{Ansoft Designer}$ ) 使用的特性祖抗通常是常数（如 $\text{50}$ 欧姆），为了使 $\text{HFSS}$ 计算结果和合实验测量或电路仿真结果保持一致，$\text{HFSS}$ 计算得出的广义 $\text{S}$ 参数必须用常数特性阻抗进行归一化。</li>
+</ul>
+</li>
+</ul>
+<h3 id="端口平移-text-Deembed"><a href="#端口平移-text-Deembed" class="headerlink" title="端口平移 ($\text{Deembed}$)"></a>端口平移 ($\text{Deembed}$)</h3><p>$\text{De-embed}$ 功能是指平移端口的位置，查看其对计算结果的影响:选中使用端口平移功能，只影响数据后处理，$\text{HFSS}$不会重新进行仿真计算。$\text{HFSS}$端口平移中的正数表示参考平面向模型内部移动，负数则是向外延伸。</p>
+<blockquote>
+<p>对于三端口器件：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&[S_{deembed}]=[e^{\varkappa}][S][e^{\varkappa}]\newline
+&[e^{\varkappa}]=
+\begin{bmatrix}
+e^{\gamma_1l_1} & 0 & 0\newline
+0 & e^{\gamma_2l_2} & 0\newline
+0 & 0 & e^{\gamma_3l_3}
+\end{bmatrix}
+\end{aligned}</script></blockquote>
+<h2 id="2-集总端口激励-text-Lumped-Port"><a href="#2-集总端口激励-text-Lumped-Port" class="headerlink" title="2. 集总端口激励 ($\text{Lumped Port}$)"></a>2. 集总端口激励 ($\text{Lumped Port}$)</h2><p>集总端口激励和波端口激励是 $\text{HFSS}$ 中最常用的两种激励方式。集总端口类似于传统的波端口，与波端口不同的是集总端口可以设置在物体模型内部，且用户需要设定端口阻抗；集总端口直接在端口处计算 $\text{S}$ 参数，设定的端口阻抗即为集总端口上 $\text{S}$ 参数的参考阻抗；另外集总端口不计算端口处的传播常数，因此根据集总端口无法进行端口平移操作。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>$\text{Wave Port}$</th>
+<th>$\text{Lumped Port}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\text{Accessibility}$</td>
+<td>$\text{External Faces}$</td>
+<td>$\text{Internal to Model}$</td>
+</tr>
+<tr>
+<td>$\text{Higher order modes}$</td>
+<td>$\text{Yes}$</td>
+<td>$\text{No}$</td>
+</tr>
+<tr>
+<td>$\text{De-embedding}$</td>
+<td>$\text{Yes}$</td>
+<td>$\text{No}$</td>
+</tr>
+<tr>
+<td>$\text{Re-normalization}$</td>
+<td>$\text{Yes}$</td>
+<td>$\text{Yes}$</td>
+</tr>
+<tr>
+<td>$\text{Setup complexity}$</td>
+<td>$\text{Moderate}$</td>
+<td>$\text{Low}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="3-text-Floquet-端口激励"><a href="#3-text-Floquet-端口激励" class="headerlink" title="3. $\text{Floquet}$ 端口激励"></a>3. $\text{Floquet}$ 端口激励</h2><p>$\text{Floquet}$ 端口基于 $\text{Floquet}$ 模式进行场求解，用于二维平面周期性结构的仿真设计，如平面相控阵列和频率选择表面等类型的问题。</p>
+<p>与波端口的求解方式类似，$\text{Floquet}$ 端口求解的反射和传输系数能够以 $\text{S}$ 参数的形式显示；使用 $\text{Floquet}$ 端口激励井结合周期性边界，能够像传统的波导端口激励一样轻松地分析周期性结构的电磁特性，从而避免了场求解器复杂的后处理过程。</p>
+<p>平面周期性结构可以看作由一个个单元 $\text{(Unit Cell)}$ 组成，使用 $\text{Floquet}$ 端口和主从边界条件分析平面周期结构，用户只需要建立一个单元模型，在设置 $\text{Floquet}$ 端口激励时需要指定端口的栅格坐标系统 $\text{(Lattice Coordinate System)}$，该坐标系统的 $\text{a，b}$ 轴分别表示单元的排列方向。</p>
+<p>需要注意的是：</p>
+<ul>
+<li>只有驱动模式求解类型 $\text{(Modal Driven Solution)}$ 的设计可以使用 $\text{Floquet}$ 端口。</li>
+<li>$\text{Floquet}$ 端口不支持快速扫频的方式，但是可以支持离散扫频和插值扫频。</li>
+<li>$\text{Floquet}$  端口的四周必须与主从边界条件相连。</li>
+</ul>
+<h2 id="4-入射波激励-text-Incident-Wave"><a href="#4-入射波激励-text-Incident-Wave" class="headerlink" title="4. 入射波激励 ($\text{Incident Wave}$)"></a>4. 入射波激励 ($\text{Incident Wave}$)</h2><p>是自定义的朝某一特定方向传播的电磁波，其等相位面与传播方向垂直；入射波照射到器件表面和器件表面的夹角称为入射角。入射波激励常用于雷达反射截面 ($\text{RCS}$) 问题的计算。</p>
+<p>需要设置的参数有：</p>
+<ul>
+<li>波的传播方向 ($\text{Poynting Vector}$)；</li>
+<li>电场强度以及电场的方向。</li>
+</ul>
+<h2 id="5-电压源激励-text-Voltage…"><a href="#5-电压源激励-text-Voltage…" class="headerlink" title="5. 电压源激励 ($\text{Voltage…}$)"></a>5. 电压源激励 ($\text{Voltage…}$)</h2><p>电压源激励定义在两层导体之间的平面上，用理想电压源来表示该平面上的电场激励。需要设置的参数有：电压的幅度、相位以及电场的方向。</p>
+<p>需注意：</p>
+<ul>
+<li>电压源激励所在的平面必须远小于工作波长，且平面上的电场是恒定电场。</li>
+<li>电压源激励是理想的源，没有内阻，因此后处理时不会输出 $\text{S}$ 参数。</li>
+</ul>
+<h2 id="6-电流源激励-text-Current"><a href="#6-电流源激励-text-Current" class="headerlink" title="6. 电流源激励 ($\text{Current}$)"></a>6. 电流源激励 ($\text{Current}$)</h2><p>电流源激励定义于导体表面或者导体表面的缝隙上，用理想电流源来表示该平面上激励。需要设定的参数有导体表面缝隙的电流幅度、相位和方向。</p>
+<p>需注意：</p>
+<ul>
+<li>电流源激励所在的平面/缝隙必须远小于工作波长，且平面/缝隙上的电流是恒定的。</li>
+<li>电流源激励是理想的源，没有内阻，因此后处理时不会输出 $\text{S}$ 参数。</li>
+</ul>
+<h2 id="7-磁偏置激励-text-Magnetic-Bias"><a href="#7-磁偏置激励-text-Magnetic-Bias" class="headerlink" title="7. 磁偏置激励 ($\text{Magnetic Bias}$)"></a>7. 磁偏置激励 ($\text{Magnetic Bias}$)</h2><p>创建一个铁氧体材料时，必须通过设置磁偏置激励来定义网格的内部偏置场：该偏置场使得铁氧体中的磁性偶极子规则排列，产生一个非零的磁矩：</p>
+<ul>
+<li>如果应用的偏置场是均匀的，张量坐标系可以通过旋转全局坐标系来设置；</li>
+<li>如果应用的偏置场是非均匀的，不允许旋转全局坐标来设置张量坐标系。</li>
+</ul>
+<p>均匀偏置场的参数可以由 $\text{HFSS }$直接输入，i而非均匀偏置场的需要从其它的静磁求解器 (如 $\text{Ansoft}$ $\text{Maxwell}$ $\text{3D}$ 软件) 导入。</p>
+<link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <tags>
+        <tag>HFSS入门</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HFSS中的边界条件</title>
+    <url>/AlanTuringLi/2023/11/12/HFSS%E4%B8%AD%E7%9A%84%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="关于边界条件"><a href="#关于边界条件" class="headerlink" title="关于边界条件"></a>关于边界条件</h1><p>在电磁场理论学习中我们知道，电磁场问题的求解都归结于麦克斯韦 ($\text{Maxwell}$) 方程组的求解在 $\text{HFSS}$ 中波动方程的求解同样是由微分形式的麦克斯韦方程推导出来的。而边界条件定义了求解区域的边界以及不同物体交界处的电磁场特性，是求解麦克斯韦方程的基础。<br>只有在假定场矢量是单值、有界、并且沿空间连续分布的前提下，微分形式的麦克斯韦方程组才是有效的；而在求解区域的边界、不同介质的交界处私场源处，场矢量是不连续的，那么场的导数也就失去了意义。边界条件就是定义跨越不连续边界处的电磁场的特性，因此，正确地理解、定义并设置边界条件，是正确使用 $\text{HFSS}$ 仿真分析电磁场场特性的前提。<br>使用 $\text{HFSS}$ 时，用户应该时刻意识到: 边界条件确定场。正确地使用边界条件，是$\text{HFSS}$能够仿真分析出准确结果的前提。</p>
+<h1 id="调整边界条件的优先级"><a href="#调整边界条件的优先级" class="headerlink" title="调整边界条件的优先级"></a>调整边界条件的优先级</h1><p><img src="./HFSS中的边界条件/image-20231112203416703.png" alt="image-20231112203416703"></p>
+<h1 id="边界条件的详细说明"><a href="#边界条件的详细说明" class="headerlink" title="边界条件的详细说明"></a>边界条件的详细说明</h1><p>在<a href="https://alanturingli.gitee.io/alanturingli/2023/11/06/HFSS功能概述/">这篇</a> $\text{Blog}$ 中有简单提到边界条件的大致使用，这里详细展开说明一下。</p>
+<h2 id="1-理想导体边界条件-text-Perfect-E"><a href="#1-理想导体边界条件-text-Perfect-E" class="headerlink" title="1. 理想导体边界条件 $\text{Perfect E}$"></a>1. 理想导体边界条件 $\text{Perfect E}$</h2><p>$\text{Perfect E}$ 是一种理想电导体或简称为理想导体边界条件。这种边界条件的电场垂直于表面。有两种边界被自动设为理想导体边界条件：</p>
+<ul>
+<li><p>任何与背景相关联的物体表面将被自动定义为理想导体边界，并命名为 $\text{outer}$ 边界</p>
+</li>
+<li><p>材料设为 $\text{PEC}$(理想电导体)的物体表面被自动定为理想导体边界，并命名为 $\text{smental}$</p>
+</li>
+</ul>
+<blockquote>
+<p>背景结构说明：</p>
+<p>所谓背景是指几何模型周围没有被任何物体占据的空间，任何与背景有关联的物体表面被自动定义为理想导体边界，并命名为外部 $\text{(Outer)}$ 边界条件。</p>
+<p>我们可以把几何结构想象为外面有一层很道而且是理想导体的材料，如之前创建的波导。</p>
+<p>如有必要，也可以改变背景的边界条件，使其性质与理想导体边界条件不同</p>
+</blockquote>
+<h2 id="2-理想磁边界条件-text-Perfect-H"><a href="#2-理想磁边界条件-text-Perfect-H" class="headerlink" title="2. 理想磁边界条件 $\text{Perfect H}$"></a>2. 理想磁边界条件 $\text{Perfect H}$</h2><p>$\text{Perfect H}$ 是一种理想的磁边界，这种边界条件上的电场方向与表面相切，磁场与表面垂直，真实世界中不存在理想磁边界，它只是理论上的约束条件。</p>
+<blockquote>
+<p>自然边界 $\text{(Natural)}$ ：</p>
+<p>当理想导体边界和理想磁边界出现交叠时，理想磁边界也被称为自然 $\text{(Natural)}$ 边界</p>
+<p>背景设置成 $\text{Perfect H}$ 边界条件，可以模拟开放的自由空间</p>
+<p>在理想导体边界上叠加理想磁边界将去掉理想导体边界的特性，相当于在理想导体表面开个口，允许电场穿过</p>
+</blockquote>
+<h2 id="3-有限导体边界条件-text-Finite-Conductivity"><a href="#3-有限导体边界条件-text-Finite-Conductivity" class="headerlink" title="3. 有限导体边界条件 $\text{Finite Conductivity}$"></a>3. 有限导体边界条件 $\text{Finite Conductivity}$</h2><p>有耗导体 / 非理想导体边界条件，电场垂直于物体表面，有限导体边界只在良导体模型下是有效的，即在给定的频率范围内，导体的厚度远远大于趋肤深度。需要设置的参数：导电率和导磁率。</p>
+<h2 id="4-辐射边界条件-text-Radiation"><a href="#4-辐射边界条件-text-Radiation" class="headerlink" title="4. 辐射边界条件 $\text{Radiation}$"></a>4. 辐射边界条件 $\text{Radiation}$</h2><p>辐射边界也称为吸收边界 ($\text{Absorbing Boundary Condition}$)，简称 $\text{ABC}$ ，用以模拟开放的自由空间，模拟波辐射到空间的无限远处的情况，常用于天线问题的分析。</p>
+<ul>
+<li>当结构中包含辐射边界条件时，$\text{HFSS}$ 会自动计算结构的远区场。</li>
+<li>$\text{Perfect H}$ 边界条件也可以模拟开放空间的情况，但该边界条件不计算远区场。</li>
+<li>辐射边界条件是自由空间的近似，这种近似的准确程度取决于波的传播方向与辐射边界之间的角度，以及辐射源与边界之间的距离：<ul>
+<li>可以是任意形状</li>
+<li>辐射边界在各个方向上距离辐射体一般不小于 $\lambda/4$</li>
+<li>入射能量和辐射边界表面正交时，计算结果最准确</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-对称边界条件-text-Symmetry"><a href="#5-对称边界条件-text-Symmetry" class="headerlink" title="5.对称边界条件 $\text{Symmetry}$"></a>5.对称边界条件 $\text{Symmetry}$</h2><p>模拟理想电壁或理想磁壁对称面，应用对称边界可以在构造结构时仅构造一部分，减小结构的尺寸和设计复杂性，缩短计算时间。</p>
+<ul>
+<li>定义对称平面时，要遵循以下原则:<ul>
+<li>对称平面必须暴露在背景中；</li>
+<li>对称面必须定义在平面表面上，不能定义在曲面上；</li>
+<li>在一个问题上最多只能定义三个正交对称面。</li>
+</ul>
+</li>
+<li>决定对称面的类型<ul>
+<li>如果电场垂直于对称面且对称，使用理想电壁对称面；</li>
+<li>如果磁场垂直于对称面且对称，使用理想磁壁对称面。</li>
+</ul>
+</li>
+<li>特性阻抗的计算：<ul>
+<li>$Z_{\mathrm{pi}}=\frac{p}{I^2}$  ，适合微带线模型</li>
+<li>$Z_{\mathrm{pu}} = \frac{U^2}P$ ，适合缝隙类结构</li>
+<li>$Z_{\mathrm{ui}}=\frac{U}{I}$ ， 适合 $\mathrm{TEM}$ 波</li>
+</ul>
+</li>
+<li>阻抗乘法器的定义<ul>
+<li>理想电壁对称面将结构分成两部分时，只有一半的电压值和一半的能量被计算，由 $Z_{\mathrm{pu}} = U^2/P$<br> 计算出的阻抗也只有真实值的一半，所以需要定义 $2$ 倍的阻抗乘法器。</li>
+<li>理想磁壁对称面将结构分成两部分时，只有一半的能量被计算，而电压保持不变，由 $Z_{\mathrm{pu}} =U^2/P$ 计算出的阻抗是真实值的 $2$ 倍，所以需要定义 $0.5$ 倍的阻抗乘法器。</li>
+</ul>
+</li>
+<li>阻抗乘法器的设置<ul>
+<li>在设置对称边界的弹出窗口中单击 $\mathrm{lmpedance\;Multiplier}$ 。</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-阻抗边界条件-text-Impedance"><a href="#6-阻抗边界条件-text-Impedance" class="headerlink" title="6. 阻抗边界条件 $\text{Impedance}$"></a>6. 阻抗边界条件 $\text{Impedance}$</h2><p>用于模拟已知阻抗的边界表面,如薄膜电阻表面;表面的阻抗 $Z<em>{\mathrm s} = R</em>{\mathrm s} + i<em>{\mathrm{xs}}$，其中 $R_S$ 是以 $\text{Ohms/Square}$ 为单位的电阻， $X</em>{\mathrm s}$是以 $\text{Ohms/Square}$ 为单位的电抗。</p>
+<ul>
+<li>阻抗的计算：<ul>
+<li>$\text{number\;of\;”Square” = Length (in direction of current flow) }\div\text{Width}$</li>
+<li>$\text{Impedance per Square = Desired Lumped Impedance}\div\text{number of squares}$</li>
+</ul>
+</li>
+<li>故需要手动设置以 $\text{Ohms/Square}$ 为单位的电阻 $R<em>{\mathrm s}$ 和电抗 $X</em>{\mathrm s}$ 。</li>
+</ul>
+<h2 id="7-集总-text-RLC-边界条件-text-Lumped-RLC"><a href="#7-集总-text-RLC-边界条件-text-Lumped-RLC" class="headerlink" title="7. 集总 $\text{RLC}$ 边界条件 $\text{Lumped RLC}$"></a>7. 集总 $\text{RLC}$ 边界条件 $\text{Lumped RLC}$</h2><p>类似于阻抗边界条件，利用用户提供的 $R、L、C$值计算出以 $\text{Ohms/Square}$ 为单位的阻抗值。</p>
+<p>与阻抗边界不同的是，集总 $\text{RLC}$ 边界不需要提供以 $\text{Ohms/Square}$ 为单位的电阻和电抗，而是要给出 $R、L、C$ 的真实值；之后，$\text{HFSS}$ 就能确定任意频率下集总 $\text{RLC}$ 边界以 $\text{Ohms/Square}$ 为单位的阻抗。</p>
+<h2 id="8-分层阻抗边界条件-text-Layered-Impedance"><a href="#8-分层阻抗边界条件-text-Layered-Impedance" class="headerlink" title="8. 分层阻抗边界条件  $\text{Layered Impedance}$"></a>8. 分层阻抗边界条件  $\text{Layered Impedance}$</h2><p>分层阻抗边界条件是用多层结构将物体表面模拟为一个阻抗表面，其效果与阻抗边界条件相同；与阻抗边界条件不同的是，对于分层阻抗边界条件，$\text{HFSS}$ 是根据输入的分层结构数据和表面粗糙度来计算表面电阻和表面电抗的，且不支持快速扫频。</p>
+<h2 id="9-无限大地平面-text-Infinite-Ground-Plane"><a href="#9-无限大地平面-text-Infinite-Ground-Plane" class="headerlink" title="9. 无限大地平面 $\text{Infinite Ground Plane}$"></a>9. 无限大地平面 $\text{Infinite Ground Plane}$</h2><p>将有限大的边界表面模拟成无限大地平面的作用，设置无限大平面边界后，在后续处理中会影响近区、远区辐射场的计算。</p>
+<ul>
+<li>无限大平面边界的设置:在设置理想导体边界、有限导体边界或阻抗边界时选中 $\text{Infinite Ground Plane}$；</li>
+<li>定义无限大地平面时，需要满足以下条件：<ul>
+<li>无限大地平面必须暴露在背景上；</li>
+<li>无限大地平面必须定义在平面上；</li>
+<li>无限大地平面和对称面的总数不能超过 $3$ 个；</li>
+<li>所有无限大地平面和对称面必须正交。</li>
+</ul>
+</li>
+</ul>
+<h2 id="10-主从边界条件-text-Master-and-Slave"><a href="#10-主从边界条件-text-Master-and-Slave" class="headerlink" title="10. 主从边界条件 $\text{Master and Slave}$"></a>10. 主从边界条件 $\text{Master and Slave}$</h2><p>主从边界条件也称为关联边界条件 ($\text{Linked Boundary Condition}$，简称 $\text{LBC}$ ) 用于模拟平面周期结构表面：如阵列天线结构。</p>
+<p>主从边界条件包括主边界和从边界两种边界条件，二者总是成对出现的，且主边界表面和从边界表面的形状、大小和方向必须完全相同，主边界表面和从边界表面上的电场存在一定的相位差，该相位差就是周期性结构相邻单元之间存在的相位差。</p>
+<script type="math/tex; mode=display">
+\vec{E}_{\mathrm{Slave}}=e^{j\phi}\vec{E}_{\mathrm{Master}}=e^{j\frac d\lambda \sin\theta\cos\varphi}\vec{E}_{\mathrm{Master}}\newline
+\phi=\frac d\lambda\sin\theta\cos\varphi</script><blockquote>
+<p>定义主从边界表面时，需要正确设置 $\mathrm{U, V}$ 坐标系，保证主从边界表面大小和方向完全一致。</p>
+<p>但是在我的 $\text{HFSS}$ 中这个选项叫做 $\text{Coupled}$。</p>
+</blockquote>
+<h2 id="11-理想匹配层-text-PML"><a href="#11-理想匹配层-text-PML" class="headerlink" title="11. 理想匹配层  $\text{PML}$"></a>11. 理想匹配层  $\text{PML}$</h2><p>理想匹配层 ( $\text{Perfectly Matched Layers}$，简称 $\text{PML}$ )，是能够完全吸收入射电磁波的假想的各项异性材料边界。理想匹配层有两种典型的应用： 一是用于外场问题中的自由空间截断，二是用于导波问题中的吸收负载。</p>
+<p>对于导波的吸收负载，理想匹配层模拟导波结构均匀地延伸到无穷远处。</p>
+<p>对于自由空间截断情况，理想匹配层的作用类似于辐射边界条件，$\text{PML}$ 表面能够完全吸收入射过来的电磁波。和辐射边界条件相比，理想匹配层因为能够完全吸收入射的电磁波，零反射，因此计算结果更精确：同时理想匹配层表面可以距离辐射体更近(差不多十分之一个波长即可)，不需要像辐射边界表面一般需要距离辐射体大于四分之一个波长。</p>
+<h2 id="12-text-FE-BI"><a href="#12-text-FE-BI" class="headerlink" title="12. $\text{FE-BI}$"></a>12. $\text{FE-BI}$</h2><p>专门针对电大尺寸的开放结构仿真，对辐射体距离没有要求，能够完全吸收所有的入射波，与结构的共形性非常好，$\text{FE-BI}$ 算法可以有效降低计算机硬件资源消耗，针对外部辐射空间采用 $\text{IE}$ 求解，针对金属结构体采用 $\text{FEM}$ 求解，大幅减少辐射区域的求解规模，提升求解效率。</p>
+<blockquote>
+<p>当然，在 $\text{Ansys Electronic 2023 R1}$ 的版本中还有 $\text{Anisotropic Impedance}$, $\text{Aperture}$, $\text{Frenel(SBR+)}$, $\text{Half Space}$, $\text{Linked Impedance}$, $\text{Multipaction SEE}$ ，感觉这些边界条件一时半会儿用不上，就暂时不管了。</p>
+</blockquote>
+<link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <tags>
+        <tag>HFSS入门</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HFSS求解类型和求解设置</title>
+    <url>/AlanTuringLi/2023/11/15/HFSS%E6%B1%82%E8%A7%A3%E7%B1%BB%E5%9E%8B%E5%92%8C%E6%B1%82%E8%A7%A3%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h1><iframe src="//player.bilibili.com/player.html?aid=385016188&bvid=BV1vZ4y1q7gt&cid=749565157&p=13&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 500px; max-width: 100%；align:center; padding:20px 0;"> </iframe>
+
+<ul>
+<li>学习如何选择求解类型，如何添加求解分析设置和扫频设置，以及如何运行仿真。</li>
+<li>需求解类型有：模式驱动求解 ($\text{Driven Modal}$) 、终端驱动求解 ($\text{Driven Terminal}$) 以及本征模式求解 ($\text{Eigen Mode}$)。</li>
+<li>求解分析设置包括自适应网格剖分频率（求解频率）的选择、收敛误差的确定、设置初始网格选项和选择基础函数。</li>
+<li>设计检查和运行仿真。</li>
+</ul>
+<h2 id="text-HFSS-中的求解类型"><a href="#text-HFSS-中的求解类型" class="headerlink" title="$\text{HFSS}$ 中的求解类型"></a>$\text{HFSS}$ 中的求解类型</h2><ul>
+<li>模式驱动求解：以模式为基础计算 $\text{S}$ 参数，根据导波内各模式场的入射功率和应射功率来计算 $\text{S}$ 参数矩阵的解。</li>
+<li>终端驱动求解：以终端为基础计算多导体传输线端口的 $\text{S}$ 参数；此时，根据传输线终端的电压和电流来计算 $\text{S}$ 参数矩阵的解。</li>
+<li>本征模式求解：本征模求解器主要用于谐振问题的设计分析，可以用于计算谐振结构的谐振频率和谐振频率处对应的场，也可以用于计算谐振腔体的无载 $\text{Q}$ 值。使用此模式求解释需要注意：<ul>
+<li>不需要设置激励方式；</li>
+<li>不能定义辐射边界条件；</li>
+<li>不能进行扫频分析；</li>
+<li>不能包含铁氧体材料；</li>
+<li>只有场解结果，没有 $\text{S}$ 参数求解结果。</li>
+</ul>
+</li>
+</ul>
+<h2 id="自适应网格剖分"><a href="#自适应网格剖分" class="headerlink" title="自适应网格剖分"></a>自适应网格剖分</h2><blockquote>
+<p>在分析对象内部搜索误差最大的区域并在该区域进行网格的细化，每次网格细化过程中网格增加百分比由用户事先设置。完成一次细化过程后，重新计算并搜索误差最大的区域，然后判断误差是否满足设置的收敛条件。如果满足收敛条件，则完成网格剖分：如果不满足收敛条件，继续下一次网格细化过程，直到满足收敛条件或者达到设置的最大迭代次数为止。</p>
+</blockquote>
+<p>$\text{HFSS}$ 软件采用有限元法 ($\text{FEM}$) 来分析三维物体的电磁特性，有限元法求解问题的基本过程包括分析对象的离散化、有限元求解和计算结果的处理 $\text{3}$ 个部分。研究对象的离散化是有限元法的第一步，$\text{HFSS}$ 软件采用自适应网格剖分技术，根据用户设置的误差标准，自动生成精确有效的网格，来完成分析对象的离散化。</p>
+<p>自使用网格剖分时，每一次网格细化的迭代过程在 $\text{HFSS}$ 中称为一个 ”$\text{Pass}$”。</p>
+<h3 id="收敛误差"><a href="#收敛误差" class="headerlink" title="收敛误差"></a>收敛误差</h3><p>自适应网格剖分过程中，每次网格细化后，$\text{HFSS}$ 会将基于当前网格的S参数 (或者能量、频率) 计算结果和上一次的计算结果相比较，如果求出的误差最大值小于设置的收敛标准，表示解已经收敛，自适应网格剖分计算完成。$\text{HFSS}$ 使用最后一次剖分的网格进行点频和扫频计算。不同的求解类型和端口激励方式对应不同的收敛误差判断方法，具体的收敛误差判断方法有$\Delta S，\Delta E$ 以及 $\Delta F$。</p>
+<ul>
+<li>波端口激励和集总端口激励问题使用 $\Delta S$ 最大值作为收敛误差判断标准。</li>
+<li>电压源激励、电流源激励、入射波激励和磁偏置激励问题使用 $\Delta E$ 最大值作为收敛误差判断标准。</li>
+<li>对于本征模求解类型，$\text{HFSS}$ 自动使用 $\Delta F$ 最大值作为收敛误差判断标准。</li>
+</ul>
+<p>以 $\Delta S$ 为例，$\Delta S$ 的最大值为：</p>
+<script type="math/tex; mode=display">
+\max\limits_{i,j}\quad \mathrm{mag}(\mathrm{S^N_{ij}}-\mathrm S^{N-1}_{ij})</script><h3 id="收敛精度"><a href="#收敛精度" class="headerlink" title="收敛精度"></a>收敛精度</h3><p>在设置收敛误差标准时，理论上把收敛误差设置的越小计算结果越精确。然而，一方面，收敛误差设置的越小意味着迭代次数越多，有时过小的误差值会极大地增加 $\text{HFSS }$的计算量；另一方面，在实际制造和实验室测量时都会有固定误差。</p>
+<p>因此，$\text{HFSS}$ 只需要提供一定水平的准确性，这个准确性大于在真实世界中引入的固有误差就可以了。一般情况下，收敛误差使用 $\text{HFSS}$ 系统默认值或者取默认值的 $\text{1/2}$ 就足够了。</p>
+<h2 id="网格自适应剖分频率（求解频率）的选择"><a href="#网格自适应剖分频率（求解频率）的选择" class="headerlink" title="网格自适应剖分频率（求解频率）的选择"></a>网格自适应剖分频率（求解频率）的选择</h2><p>$\text{HFSS}$ 计算时自适应网格剖分是在用户设定的单一频点上进行的，网格剖分完成后，同一个求解设置项下其他频点的求解，都是基于前面设定频点上所完成的网格划分。因此，自适应网格剖分频率的选择对最终求解的结果准确性有着重要的影响。</p>
+<p>自适应频率设置的越高，网格剖分就越细，网格个数就越多，计算结果也相应地更加准确，但同时计算过程中所占用的计算机内存也就越高，计算所花费的时间也越长。</p>
+<p>合适的自适应网格剖分频率的选择是在保证求解结果尽可能准确的前提下，占用尽可能少的计算机内存和花费尽可能短的计算时间。</p>
+<p>下面给出几个常用问题类别的自适应频率的选择，以帮助在今后的设计中正确地设定自适应频率：</p>
+<ul>
+<li>点频或窄带问题：对于点频或者窄带问题，自适应网格剖分频率直接选择工作频率。</li>
+<li>宽带问题：对于宽带问题，应该选择最高频率作为自适应网格剖分频率。</li>
+<li>滤波器问题：对于滤波器问题，由于阻带内电场只存在于端口处，所以自适应频率选择在通带内的高频段。</li>
+<li>快速扫频问题：对于快速扫频问题，典型的做法是选择中心频率作为自适应频率。</li>
+<li>高速数字信号：对于高速数字信号完整性分析类问题，我们需要借助转折频率 ($\text{Knee Frequency}$) 来决定自适应网格剖分频率。</li>
+</ul>
+<h2 id="扫频分析"><a href="#扫频分析" class="headerlink" title="扫频分析"></a>扫频分析</h2><ul>
+<li>离散扫频 $\text{Discrete}$：离散扫频是在频带内的指定频点处计算 $\text{S}$ 参数和场解。默认情况下，使用离散扫频只保存最后计算的频率点的场解。如果希望保存指定的所有频率点的场解，需要选中设置对话框中 $\text{SaveFields}$ 复选框。</li>
+<li>快速扫频 $\text{Fast}$：采用 $\text{ALPS}$ 算法，在很宽的频带范围内搜寻出传输函数的全部零、极点。快速扫频适用于谐振问题和高 $\text Q$ 值问题的分析，可以得到场在谐振点附近行为的精确描述。使用快速扫频，一般选择频带中心频率作为自适应网格剖分频率，进行网格剖分，计算出该频点的 $\text{S}$ 参数和场分布，然后使用基于 $\text{ALPS}$ 算法的求解器从中心频率处的S参数解和场解来外推整个频带范围的 $\text{S}$ 参数解和场解。使用快速扫频，计算时只会求解中心频点处的场解，但在数据后处理时整个扫频范围内的任意频点的场都可以显示。</li>
+<li>插值扫频 $\text{Interpolating}$ ：插值扫频使用二分法来计算整个频段内的 $\text {S}$ 参数和场解。使用插值扫频，$\text{HFSS}$ 自适应选择计算场解的频率点，并计算相邻两个频点之间的解的误差，找出最大误差，当两点之间的最大误差达到指定的误差收敛标准或者达到了设定的最大频点数目后，扫描完成;其它频率点上的 $\text S$ 参数和场解由内插给出。</li>
+</ul>
+<link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <tags>
+        <tag>HFSS入门</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HFSS变量设置及 $&#92;text{Optimetrics}$模块</title>
+    <url>/AlanTuringLi/2023/11/16/HFSS%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h1><iframe src="//player.bilibili.com/player.html?aid=385016188&bvid=BV1vZ4y1q7gt&cid=749596441&p=14&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 500px; max-width: 100%；align:center; padding:20px 0;"> </iframe>
+
+<p>$\text{HFSS}$ 作为一款功能强大的三维电磁仿真软件当然不是仅能够提供常规的电磁分析，它还能够提供优化设计、参数扫描分析、灵敏度分析和统计分析等功能，这些功能都集成在 $\text{HFSS}$ 的 $\text{Optimetrics}$ 模块中。在 $\text{HFSS}$ 中，要使用 $\text{Optimetrics}$ 模块的这些分析和设计功能，首先需要做的就是定义和添加相关变量。</p>
+<ul>
+<li>学习 $\text{HFSS}$ 中变量的定义和使用<ul>
+<li>变量的类型</li>
+<li>变量的定义</li>
+<li>设计中如何添加 / 删除 / 使用变量</li>
+</ul>
+</li>
+<li>简单学习 $\text{Optimetrics}$ 模块中的各种分析、设计功能及其使用<ul>
+<li>参数扫描分析</li>
+<li>优化设计</li>
+<li>调谐分析</li>
+<li>灵敏度分析</li>
+<li>统计分析</li>
+</ul>
+</li>
+</ul>
+<h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><p>和编程语言类似，$\text{HFSS}$ 中的变量也有自己的作用域，其类型分为工程变量（$\text{Project Variables}$）和设计变量/本地变量（$\text{Local Variables}$）。</p>
+<blockquote>
+<p>如何区分工程变量/本地变量？</p>
+<ul>
+<li>工程变量前有 “$$$” 前缀，而本地变量没有。</li>
+<li>工程变量的作用区间为整个 $\text{Project}$ ，本地作用区间为所在的 $\text{Design}$。</li>
+</ul>
+</blockquote>
+<p>$\text{Project &gt; Project Variables}$ 可以打开工程变量编辑对话框。</p>
+<p>$\text{HFSS &gt; Design Properties}$ 可以打开设计变量编辑对话框。</p>
+<p>物体模型尺寸、物体的材料属性等都可以使用变量来表示。</p>
+<h2 id="变量的定义"><a href="#变量的定义" class="headerlink" title="变量的定义"></a>变量的定义</h2><ul>
+<li><p>变量名：</p>
+<ul>
+<li>变量名可以由 数字、字母、和下划线 “_” 组成。</li>
+<li>$\text{HFSS}$ 中默认的常数（如： $\text{pi}$ ）、默认的数学函数（如：$\text{sin}$）不能用作变量名。</li>
+<li>直角坐标系坐标轴的名称 $\text{X、Y、Z}$，圆柱坐标系和球坐标坐标轴的名称 $\text{Phi、Theta、R}$ (圆柱坐标系半径)、$\text{Rho}$（球坐标系半径）也不能用作变量名。</li>
+</ul>
+</li>
+<li><p>变量值：每个变量在定义时都必须赋一个初始值，变量值可以是数值、数学表达式或者数学函数，也可以是数组、矩阵或者行列式。</p>
+<ul>
+<li>可以使用科学计数法。</li>
+<li>可以使用数学表达式，但是需注意运算符的优先级。</li>
+</ul>
+</li>
+</ul>
+<h2 id="变量的添加、删除以及使用"><a href="#变量的添加、删除以及使用" class="headerlink" title="变量的添加、删除以及使用"></a>变量的添加、删除以及使用</h2><ul>
+<li>添加/删除变量：<ul>
+<li>$\text{Project &gt; Project Variables}$ 或者 $\text{[Project Tree] Project &gt; Project Variables}$ 打开 $\text{Project Properties}$ 对话框，可以添加和删除工程变量。</li>
+<li>$\text{HFSS &gt; Design Properties}$ 或者 $\text{[Project Tree] Design &gt; Design Properties}$ 打开 $\text{Design}$<br> $\text{Properties}$ 对话框，可以添加和删除设计变量。</li>
+<li>在设计过程中，也可以直接输入未定义的变量代替设计参数。输入未定义的变量后，$\text{HFSS}$会自动弹出添加变量对话框。</li>
+</ul>
+</li>
+<li>使用变量<ul>
+<li>在 $\text{HFSS}$ 中，几乎所有的设计参数都可以使用变量来表示，例如物体模型的尺寸、物体的材料属性、边界条件相关参数等。</li>
+<li>对于已定义的变量，可以直接使用变量或者包含变量的表达式来表示设计参数。</li>
+<li>对于未定义的变量后，$\text{HFSS}$会自动弹出添加变量对话框。</li>
+</ul>
+</li>
+<li>注意：<ul>
+<li>对于材料属性参数，只能使用工程变量。</li>
+<li>每个变量在定义时都必须赋一个初始值，如果赋给变量的初始值已经指定了单位，在使用该变量时就不需要重新指定单位。</li>
+<li>由于参数扫描、优化设计、调谐分析和灵敏度分析等不支持复数，所以对于值为复数的变量，不能用于上述分析。</li>
+</ul>
+</li>
+</ul>
+<h2 id="text-Optimetrics-模块"><a href="#text-Optimetrics-模块" class="headerlink" title="$\text{Optimetrics}$ 模块"></a>$\text{Optimetrics}$ 模块</h2><p>$\text{Optimetrics}$ 是集成在 $\text{HFSS}$ 中的设计优化模块，该模块通过自动分析设计参数的变化对求解结果的影响， $\text{HFSS}$ 中 $\text{Optimetrics}$ 模块能提供如下分析设计功能。</p>
+<ul>
+<li>参数扫描分析 $\text{Parametric}$<ul>
+<li>参数扫描分析功能可以用来分析物体的性能随着指定变量的变化而变化的关系，在优化设计前一般使用参数扫描分析功能来确定被优化变量的合理变化区间。</li>
+</ul>
+</li>
+<li>优化设计 $\text{Optimization}$<ul>
+<li>忧化设计是 $\text{HFSS}$ 软件结合 $\text{Optimetrics}$ 模块根据特定的优化算法在所有可能的设计变化中寻找出一个满足设计要求的值的过程。</li>
+</ul>
+</li>
+<li>调谐分析 $\text{Tuning}$<ul>
+<li>调谐分析功能是在改变变量值的同时实时显示求解结果。</li>
+</ul>
+</li>
+<li>灵敏度分析 $\text{Sensitivity}$<ul>
+<li>灵敏度分析功能是用来分析设计参数的微小变化对求解结果的影响程度。</li>
+</ul>
+</li>
+<li>统计分析 $\text{Statistical}$<ul>
+<li>统计分析功能是利用统计学的观点来研究设计参数的容差对求解结果的影响常用的方法是蒙特卡罗（$\text{MonteCarlo}$）法。</li>
+</ul>
+</li>
+</ul>
+<h2 id="参数扫描分析"><a href="#参数扫描分析" class="headerlink" title="参数扫描分析"></a>参数扫描分析</h2><p>参数扫描分析功能是用来分析设计模型的性能随着指定变量的变化而变化的关系，在优化设计前一般使用参数扫描分析功能来确定被优化变量的合理变化区间。</p>
+<p>操作步骤：</p>
+<ul>
+<li>设置首先需要定义变量并添加求解设置项。</li>
+<li>$\text{HFSS&gt; Optimetrics Analysis &gt; Add Parametric…}$  弹出 $\text{Setup Sweep Anaysis}$ 对话框，添加扫描变量。</li>
+<li>或者选中 $\text{Project Manager}$ 中的 $\text{Optimetrics}$，单击右键 $\text{Add &gt; Parametric}$，弹出 $\text{Setup}$ $\text{Sweep}$ $\text{Anaysis}$ 对话框，添加扫描变量。</li>
+<li>设置好扫描变量之后，点击 ”$\text{Analyze}$” 就可以进行参数扫描分析。</li>
+<li>查看分析设计结果。</li>
+</ul>
+<h2 id="优化设计"><a href="#优化设计" class="headerlink" title="优化设计"></a>优化设计</h2><p>优化设计是 $\text{HFSS}$ 软件结合 $\text{Optimetrics}$ 模块在一定的约束条件下根据特定的优化算法对设计的某些参数进行调整，从所有可能的设计变化中寻找出一个满足设计要求的值。优化设计时，首先需要明确设计要求或设计目标，然后用户根据设计要求创建初始结构模型 ($\text{Nominal Design}$) 、定义设计变量并构造目标函数，最后指定优化算法进行优化。</p>
+<p>操作步骤：</p>
+<ul>
+<li><p>初始设计</p>
+<ul>
+<li>初始设计或者初始结构模型在 $\text{HFSS}$ 中称之为 $\text{Nominal Desiqn}$。用户一般根据理论知识和实际经验给出初始设计，创建初始结构模型。初始设计应该尽量接近真实值，否则会导致优化时间过长，有时甚至得不到全局最优解。</li>
+</ul>
+</li>
+<li><p>添加优化变量</p>
+<ul>
+<li>在进行优化设计时，首先需要添加优化变量。打开工程变量/设计变量编辑对话框，单击选择变量编辑对话框中的 $\text{Optimization}$ 单选按钮，此时对话框内会列出当前设计中所定义的全部工程变量或者设计变量，勾选变量对应的 $\text{Include}$ 项复选框，把该变量添加为优化变量：同时在 $\text{Nominal Value}$、$\text{Min}$ 和 $\text{Max}$ 项下的文本框可以输入优化变量的初始值、最小值和最大值。</li>
+<li>在优化设计前，一般先进行参数扫描分析，确定优化变量的初始值和合理的变化区间。</li>
+</ul>
+</li>
+<li><p>构造目标函数</p>
+<ul>
+<li>在优化设计中，为了评价设计结果的好坏以及判断设计是否已经达到要求的目标，必须定义一个判据，软件根据这个判据来决定是否需要继续进行最优搜索，这个判据就称为目标函数。</li>
+<li>目标函数需要用户根据具体的设计目标进行构造。例如<a href="https://alanturingli.gitee.io/alanturingli/2023/11/06/HFSS入门-波导优化设计/">T波导的优化设计</a>中就有详细提到操作流程。</li>
+</ul>
+</li>
+<li><p>加权函数</p>
+<ul>
+<li>在有些设计中，为了达到设计要求，需要设置多个目标函数。另外，目标函数所包含的有些性能指标是互相矛盾或互相制约的，一般很难保证全部指标都达到最优。在这两种情况下，可以给每个目标函数分配一个加权值，加权值越大，表示该目标函数越重要。</li>
+</ul>
+</li>
+<li><p>规范类型</p>
+<ul>
+<li><p>对于有多个目标函数的问题，误差函数值是所有目标函数误差值的加权和。 $\text{HFSS}$ 根据指定的规范类型来计算加权和。</p>
+</li>
+<li><script type="math/tex; mode=display">
+L_1\Rightarrow e=\sum\limits_{1}^N|w_ie_i|\newline
+L_2\Rightarrow e=\sum\limits_{1}^Nw_ie_i^2\newline
+Max \Rightarrow e=\max\limits_{1}^N w_ie_i</script></li>
+<li><p>默认为 $L_2$ 类型。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="误差分析"><a href="#误差分析" class="headerlink" title="误差分析"></a>误差分析</h3><ul>
+<li>误差函数<ul>
+<li>在定义目标函数时，目标函数可以是等于、大于等于或小于等于某个目标值:对应的，在优化设置对话框 $\text{Condition}$ 处分别选择 $&lt;=、=、&gt;=$ 。</li>
+</ul>
+</li>
+<li>优化阈值<ul>
+<li>优化阑值是优化过程终止的判别标准，当加权后总的误差值小于或等于优化阑值时，优化分析终止。优化设置对话框的左下角 $\text{Acceptable}$ 处设置优化阑值。</li>
+<li>优化阑值可以是一个复数。</li>
+</ul>
+</li>
+<li>目标噪声函数<ul>
+<li>使用有限元法分析电磁问题时，网格剖分的变化会给目标函数引入各种噪声。在使用拟牛顿优化算法和模式搜索优化算法时，需要提供噪声的估算值，以评估求解过程中的变化对目标函数的影响。</li>
+</ul>
+</li>
+</ul>
+<h3 id="优化算法"><a href="#优化算法" class="headerlink" title="优化算法"></a>优化算法</h3><ul>
+<li>拟牛顿法 $Quasi-Newton$<ul>
+<li>牛顿法的基本思想是在极小点附近通过对目标函数做二阶泰勒（ $Taylor$ ）展开，进而找到的极小点的估计值。</li>
+<li>拟牛顿法只有在目标函数的噪声很小的情况下使用是足够准确的，如果目标函数的噪声在工程是十分显著的，需要使用模式搜索优化算法来得到最优结果。</li>
+</ul>
+</li>
+<li>模式搜索法 $Pattern\; Search$<ul>
+<li>模式搜索法是求解最优化问题的一种直接搜索算法，它不用目标函数与约束函数的导数信息而只用函数值信息，是求解不可导或求导代价较大的最优化问题的一种有效算法。</li>
+<li>模式搜索法是 $Hooke$ 和 $Jeeves$ 于 $1961$ 年提出的，这种优化方法对数值噪声不敏感，因此适合于数值噪声比较显著问题的 $\text{HFSS}$ 设计工程的优化。</li>
+</ul>
+</li>
+<li>非线性顺序编程算法（$\text{SNLP}$） -    $Sequential\;Non\;Non-Linear\;Programming$<ul>
+<li>类似拟牛顿法，$\text{SNLP}$算法中引入了噪声滤波和 $RSM$ ( $Response\;Surface\;Modeling$) 技术，可以适当地降低噪声的影响，收敛速度比拟牛顿法，结果比拟牛顿法准确。</li>
+</ul>
+</li>
+<li>混合整数非线性顺序编程算法 ($\text{SMINLP}$)<ul>
+<li>$\text{SMINLP}$ 能够优化同时具有连续变量和整数变量的问题，该算法和非线性顺序编程算法相似不同点是$\text{SMINLP}$ 算法需要标记出整数变量。</li>
+</ul>
+</li>
+<li>溃传算法 - $\text{Genetic Algorithm}$<ul>
+<li>遗传算法是 $20$ 世纪 $50$ 年代初由一些生物学家尝试用计算机模拟生物系统演化时提出的。运用随机而非确定性的规则对一族而非一个点进行全局而非局部地搜索，仅利用目标函数而不要求其导数信息或其他附加限制。遗传算法虽然在特定问题上也许不是效率最高的，但其效率远高于传统随机算法，是一种普遍用于各种问题的算法。</li>
+</ul>
+</li>
+</ul>
+<h2 id="调谐分析"><a href="#调谐分析" class="headerlink" title="调谐分析"></a>调谐分析</h2><p>$\text{HFSS}$ 中的调谐分析功能是用户在手动改变变量值的同时能实时显示求解结果。例如，在执行完成一个优化分析并且得到了变量的最优值之后，可以在该最优值附近手动改变变量的值，观察变量在最优值附近扰动对设计性能的影响。针对某一变量调谐分析结束后，设计结果将随之更新。</p>
+<h2 id="灵敏度分析"><a href="#灵敏度分析" class="headerlink" title="灵敏度分析"></a>灵敏度分析</h2><p>使用 $\text{HFSS}$ 进行电磁分析的过程中，不同设计参数的变化对电磁特性的影响程度是不尽相同的。对于相同的变化量，有些参数对电磁特性的影响较大，有的则较小。为了衡量各个设计参数变化对电磁特性的影响，通常引用灵敏度的概念，用它来定量表示设计参数变化对电磁性能的影响程度。</p>
+<p>灵敏度定义为电磁特性/求解结果的变化与电路参数的变化的比值。使用 $\text{HFSS}$ 进行电磁分析时，$S$ 参数是很常用的一个分析结果。这里，以 $S$ 参数为例来说明灵敏度的定义。假设 $X<em>i(i=1，2，…， m)$ 为某一设计参数，则第 $k、j$ 两端口之间的传输系数 $S</em>{jk} (k，j=1，2，…，n)$ 对设计参数 $X_i$ 的灵敏度可以定义为：</p>
+<script type="math/tex; mode=display">
+C_{x_i}^{s_{jk}}=\frac{\part S_{jk}}{\part X_i}</script><p>灵敏度计算可以在优化设计中确定电路的关键参数，大量的计算实践表明，有些最优化方法当变量增加时收敛速度变慢，有的甚至发散，这使优化设计毫无结果。如果在优化设计前进行灵敏度分析，找出那些对电路特性有较大影响（即灵敏度较高）的关键性设计参数，并将它们作为优化变量，则不仅能大大减少计算工作量，提高优化设计效率，而且能使原来不收敛的优化过程得到良好的结果。</p>
+<h2 id="统计分析"><a href="#统计分析" class="headerlink" title="统计分析"></a>统计分析</h2><p>实际使用的元件或者制造工艺一般都有一定的误差，例如标称值为 $1nH$、容差为 $\pm 10\%$ 的二极管引线电感，其实际值将是 $0.9nH$ 到 $1.1nH$ 之间的随机值。因此，由这些元件所构成的电路模型或者这些制造工艺生产出的器件模型也具有随机特性，根据这种模型所求出的电路/电磁特性当然也是一些随机量。</p>
+<p>统计分析就是利用统计学的观点来研究设计参数容差对求解结果的影响，常用的方法是蒙特卡罗（$\text{MonteCar lo}$）法。这种方法是利用计算机产生各种不同分布的伪随机数，来模拟产生各设计参数的随机值，并对由此形成的电路/器件模型进行分析，计算出表征电路/器件各种特性参数的随机量，然后对这些随机量进行统计分类或计算，画出统计分布图。</p>
+<p>其具体分析步骤如下：</p>
+<ul>
+<li>用计算机产生伪随机数，并用它们模拟产生电路/器件各设计参数的随机值序列，然后将这些字列进行随机组合，形成电路/器件的统计分析模型；</li>
+<li>调用分析程序对电路进行分析，计算出电路/器件的各种特性参数，如输入驻波比、$S$ 参数等；</li>
+<li>对分析结果进行统计分类，画出直方图。</li>
+</ul>
+<link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>]]></content>
+  </entry>
 </search>

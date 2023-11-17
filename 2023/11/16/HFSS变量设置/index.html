@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/AlanTuringLi/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/AlanTuringLi/css/main.css?v=6.7.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/AlanTuringLi/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/AlanTuringLi/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/AlanTuringLi/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/AlanTuringLi/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+  <meta name="description" content="HFSS求解类型和求解设置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HFSS变量设置及 $\text{Optimetrics}$模块">
+<meta property="og:url" content="https://alanturingli.gitee.io/AlanTuringLi/2023/11/16/HFSS%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/index.html">
+<meta property="og:site_name" content="AlanTuring&#39;s Blog">
+<meta property="og:description" content="HFSS求解类型和求解设置">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-16T12:39:56.000Z">
+<meta property="article:modified_time" content="2023-11-16T14:08:22.562Z">
+<meta property="article:author" content="AlanTuring">
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+  <link rel="canonical" href="https://AlanTuringLi.gitee.io/AlanTuringLi/2023/11/16/HFSS变量设置/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>HFSS变量设置及 $\text{Optimetrics}$模块 | AlanTuring's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/AlanTuringLi/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AlanTuring's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">A long way to go</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/AlanTuringLi/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/AlanTuringLi/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/AlanTuringLi/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/AlanTuringLi/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://AlanTuringLi.gitee.io/AlanTuringLi/AlanTuringLi/2023/11/16/HFSS%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AlanTuring"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/AlanTuringLi/images/shixiang.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlanTuring's Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HFSS变量设置及 $\text{Optimetrics}$模块
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2023-11-16 20:39:56 / Modified: 22:08:22" itemprop="dateCreated datePublished" datetime="2023-11-16T20:39:56+08:00">2023-11-16</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/AlanTuringLi/2023/11/16/HFSS%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/AlanTuringLi/2023/11/16/HFSS%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/AlanTuringLi/2023/11/16/HFSS%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/" class="leancloud_visitors" data-flag-title="HFSS变量设置及 $\text{Optimetrics}$模块">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">9k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">8 mins.</span>
+              
+            </div>
+          
+
+          
+              <div class="post-description">HFSS求解类型和求解设置</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h1><iframe src="//player.bilibili.com/player.html?aid=385016188&bvid=BV1vZ4y1q7gt&cid=749596441&p=14&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 500px; max-width: 100%；align:center; padding:20px 0;"> </iframe>
+
+<p>$\text{HFSS}$ 作为一款功能强大的三维电磁仿真软件当然不是仅能够提供常规的电磁分析，它还能够提供优化设计、参数扫描分析、灵敏度分析和统计分析等功能，这些功能都集成在 $\text{HFSS}$ 的 $\text{Optimetrics}$ 模块中。在 $\text{HFSS}$ 中，要使用 $\text{Optimetrics}$ 模块的这些分析和设计功能，首先需要做的就是定义和添加相关变量。</p>
+<ul>
+<li>学习 $\text{HFSS}$ 中变量的定义和使用<ul>
+<li>变量的类型</li>
+<li>变量的定义</li>
+<li>设计中如何添加 / 删除 / 使用变量</li>
+</ul>
+</li>
+<li>简单学习 $\text{Optimetrics}$ 模块中的各种分析、设计功能及其使用<ul>
+<li>参数扫描分析</li>
+<li>优化设计</li>
+<li>调谐分析</li>
+<li>灵敏度分析</li>
+<li>统计分析</li>
+</ul>
+</li>
+</ul>
+<h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><p>和编程语言类似，$\text{HFSS}$ 中的变量也有自己的作用域，其类型分为工程变量（$\text{Project Variables}$）和设计变量/本地变量（$\text{Local Variables}$）。</p>
+<blockquote>
+<p>如何区分工程变量/本地变量？</p>
+<ul>
+<li>工程变量前有 “$$$” 前缀，而本地变量没有。</li>
+<li>工程变量的作用区间为整个 $\text{Project}$ ，本地作用区间为所在的 $\text{Design}$。</li>
+</ul>
+</blockquote>
+<p>$\text{Project &gt; Project Variables}$ 可以打开工程变量编辑对话框。</p>
+<p>$\text{HFSS &gt; Design Properties}$ 可以打开设计变量编辑对话框。</p>
+<p>物体模型尺寸、物体的材料属性等都可以使用变量来表示。</p>
+<h2 id="变量的定义"><a href="#变量的定义" class="headerlink" title="变量的定义"></a>变量的定义</h2><ul>
+<li><p>变量名：</p>
+<ul>
+<li>变量名可以由 数字、字母、和下划线 “_” 组成。</li>
+<li>$\text{HFSS}$ 中默认的常数（如： $\text{pi}$ ）、默认的数学函数（如：$\text{sin}$）不能用作变量名。</li>
+<li>直角坐标系坐标轴的名称 $\text{X、Y、Z}$，圆柱坐标系和球坐标坐标轴的名称 $\text{Phi、Theta、R}$ (圆柱坐标系半径)、$\text{Rho}$（球坐标系半径）也不能用作变量名。</li>
+</ul>
+</li>
+<li><p>变量值：每个变量在定义时都必须赋一个初始值，变量值可以是数值、数学表达式或者数学函数，也可以是数组、矩阵或者行列式。</p>
+<ul>
+<li>可以使用科学计数法。</li>
+<li>可以使用数学表达式，但是需注意运算符的优先级。</li>
+</ul>
+</li>
+</ul>
+<h2 id="变量的添加、删除以及使用"><a href="#变量的添加、删除以及使用" class="headerlink" title="变量的添加、删除以及使用"></a>变量的添加、删除以及使用</h2><ul>
+<li>添加/删除变量：<ul>
+<li>$\text{Project &gt; Project Variables}$ 或者 $\text{[Project Tree] Project &gt; Project Variables}$ 打开 $\text{Project Properties}$ 对话框，可以添加和删除工程变量。</li>
+<li>$\text{HFSS &gt; Design Properties}$ 或者 $\text{[Project Tree] Design &gt; Design Properties}$ 打开 $\text{Design}$<br> $\text{Properties}$ 对话框，可以添加和删除设计变量。</li>
+<li>在设计过程中，也可以直接输入未定义的变量代替设计参数。输入未定义的变量后，$\text{HFSS}$会自动弹出添加变量对话框。</li>
+</ul>
+</li>
+<li>使用变量<ul>
+<li>在 $\text{HFSS}$ 中，几乎所有的设计参数都可以使用变量来表示，例如物体模型的尺寸、物体的材料属性、边界条件相关参数等。</li>
+<li>对于已定义的变量，可以直接使用变量或者包含变量的表达式来表示设计参数。</li>
+<li>对于未定义的变量后，$\text{HFSS}$会自动弹出添加变量对话框。</li>
+</ul>
+</li>
+<li>注意：<ul>
+<li>对于材料属性参数，只能使用工程变量。</li>
+<li>每个变量在定义时都必须赋一个初始值，如果赋给变量的初始值已经指定了单位，在使用该变量时就不需要重新指定单位。</li>
+<li>由于参数扫描、优化设计、调谐分析和灵敏度分析等不支持复数，所以对于值为复数的变量，不能用于上述分析。</li>
+</ul>
+</li>
+</ul>
+<h2 id="text-Optimetrics-模块"><a href="#text-Optimetrics-模块" class="headerlink" title="$\text{Optimetrics}$ 模块"></a>$\text{Optimetrics}$ 模块</h2><p>$\text{Optimetrics}$ 是集成在 $\text{HFSS}$ 中的设计优化模块，该模块通过自动分析设计参数的变化对求解结果的影响， $\text{HFSS}$ 中 $\text{Optimetrics}$ 模块能提供如下分析设计功能。</p>
+<ul>
+<li>参数扫描分析 $\text{Parametric}$<ul>
+<li>参数扫描分析功能可以用来分析物体的性能随着指定变量的变化而变化的关系，在优化设计前一般使用参数扫描分析功能来确定被优化变量的合理变化区间。</li>
+</ul>
+</li>
+<li>优化设计 $\text{Optimization}$<ul>
+<li>忧化设计是 $\text{HFSS}$ 软件结合 $\text{Optimetrics}$ 模块根据特定的优化算法在所有可能的设计变化中寻找出一个满足设计要求的值的过程。</li>
+</ul>
+</li>
+<li>调谐分析 $\text{Tuning}$<ul>
+<li>调谐分析功能是在改变变量值的同时实时显示求解结果。</li>
+</ul>
+</li>
+<li>灵敏度分析 $\text{Sensitivity}$<ul>
+<li>灵敏度分析功能是用来分析设计参数的微小变化对求解结果的影响程度。</li>
+</ul>
+</li>
+<li>统计分析 $\text{Statistical}$<ul>
+<li>统计分析功能是利用统计学的观点来研究设计参数的容差对求解结果的影响常用的方法是蒙特卡罗（$\text{MonteCarlo}$）法。</li>
+</ul>
+</li>
+</ul>
+<h2 id="参数扫描分析"><a href="#参数扫描分析" class="headerlink" title="参数扫描分析"></a>参数扫描分析</h2><p>参数扫描分析功能是用来分析设计模型的性能随着指定变量的变化而变化的关系，在优化设计前一般使用参数扫描分析功能来确定被优化变量的合理变化区间。</p>
+<p>操作步骤：</p>
+<ul>
+<li>设置首先需要定义变量并添加求解设置项。</li>
+<li>$\text{HFSS&gt; Optimetrics Analysis &gt; Add Parametric…}$  弹出 $\text{Setup Sweep Anaysis}$ 对话框，添加扫描变量。</li>
+<li>或者选中 $\text{Project Manager}$ 中的 $\text{Optimetrics}$，单击右键 $\text{Add &gt; Parametric}$，弹出 $\text{Setup}$ $\text{Sweep}$ $\text{Anaysis}$ 对话框，添加扫描变量。</li>
+<li>设置好扫描变量之后，点击 ”$\text{Analyze}$” 就可以进行参数扫描分析。</li>
+<li>查看分析设计结果。</li>
+</ul>
+<h2 id="优化设计"><a href="#优化设计" class="headerlink" title="优化设计"></a>优化设计</h2><p>优化设计是 $\text{HFSS}$ 软件结合 $\text{Optimetrics}$ 模块在一定的约束条件下根据特定的优化算法对设计的某些参数进行调整，从所有可能的设计变化中寻找出一个满足设计要求的值。优化设计时，首先需要明确设计要求或设计目标，然后用户根据设计要求创建初始结构模型 ($\text{Nominal Design}$) 、定义设计变量并构造目标函数，最后指定优化算法进行优化。</p>
+<p>操作步骤：</p>
+<ul>
+<li><p>初始设计</p>
+<ul>
+<li>初始设计或者初始结构模型在 $\text{HFSS}$ 中称之为 $\text{Nominal Desiqn}$。用户一般根据理论知识和实际经验给出初始设计，创建初始结构模型。初始设计应该尽量接近真实值，否则会导致优化时间过长，有时甚至得不到全局最优解。</li>
+</ul>
+</li>
+<li><p>添加优化变量</p>
+<ul>
+<li>在进行优化设计时，首先需要添加优化变量。打开工程变量/设计变量编辑对话框，单击选择变量编辑对话框中的 $\text{Optimization}$ 单选按钮，此时对话框内会列出当前设计中所定义的全部工程变量或者设计变量，勾选变量对应的 $\text{Include}$ 项复选框，把该变量添加为优化变量：同时在 $\text{Nominal Value}$、$\text{Min}$ 和 $\text{Max}$ 项下的文本框可以输入优化变量的初始值、最小值和最大值。</li>
+<li>在优化设计前，一般先进行参数扫描分析，确定优化变量的初始值和合理的变化区间。</li>
+</ul>
+</li>
+<li><p>构造目标函数</p>
+<ul>
+<li>在优化设计中，为了评价设计结果的好坏以及判断设计是否已经达到要求的目标，必须定义一个判据，软件根据这个判据来决定是否需要继续进行最优搜索，这个判据就称为目标函数。</li>
+<li>目标函数需要用户根据具体的设计目标进行构造。例如<a href="https://alanturingli.gitee.io/alanturingli/2023/11/06/HFSS入门-波导优化设计/">T波导的优化设计</a>中就有详细提到操作流程。</li>
+</ul>
+</li>
+<li><p>加权函数</p>
+<ul>
+<li>在有些设计中，为了达到设计要求，需要设置多个目标函数。另外，目标函数所包含的有些性能指标是互相矛盾或互相制约的，一般很难保证全部指标都达到最优。在这两种情况下，可以给每个目标函数分配一个加权值，加权值越大，表示该目标函数越重要。</li>
+</ul>
+</li>
+<li><p>规范类型</p>
+<ul>
+<li><p>对于有多个目标函数的问题，误差函数值是所有目标函数误差值的加权和。 $\text{HFSS}$ 根据指定的规范类型来计算加权和。</p>
+</li>
+<li><script type="math/tex; mode=display">
+L_1\Rightarrow e=\sum\limits_{1}^N|w_ie_i|\newline
+L_2\Rightarrow e=\sum\limits_{1}^Nw_ie_i^2\newline
+Max \Rightarrow e=\max\limits_{1}^N w_ie_i</script></li>
+<li><p>默认为 $L_2$ 类型。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="误差分析"><a href="#误差分析" class="headerlink" title="误差分析"></a>误差分析</h3><ul>
+<li>误差函数<ul>
+<li>在定义目标函数时，目标函数可以是等于、大于等于或小于等于某个目标值:对应的，在优化设置对话框 $\text{Condition}$ 处分别选择 $&lt;=、=、&gt;=$ 。</li>
+</ul>
+</li>
+<li>优化阈值<ul>
+<li>优化阑值是优化过程终止的判别标准，当加权后总的误差值小于或等于优化阑值时，优化分析终止。优化设置对话框的左下角 $\text{Acceptable}$ 处设置优化阑值。</li>
+<li>优化阑值可以是一个复数。</li>
+</ul>
+</li>
+<li>目标噪声函数<ul>
+<li>使用有限元法分析电磁问题时，网格剖分的变化会给目标函数引入各种噪声。在使用拟牛顿优化算法和模式搜索优化算法时，需要提供噪声的估算值，以评估求解过程中的变化对目标函数的影响。</li>
+</ul>
+</li>
+</ul>
+<h3 id="优化算法"><a href="#优化算法" class="headerlink" title="优化算法"></a>优化算法</h3><ul>
+<li>拟牛顿法 $Quasi-Newton$<ul>
+<li>牛顿法的基本思想是在极小点附近通过对目标函数做二阶泰勒（ $Taylor$ ）展开，进而找到的极小点的估计值。</li>
+<li>拟牛顿法只有在目标函数的噪声很小的情况下使用是足够准确的，如果目标函数的噪声在工程是十分显著的，需要使用模式搜索优化算法来得到最优结果。</li>
+</ul>
+</li>
+<li>模式搜索法 $Pattern\; Search$<ul>
+<li>模式搜索法是求解最优化问题的一种直接搜索算法，它不用目标函数与约束函数的导数信息而只用函数值信息，是求解不可导或求导代价较大的最优化问题的一种有效算法。</li>
+<li>模式搜索法是 $Hooke$ 和 $Jeeves$ 于 $1961$ 年提出的，这种优化方法对数值噪声不敏感，因此适合于数值噪声比较显著问题的 $\text{HFSS}$ 设计工程的优化。</li>
+</ul>
+</li>
+<li>非线性顺序编程算法（$\text{SNLP}$） -    $Sequential\;Non\;Non-Linear\;Programming$<ul>
+<li>类似拟牛顿法，$\text{SNLP}$算法中引入了噪声滤波和 $RSM$ ( $Response\;Surface\;Modeling$) 技术，可以适当地降低噪声的影响，收敛速度比拟牛顿法，结果比拟牛顿法准确。</li>
+</ul>
+</li>
+<li>混合整数非线性顺序编程算法 ($\text{SMINLP}$)<ul>
+<li>$\text{SMINLP}$ 能够优化同时具有连续变量和整数变量的问题，该算法和非线性顺序编程算法相似不同点是$\text{SMINLP}$ 算法需要标记出整数变量。</li>
+</ul>
+</li>
+<li>溃传算法 - $\text{Genetic Algorithm}$<ul>
+<li>遗传算法是 $20$ 世纪 $50$ 年代初由一些生物学家尝试用计算机模拟生物系统演化时提出的。运用随机而非确定性的规则对一族而非一个点进行全局而非局部地搜索，仅利用目标函数而不要求其导数信息或其他附加限制。遗传算法虽然在特定问题上也许不是效率最高的，但其效率远高于传统随机算法，是一种普遍用于各种问题的算法。</li>
+</ul>
+</li>
+</ul>
+<h2 id="调谐分析"><a href="#调谐分析" class="headerlink" title="调谐分析"></a>调谐分析</h2><p>$\text{HFSS}$ 中的调谐分析功能是用户在手动改变变量值的同时能实时显示求解结果。例如，在执行完成一个优化分析并且得到了变量的最优值之后，可以在该最优值附近手动改变变量的值，观察变量在最优值附近扰动对设计性能的影响。针对某一变量调谐分析结束后，设计结果将随之更新。</p>
+<h2 id="灵敏度分析"><a href="#灵敏度分析" class="headerlink" title="灵敏度分析"></a>灵敏度分析</h2><p>使用 $\text{HFSS}$ 进行电磁分析的过程中，不同设计参数的变化对电磁特性的影响程度是不尽相同的。对于相同的变化量，有些参数对电磁特性的影响较大，有的则较小。为了衡量各个设计参数变化对电磁特性的影响，通常引用灵敏度的概念，用它来定量表示设计参数变化对电磁性能的影响程度。</p>
+<p>灵敏度定义为电磁特性/求解结果的变化与电路参数的变化的比值。使用 $\text{HFSS}$ 进行电磁分析时，$S$ 参数是很常用的一个分析结果。这里，以 $S$ 参数为例来说明灵敏度的定义。假设 $X<em>i(i=1，2，…， m)$ 为某一设计参数，则第 $k、j$ 两端口之间的传输系数 $S</em>{jk} (k，j=1，2，…，n)$ 对设计参数 $X_i$ 的灵敏度可以定义为：</p>
+<script type="math/tex; mode=display">
+C_{x_i}^{s_{jk}}=\frac{\part S_{jk}}{\part X_i}</script><p>灵敏度计算可以在优化设计中确定电路的关键参数，大量的计算实践表明，有些最优化方法当变量增加时收敛速度变慢，有的甚至发散，这使优化设计毫无结果。如果在优化设计前进行灵敏度分析，找出那些对电路特性有较大影响（即灵敏度较高）的关键性设计参数，并将它们作为优化变量，则不仅能大大减少计算工作量，提高优化设计效率，而且能使原来不收敛的优化过程得到良好的结果。</p>
+<h2 id="统计分析"><a href="#统计分析" class="headerlink" title="统计分析"></a>统计分析</h2><p>实际使用的元件或者制造工艺一般都有一定的误差，例如标称值为 $1nH$、容差为 $\pm 10\%$ 的二极管引线电感，其实际值将是 $0.9nH$ 到 $1.1nH$ 之间的随机值。因此，由这些元件所构成的电路模型或者这些制造工艺生产出的器件模型也具有随机特性，根据这种模型所求出的电路/电磁特性当然也是一些随机量。</p>
+<p>统计分析就是利用统计学的观点来研究设计参数容差对求解结果的影响，常用的方法是蒙特卡罗（$\text{MonteCar lo}$）法。这种方法是利用计算机产生各种不同分布的伪随机数，来模拟产生各设计参数的随机值，并对由此形成的电路/器件模型进行分析，计算出表征电路/器件各种特性参数的随机量，然后对这些随机量进行统计分类或计算，画出统计分布图。</p>
+<p>其具体分析步骤如下：</p>
+<ul>
+<li>用计算机产生伪随机数，并用它们模拟产生电路/器件各设计参数的随机值序列，然后将这些字列进行随机组合，形成电路/器件的统计分析模型；</li>
+<li>调用分析程序对电路进行分析，计算出电路/器件的各种特性参数，如输入驻波比、$S$ 参数等；</li>
+<li>对分析结果进行统计分类，画出直方图。</li>
+</ul>
+<link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/AlanTuringLi/2023/11/15/HFSS%E6%B1%82%E8%A7%A3%E7%B1%BB%E5%9E%8B%E5%92%8C%E6%B1%82%E8%A7%A3%E8%AE%BE%E7%BD%AE/" rel="next" title="HFSS求解类型和求解设置">
+                <i class="fa fa-chevron-left"></i> HFSS求解类型和求解设置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/AlanTuringLi/2223/10/22/%E5%88%9D%E8%B5%9B%E6%95%B4%E5%90%88-%E4%B8%B4%E9%97%A8%E4%B8%80%E8%84%9A/" rel="prev" title="初赛整合-临门一脚[转载&置顶]">
+                初赛整合-临门一脚[转载&置顶] <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/AlanTuringLi/images/shixiang.jpg"
+                alt="AlanTuring"/>
+            
+              <p class="site-author-name" itemprop="name">AlanTuring</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                  <a href="/AlanTuringLi/archives">
+                    <span class="site-state-item-count">129</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/AlanTuringLi/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/AlanJimmy" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;AlanJimmy" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=bg0EAQcLHC4fH0ANAQM" title="E-Mail &amp;rarr; http:&#x2F;&#x2F;mail.qq.com&#x2F;cgi-bin&#x2F;qm_share?t&#x3D;qm_mailme&amp;email&#x3D;bg0EAQcLHC4fH0ANAQM" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.luogu.com.cn/user/57896" title="Luogu &amp;rarr; https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;57896" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>Luogu</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://wpa.qq.com/msgrd?v=3&uin=1391226409&site=qq&menu=yes" title="qq &amp;rarr; http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;1391226409&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>qq</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                巨佬们
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://jklover.hs-blog.cf/" title="http:&#x2F;&#x2F;jklover.hs-blog.cf&#x2F;" rel="noopener" target="_blank">姥爷</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://denerate-cool.github.io/DeNeRATe.github.io/" title="https:&#x2F;&#x2F;denerate-cool.github.io&#x2F;DeNeRATe.github.io&#x2F;" rel="noopener" target="_blank">DeNeRATe</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://widsnoy.top/" title="https:&#x2F;&#x2F;widsnoy.top&#x2F;" rel="noopener" target="_blank">widsnoy</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.luogu.com.cn/blog/xzc/" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;xzc&#x2F;" rel="noopener" target="_blank">JK_LOVER</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/autoint/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;autoint&#x2F;" rel="noopener" target="_blank">autoint</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://dcoitheshadow.github.io/" title="https:&#x2F;&#x2F;dcoitheshadow.github.io&#x2F;" rel="noopener" target="_blank">TheShadow</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E5%86%85%E5%AE%B9"><span class="nav-number">1.</span> <span class="nav-text">学习内容</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">变量类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.2.</span> <span class="nav-text">变量的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E6%B7%BB%E5%8A%A0%E3%80%81%E5%88%A0%E9%99%A4%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8"><span class="nav-number">1.3.</span> <span class="nav-text">变量的添加、删除以及使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#text-Optimetrics-%E6%A8%A1%E5%9D%97"><span class="nav-number">1.4.</span> <span class="nav-text">$\text{Optimetrics}$ 模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E6%89%AB%E6%8F%8F%E5%88%86%E6%9E%90"><span class="nav-number">1.5.</span> <span class="nav-text">参数扫描分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.6.</span> <span class="nav-text">优化设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AF%E5%B7%AE%E5%88%86%E6%9E%90"><span class="nav-number">1.6.1.</span> <span class="nav-text">误差分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95"><span class="nav-number">1.6.2.</span> <span class="nav-text">优化算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E8%B0%90%E5%88%86%E6%9E%90"><span class="nav-number">1.7.</span> <span class="nav-text">调谐分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%81%B5%E6%95%8F%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-number">1.8.</span> <span class="nav-text">灵敏度分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90"><span class="nav-number">1.9.</span> <span class="nav-text">统计分析</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AlanTuring</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Symbols count total: </span>
+    
+    <span title="Symbols count total">537k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    
+    <span title="Reading time total">8:08</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v6.0.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/AlanTuringLi/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/AlanTuringLi/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/AlanTuringLi/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/AlanTuringLi/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/AlanTuringLi/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/AlanTuringLi/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/AlanTuringLi/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/AlanTuringLi/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/AlanTuringLi/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/AlanTuringLi/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  <script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script>
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item) > -1;
+    });
+    new Valine({
+      el: '#comments' ,
+      verify: false,
+      notify: true,
+      appId: 'xfCvMyIii2sAR6xyEmPsmrcf-gzGzoHsz',
+      appKey: 'FXxS7zIdRRCD0wjKftm4QMT8',
+      placeholder: 'Just go go',
+      avatar: 'mp',
+      meta:guest,
+      pageSize: '10' || 10,
+      visitor: false
+    });
+  </script>
+
+
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/AlanTuringLi/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "xfCvMyIii2sAR6xyEmPsmrcf-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "xfCvMyIii2sAR6xyEmPsmrcf-gzGzoHsz",
+                'X-LC-Key': "FXxS7zIdRRCD0wjKftm4QMT8",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/AlanTuringLi/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script>
+  
+    bookmark.scrollToMark('auto', "#more");
+  
+  </script>
+
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+          if (result) $(this).text('Copied');
+          else $(this).text('Copy failed');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function () {
+          $b.text('Copy');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>
