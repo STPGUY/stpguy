@@ -7559,7 +7559,7 @@ e^{\gamma_1l_1} & 0 & 0\newline
     <title>HFSS中的边界条件</title>
     <url>/AlanTuringLi/2023/11/12/HFSS%E4%B8%AD%E7%9A%84%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6/</url>
     <content><![CDATA[<h1 id="关于边界条件"><a href="#关于边界条件" class="headerlink" title="关于边界条件"></a>关于边界条件</h1><p>在电磁场理论学习中我们知道，电磁场问题的求解都归结于麦克斯韦 ($\text{Maxwell}$) 方程组的求解在 $\text{HFSS}$ 中波动方程的求解同样是由微分形式的麦克斯韦方程推导出来的。而边界条件定义了求解区域的边界以及不同物体交界处的电磁场特性，是求解麦克斯韦方程的基础。<br>只有在假定场矢量是单值、有界、并且沿空间连续分布的前提下，微分形式的麦克斯韦方程组才是有效的；而在求解区域的边界、不同介质的交界处私场源处，场矢量是不连续的，那么场的导数也就失去了意义。边界条件就是定义跨越不连续边界处的电磁场的特性，因此，正确地理解、定义并设置边界条件，是正确使用 $\text{HFSS}$ 仿真分析电磁场场特性的前提。<br>使用 $\text{HFSS}$ 时，用户应该时刻意识到: 边界条件确定场。正确地使用边界条件，是$\text{HFSS}$能够仿真分析出准确结果的前提。</p>
-<h1 id="调整边界条件的优先级"><a href="#调整边界条件的优先级" class="headerlink" title="调整边界条件的优先级"></a>调整边界条件的优先级</h1><p><img src="./HFSS中的边界条件/image-20231112203416703.png" alt="image-20231112203416703"></p>
+<h1 id="调整边界条件的优先级"><a href="#调整边界条件的优先级" class="headerlink" title="调整边界条件的优先级"></a>调整边界条件的优先级</h1><p><img src="./image-20231112203416703.png" alt="image-20231112203416703"></p>
 <h1 id="边界条件的详细说明"><a href="#边界条件的详细说明" class="headerlink" title="边界条件的详细说明"></a>边界条件的详细说明</h1><p>在<a href="https://alanturingli.gitee.io/alanturingli/2023/11/06/HFSS功能概述/">这篇</a> $\text{Blog}$ 中有简单提到边界条件的大致使用，这里详细展开说明一下。</p>
 <h2 id="1-理想导体边界条件-text-Perfect-E"><a href="#1-理想导体边界条件-text-Perfect-E" class="headerlink" title="1. 理想导体边界条件 $\text{Perfect E}$"></a>1. 理想导体边界条件 $\text{Perfect E}$</h2><p>$\text{Perfect E}$ 是一种理想电导体或简称为理想导体边界条件。这种边界条件的电场垂直于表面。有两种边界被自动设为理想导体边界条件：</p>
 <ul>
@@ -7960,11 +7960,11 @@ Z_0=\frac{376.7}{2\pi\sqrt{\epsilon_e}}\ln\left[\frac{6+(2\pi-6)e^{-(\frac{30.67
 </li>
 </ul>
 <h2 id="定义变量并进行参数扫描分析"><a href="#定义变量并进行参数扫描分析" class="headerlink" title="定义变量并进行参数扫描分析"></a>定义变量并进行参数扫描分析</h2><p>在特定 $\text{Hight}$ 下，微带线的特征阻抗随 $\text{Width}$ 的变化曲线：</p>
-<p><img src="./Optimetrics模块设计/image-20231120203849139.png" alt="image-20231120203849139"></p>
+<p><img src="./image-20231120203849139.png" alt="image-20231120203849139"></p>
 <p>在特定 $\text{Width}$ 下，微带线的特征阻抗随 $\text{Hight}$ 的变化曲线：</p>
-<p><img src="./Optimetrics模块设计/image-20231120204434452.png" alt="image-20231120204434452"></p>
+<p><img src="./image-20231120204434452.png" alt="image-20231120204434452"></p>
 <h2 id="对宽度进行优化分析"><a href="#对宽度进行优化分析" class="headerlink" title="对宽度进行优化分析"></a>对宽度进行优化分析</h2><p>设置优化范围并进行优化分析，通过优化数据再次仿真，得到数据：</p>
-<p><img src="./Optimetrics模块设计/image-20231120221048766.png" alt="image-20231120221048766"></p>
+<p><img src="./image-20231120221048766.png" alt="image-20231120221048766"></p>
 <p>后面的几项设置也都是在 $\text{HFSS &gt; Properties}$ 中进行，就不列举了。</p>
 <link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <tags>
