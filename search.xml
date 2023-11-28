@@ -7750,7 +7750,7 @@ e^{\gamma_1l_1} & 0 & 0\newline
 <blockquote>
 <p>如何区分工程变量/本地变量？</p>
 <ul>
-<li>工程变量前有 “$$$” 前缀，而本地变量没有。</li>
+<li>工程变量前有 “$” 前缀，而本地变量没有。</li>
 <li>工程变量的作用区间为整个 $\text{Project}$ ，本地作用区间为所在的 $\text{Design}$。</li>
 </ul>
 </blockquote>
@@ -7915,5 +7915,100 @@ C_{x_i}^{s_{jk}}=\frac{\part S_{jk}}{\part X_i}</script><p>灵敏度计算可以
 <li>对分析结果进行统计分类，画出直方图。</li>
 </ul>
 <link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <tags>
+        <tag>HFSS入门</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Optimetrics模块设计</title>
+    <url>/AlanTuringLi/2023/11/20/Optimetrics%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[<h1 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h1><iframe src="//player.bilibili.com/player.html?aid=385016188&bvid=BV1vZ4y1q7gt&cid=749632133&p=15&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 500px; max-width: 100%；align:center; padding:20px 0;"> </iframe>
+
+<p>$\text{Optimetrics}$ 简介参考<a href="https://alanturingli.gitee.io/alanturingli/2023/11/16/HFSS变量设置/">这篇博客</a>。</p>
+<p>以一个微带线特征阻抗分析实例来学习 $\text{Optimetrics}$ 模块进行参数扫描分析、优化设计、调谐分析、以及灵敏度和统计分析的具体操作。</p>
+<p>假设微带线的宽度为 $w$，介质层的厚度为 $h$，介质的相对介电常数为 $e$ ，根据理论分析可知，则微带线的特征阻抗：</p>
+<script type="math/tex; mode=display">
+Z_0=\frac{376.7}{2\pi\sqrt{\epsilon_e}}\ln\left[\frac{6+(2\pi-6)e^{-(\frac{30.67}{w/h})^{0.7528}}}{w/h}+\sqrt{1+(2h/w)^2}\right]\\
+\epsilon_e=\frac{\epsilon_r+1}2+\frac{\epsilon_r-1}2(1+\frac{10h}w)^{-0.564(1+\frac1{49}
+\ln\frac{(w/h)^2+(w/52h)^2}{(w/h)^2+0.432}+\frac1{18,7}\ln[1+\frac{w}{18.1h}])(\frac{s-0.9}{s+3})^{0.053}}</script><p>初始设计中，微带线材料为铜箔，厚度为 $35\mu m$ (1盎司)，宽度为 $1\mathrm{mm}$；介质层使用 $\text{FR4}$ 材料，厚度为$0.5\mathrm{mm}$，空气腔 长 X 宽 X 高为 $16\mathrm{mm}\times10\mathrm{mm}\times5\mathrm{mm}$ 。</p>
+<p>选择模式驱动求解，空气腔的前后表面设置为波端口激励，求解频率设置为 $1\mathrm{GHz}$ 。</p>
+<ul>
+<li>定义和使用变量<ul>
+<li>首先定义两个设计变量 $\text{width}$ 和 $\text{height}$ ，分别用于表示微带线的宽度和介质层的厚度。</li>
+<li>因为微带线始终位于介质层正上方，同时为了让微带线始终位于介质层的中心位置，所以微带线起始点坐标也需要使用变量表示，坐标设置为 ($\text{-8mm，-width/2，height}$)。</li>
+</ul>
+</li>
+<li>参数扫描分析<ul>
+<li>分析微带线的特征阻抗随着微带线宽度 $\text{width}$ 和介质层厚度 $\text{height }$的变化关系。</li>
+</ul>
+</li>
+<li>优化设计<ul>
+<li>优化设计的目标是:当工作频率为 $\text{1GHZ}$ 时，在保持介质层厚度 $\text{height=0.5mm}$ 不变的情况下，改变微带线宽度 $\text{width}$，使微带线的特征阻抗达到 $50\Omega$。</li>
+</ul>
+</li>
+<li>调谐分析<ul>
+<li>手动改变变量 $\text{height}$ 和 $\text{Width}$ 的值，使用调协分析功能实时显示求解结果。</li>
+</ul>
+</li>
+<li>灵敏度分析<ul>
+<li>从优化分析结果可知，在 $\text{width} = 0.806\mathrm{mm}$，$\text{height} = 0.5\mathrm{mm}$ 时微带线的特征阻抗约为 $50\Omega$；这里在 $\text{width} = 0.806\mathrm{mm}，\text{height} =0.5\mathrm{mm}$ 附近分析两个变量的变化对微带线的特征阻抗的影响。</li>
+</ul>
+</li>
+<li>统计分析<ul>
+<li>假设 $\text{width}$ 和 $\text{height}$ 制造误差为 $\pm10\%$，且均匀分布，分析此时微带线的特征阻抗的统计分布情况。</li>
+</ul>
+</li>
+</ul>
+<h2 id="定义变量并进行参数扫描分析"><a href="#定义变量并进行参数扫描分析" class="headerlink" title="定义变量并进行参数扫描分析"></a>定义变量并进行参数扫描分析</h2><p>在特定 $\text{Hight}$ 下，微带线的特征阻抗随 $\text{Width}$ 的变化曲线：</p>
+<p><img src="./Optimetrics模块设计/image-20231120203849139.png" alt="image-20231120203849139"></p>
+<p>在特定 $\text{Width}$ 下，微带线的特征阻抗随 $\text{Hight}$ 的变化曲线：</p>
+<p><img src="./Optimetrics模块设计/image-20231120204434452.png" alt="image-20231120204434452"></p>
+<h2 id="对宽度进行优化分析"><a href="#对宽度进行优化分析" class="headerlink" title="对宽度进行优化分析"></a>对宽度进行优化分析</h2><p>设置优化范围并进行优化分析，通过优化数据再次仿真，得到数据：</p>
+<p><img src="./Optimetrics模块设计/image-20231120221048766.png" alt="image-20231120221048766"></p>
+<p>后面的几项设置也都是在 $\text{HFSS &gt; Properties}$ 中进行，就不列举了。</p>
+<link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <tags>
+        <tag>HFSS入门</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pip换源操作</title>
+    <url>/AlanTuringLi/2023/11/22/pip%E6%8D%A2%E6%BA%90%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h1 id="国内常用镜像源："><a href="#国内常用镜像源：" class="headerlink" title="国内常用镜像源："></a>国内常用镜像源：</h1><ul>
+<li><p>中科大源：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">https://pypi.mirrors.ustc.edu.cn/simple</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清华源：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>豆瓣</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">http://pypi.douban.com/simple/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>阿里</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>华中科技大学</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">http://pypi.hustunique.com/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>山东理工大学</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">http://pypi.hustunique.com/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>搜狐</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">http://mirrors.sohu.com/Python/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>百度</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">https://mirror.baidu.com/pypi/simple</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="修改默认源"><a href="#修改默认源" class="headerlink" title="修改默认源"></a>修改默认源</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip config set global.index-url https://mirror.baidu.com/pypi/simple</span><br></pre></td></tr></table></figure>
+<link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <tags>
+        <tag>pip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>A Pixelated Microwave Near-Field Sensor for Precise Characterization of Dielectric Materials</title>
+    <url>/AlanTuringLi/2023/11/27/A-Pixelated-Microwave-Near-Field-Sensor-for-Precise-Characterization-of-Dielectric-Materials/</url>
+    <content><![CDATA[<link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>]]></content>
   </entry>
 </search>
