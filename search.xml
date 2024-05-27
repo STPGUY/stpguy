@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>[AFOI]区间与除法</title>
-    <url>/AlanTuringLi/2020/09/16/AFOI-%E5%8C%BA%E9%97%B4%E4%B8%8E%E9%99%A4%E6%B3%95/</url>
+    <url>/STPGUY/2020/09/16/AFOI-%E5%8C%BA%E9%97%B4%E4%B8%8E%E9%99%A4%E6%B3%95/</url>
     <content><![CDATA[<h1 id="AFOI-区间与除法"><a href="#AFOI-区间与除法" class="headerlink" title="[AFOI]区间与除法"></a><a href="https://www.luogu.com.cn/problem/P5629">[AFOI]区间与除法</a></h1><h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意:"></a>题目大意:</h2><p>给定一个序列$A$, 叫操作序列, 序列$B$, 叫原序列</p>
 <p>给定一个除数$d$, 若$A_i$能够通过不断整除$d$变成$B_j$, 那么就称作$A_i$可以被$B_j$消除</p>
 <p>有$q$次询问, 每次询问给定一个区间$[l,r]$</p>
@@ -27,7 +27,7 @@
   </entry>
   <entry>
     <title>[APIO2014]序列分割</title>
-    <url>/AlanTuringLi/2020/10/06/APIO2014-%E5%BA%8F%E5%88%97%E5%88%86%E5%89%B2/</url>
+    <url>/STPGUY/2020/10/06/APIO2014-%E5%BA%8F%E5%88%97%E5%88%86%E5%89%B2/</url>
     <content><![CDATA[<h1 id="APIO2014-序列分割"><a href="#APIO2014-序列分割" class="headerlink" title="[APIO2014]序列分割"></a><a href="https://www.luogu.com.cn/problem/P3648">[APIO2014]序列分割</a></h1><p>可以直接看一下式子：</p>
 <script type="math/tex; mode=display">
 f(i,k)=\min_{j=1}^{i=1}\{f(j,k-1)+s_j(s_i-s_j)\}</script><p>因为这个只与上一维的状态有关，所以是可以滚掉一维的，那么令上一维的状态为$g$，这一维的状态就为$f$</p>
@@ -48,7 +48,7 @@ g(j)+s_js_i-{s_j}^2&> g(k)+s_ks_i-{s_k}^2\\
   </entry>
   <entry>
     <title>ARC102D</title>
-    <url>/AlanTuringLi/2020/11/22/ARC102D/</url>
+    <url>/STPGUY/2020/11/22/ARC102D/</url>
     <content><![CDATA[<h1 id="ARC102D"><a href="#ARC102D" class="headerlink" title="ARC102D"></a><a href="https://www.luogu.com.cn/problem/AT4363">ARC102D</a></h1><p>考虑一次交换操作从 $c,b,a$ 变成 $a,b,c$，减少了 $3$ 对逆序对 $(c,b),c(c,a),(b,a)$，然后一次操作也不会改变一个点的位置的奇偶性。</p>
 <p>这指明了两条信息：</p>
 <ul>
@@ -73,7 +73,7 @@ g(j)+s_js_i-{s_j}^2&> g(k)+s_ks_i-{s_k}^2\\
   </entry>
   <entry>
     <title>CF1139D</title>
-    <url>/AlanTuringLi/2020/10/15/CF1139D/</url>
+    <url>/STPGUY/2020/10/15/CF1139D/</url>
     <content><![CDATA[<h1 id="CF1139D-Step-to-One"><a href="#CF1139D-Step-to-One" class="headerlink" title="CF1139D Step to One"></a><a href="https://www.luogu.com.cn/problem/CF1139D">CF1139D Step to One</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>你手中有集合 ${1,2,3\cdots,n}$，然后每一次操作你都会从数集中等概率抽取一个数放到新的序列中，直到新的序列的 $\gcd$ 的值为 $1$。</p>
 <p>求你的期望操作次数</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>这道题十分的精妙，它集合了数学期望还有莫比乌斯反演，十分考验 $OIER$ 的基础能力</p>
@@ -125,7 +125,7 @@ E(\gcd=1)&=1+\sum_{j\ge1}P(len>j)\\
   </entry>
   <entry>
     <title>CF920G List of Integers</title>
-    <url>/AlanTuringLi/2020/09/25/CF920G/</url>
+    <url>/STPGUY/2020/09/25/CF920G/</url>
     <content><![CDATA[<h1 id="List-of-Intergers"><a href="#List-of-Intergers" class="headerlink" title="List of Intergers"></a><a href="https://www.luogu.com.cn/problem/CF920G">List of Intergers</a></h1><h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>求第$k$大的大于等于 $x$ 且与 $p$ 互质的数</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>即，求最小的 $y$ 使：</p>
 <script type="math/tex; mode=display">
@@ -166,7 +166,7 @@ f(x)=\sum_{i=1}^x[i\perp p]</script><p>当$f(y)-f(y-1)=1$时，当且仅当$[y\p
   </entry>
   <entry>
     <title>CF932D Tree</title>
-    <url>/AlanTuringLi/2020/09/04/CF932D/</url>
+    <url>/STPGUY/2020/09/04/CF932D/</url>
     <content><![CDATA[<h1 id="CF932D-Tree"><a href="#CF932D-Tree" class="headerlink" title="CF932D Tree"></a><a href="https://www.luogu.com.cn/problem/CF932D">CF932D Tree</a></h1><h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><ul>
 <li>首先，我们有$Q$次操作</li>
 </ul>
@@ -193,7 +193,7 @@ f(x)=\sum_{i=1}^x[i\perp p]</script><p>当$f(y)-f(y-1)=1$时，当且仅当$[y\p
   </entry>
   <entry>
     <title>CODEFORCES</title>
-    <url>/AlanTuringLi/2022/10/20/CODEFORCES/</url>
+    <url>/STPGUY/2022/10/20/CODEFORCES/</url>
     <content><![CDATA[<h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><p>$CF$ 的比赛整体来说不是没法做的，题目都很巧妙，所以审题，打开思路很重要！</p>
 <link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <tags>
@@ -203,7 +203,7 @@ f(x)=\sum_{i=1}^x[i\perp p]</script><p>当$f(y)-f(y-1)=1$时，当且仅当$[y\p
   </entry>
   <entry>
     <title>CF997C</title>
-    <url>/AlanTuringLi/2020/12/02/CF997C/</url>
+    <url>/STPGUY/2020/12/02/CF997C/</url>
     <content><![CDATA[<h1 id="CF997C-Sky-Full-of-Stars"><a href="#CF997C-Sky-Full-of-Stars" class="headerlink" title="CF997C Sky Full of Stars"></a><a href="https://www.luogu.com.cn/problem/CF997C">CF997C Sky Full of Stars</a></h1><p>这道题的第一想法就是用总方案数减去不合法的方案，显然不合法的方案就是没有一行 / 一列 是全部相同的。</p>
 <p>那么这就可以把行列分开讨论：</p>
 <ul>
@@ -237,7 +237,7 @@ ans = 3^{n^2}-\left((3^n-3)^n+\sum\limits_{i=1}^n(-1)^i\binom ni\left(3\times\le
   </entry>
   <entry>
     <title>[CQOI2017]小Q的表格</title>
-    <url>/AlanTuringLi/2020/09/21/CQOI2017-%E5%B0%8FQ%E7%9A%84%E8%A1%A8%E6%A0%BC/</url>
+    <url>/STPGUY/2020/09/21/CQOI2017-%E5%B0%8FQ%E7%9A%84%E8%A1%A8%E6%A0%BC/</url>
     <content><![CDATA[<h1 id="CQOI2017-小Q的表格"><a href="#CQOI2017-小Q的表格" class="headerlink" title="[CQOI2017]小Q的表格"></a><a href="https://www.luogu.com.cn/problem/P3700">[CQOI2017]小Q的表格</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个表格，满足：</p>
 <ul>
 <li>$\forall a,b\;f(a,b)=f(b,a)$</li>
@@ -301,7 +301,7 @@ ans= \sum_{d=1}^ng(d)\sum_{i=1}^{\left\lfloor\frac nd\right\rfloor}i^2\varphi(i)
   </entry>
   <entry>
     <title>Closest Equals</title>
-    <url>/AlanTuringLi/2020/09/15/Closest-Equals/</url>
+    <url>/STPGUY/2020/09/15/Closest-Equals/</url>
     <content><![CDATA[<h1 id="Closest-Equals"><a href="#Closest-Equals" class="headerlink" title="Closest Equals"></a><a href="https://ac.nowcoder.com/acm/problem/110867">Closest Equals</a></h1><h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意:"></a>题目大意:</h2><p>给你一串数,有$m$次询问,每次求问一个区间$[l,r]$,问在区间内最近的两个相同的数的距离是多少</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析:"></a>分析:</h2><p>第一反应就是记录一下这个值上一次出现的位置,这就可以记录一次答案了</p>
 <p>然后可以构造出一个新的序列,因为当某两个可行的数在另外两个可行的数内时,外面的数是没有贡献的</p>
@@ -316,7 +316,7 @@ ans= \sum_{d=1}^ng(d)\sum_{i=1}^{\left\lfloor\frac nd\right\rfloor}i^2\varphi(i)
   </entry>
   <entry>
     <title>HAOI2015树上染色</title>
-    <url>/AlanTuringLi/2020/07/21/HAOI2015%E6%A0%91%E4%B8%8A%E6%9F%93%E8%89%B2/</url>
+    <url>/STPGUY/2020/07/21/HAOI2015%E6%A0%91%E4%B8%8A%E6%9F%93%E8%89%B2/</url>
     <content><![CDATA[<h1 id="HAOI2015-树上染色"><a href="#HAOI2015-树上染色" class="headerlink" title="[HAOI2015]树上染色"></a><a href="https://loj.ac/problem/2124">[HAOI2015]树上染色</a></h1><p>简单的说, 就是求树上所有边对答案的贡献之和</p>
 <p>我们可以用$Dp[i][j]$表示以$i$为根的子树内, 有$j$个点为黑点的情况下, 这个子树中的边对答案的贡献之和</p>
 <p>每次新加入一个$i$的子节点时, 另新节点中有$k$个黑点, 那么:</p>
@@ -332,7 +332,7 @@ Dp[i][j]=max(Dp[i][j],\; Dp[i][j-k]+Dp[i_{new}]+W_{new}*Times);\\
   </entry>
   <entry>
     <title>HDU6035 Colorful Tree</title>
-    <url>/AlanTuringLi/2020/07/21/HDU6035%20Colorful%20Tree/</url>
+    <url>/STPGUY/2020/07/21/HDU6035%20Colorful%20Tree/</url>
     <content><![CDATA[<h1 id="Colorful-Tree"><a href="#Colorful-Tree" class="headerlink" title="Colorful Tree"></a><a href="https://vjudge.net/problem/HDU-6035">Colorful Tree</a></h1><p>简言之, 求总权值减去不合法的权值</p>
 <p>即对于每种颜色, 求不经过这种颜色的边的个数</p>
 <p>考虑删除这种颜色, 那么剩下的点会构成几个连通块, 对于每个连通块的权值都为$Size*(Size-1)/2$</p>
@@ -345,7 +345,7 @@ Dp[i][j]=max(Dp[i][j],\; Dp[i][j-k]+Dp[i_{new}]+W_{new}*Times);\\
   </entry>
   <entry>
     <title>[HEOI]2015公约数序列</title>
-    <url>/AlanTuringLi/2020/09/25/HEOI-2015%E5%85%AC%E7%BA%A6%E6%95%B0%E5%BA%8F%E5%88%97/</url>
+    <url>/STPGUY/2020/09/25/HEOI-2015%E5%85%AC%E7%BA%A6%E6%95%B0%E5%BA%8F%E5%88%97/</url>
     <content><![CDATA[<h1 id="HEOI2015-公约数数列"><a href="#HEOI2015-公约数数列" class="headerlink" title="[HEOI2015]公约数数列"></a><a href="https://www.luogu.com.cn/problem/P4108">[HEOI2015]公约数数列</a></h1><h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>给定一个序列，有两种操作</p>
 <ul>
 <li>修改第 $id$ 个数，让它变成$x$</li>
@@ -368,7 +368,7 @@ Dp[i][j]=max(Dp[i][j],\; Dp[i][j-k]+Dp[i_{new}]+W_{new}*Times);\\
   </entry>
   <entry>
     <title>[HEOI2014]南园满地推轻絮</title>
-    <url>/AlanTuringLi/2020/09/03/HEOI2014-%E5%8D%97%E5%9B%AD%E6%BB%A1%E5%9C%B0%E6%8E%A8%E8%BD%BB%E7%B5%AE/</url>
+    <url>/STPGUY/2020/09/03/HEOI2014-%E5%8D%97%E5%9B%AD%E6%BB%A1%E5%9C%B0%E6%8E%A8%E8%BD%BB%E7%B5%AE/</url>
     <content><![CDATA[<h1 id="HEOI2014-南园满地推轻絮"><a href="#HEOI2014-南园满地推轻絮" class="headerlink" title="[HEOI2014]南园满地推轻絮"></a><a href="https://www.luogu.com.cn/problem/P4105">[HEOI2014]南园满地推轻絮</a></h1><h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p>就是二分去找$\max(x)$, 满足$|a_i-b_i|\le x$</p>
 <p>那么就是要让$b_i$尽可能小的满足$a_i-b_i&lt;x$，然后在保证$b_i$单调不下降的情况下，不等式是否成立</p>
 <blockquote>
@@ -384,7 +384,7 @@ Dp[i][j]=max(Dp[i][j],\; Dp[i][j-k]+Dp[i_{new}]+W_{new}*Times);\\
   </entry>
   <entry>
     <title>HFSS入门-T形波导的内场分析</title>
-    <url>/AlanTuringLi/2023/11/05/HFSS%E5%85%A5%E9%97%A8-T%E5%BD%A2%E6%B3%A2%E5%AF%BC%E7%9A%84%E5%86%85%E5%9C%BA%E5%88%86%E6%9E%90/</url>
+    <url>/STPGUY/2023/11/05/HFSS%E5%85%A5%E9%97%A8-T%E5%BD%A2%E6%B3%A2%E5%AF%BC%E7%9A%84%E5%86%85%E5%9C%BA%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<h1 id="学习内容："><a href="#学习内容：" class="headerlink" title="学习内容："></a>学习内容：</h1><iframe src="//player.bilibili.com/player.html?aid=385016188&bvid=BV1vZ4y1q7gt&cid=749436701&p=2&high_quality=1&danmaku=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 500px; max-width: 100%；align:center; padding:20px 0;"> </iframe>
 
 <ul>
@@ -426,7 +426,7 @@ Dp[i][j]=max(Dp[i][j],\; Dp[i][j-k]+Dp[i_{new}]+W_{new}*Times);\\
   </entry>
   <entry>
     <title>K-D Tree</title>
-    <url>/AlanTuringLi/2022/09/22/K-D-Tree/</url>
+    <url>/STPGUY/2022/09/22/K-D-Tree/</url>
     <content><![CDATA[<h1 id="K-D-Tree"><a href="#K-D-Tree" class="headerlink" title="$K-D\;Tree$"></a>$K-D\;Tree$</h1><p>处理高维空间的数据结构</p>
 <h2 id="建树"><a href="#建树" class="headerlink" title="建树"></a>建树</h2><p>每次取离散化程度最高的维度的中点作为一个节点，所以整个建树的过程与归并排序类似（这里用 $k = 2$ 举例）：</p>
  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">Build</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &gt; r) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">mid</span><span class="params">((l + r) &gt;&gt; <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">AvergX</span><span class="params">(<span class="number">0</span>)</span>, <span class="title">AvergY</span><span class="params">(<span class="number">0</span>)</span>, <span class="title">ValX</span><span class="params">(<span class="number">0</span>)</span>, <span class="title">ValY</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = l; i &lt;= r; ++i) &#123;</span><br><span class="line">        AvergX += P[i].x;</span><br><span class="line">        AvergY += P[i].y;</span><br><span class="line">    &#125;</span><br><span class="line">    AvergX /= (r - l + <span class="number">1.0</span>), AvergY /= (r - l + <span class="number">1.0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = l; i &lt;= r; ++i) &#123;</span><br><span class="line">        ValX += <span class="built_in">pow</span>(P[i].x - AvergX);</span><br><span class="line">        ValY += <span class="built_in">pow</span>(P[i].y - AvergY);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (ValX &gt; ValY) <span class="built_in">nth_element</span> (P + l, P + mid, P + r + <span class="number">1</span>, CompareX);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">nth_element</span> (P + l, P + mid, P + r + <span class="number">1</span>, CompareY);</span><br><span class="line"></span><br><span class="line">    Son[mid][<span class="number">0</span>] = <span class="built_in">Build</span> (l, mid - <span class="number">1</span>);</span><br><span class="line">    Son[mid][<span class="number">1</span>] = <span class="built_in">Build</span> (mid + <span class="number">1</span>, r);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> mid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -527,7 +527,7 @@ Dp[i][j]=max(Dp[i][j],\; Dp[i][j-k]+Dp[i_{new}]+W_{new}*Times);\\
   </entry>
   <entry>
     <title>MIPS汇编入门</title>
-    <url>/AlanTuringLi/2022/08/26/MIPS%E6%B1%87%E7%BC%96%E5%85%A5%E9%97%A8/</url>
+    <url>/STPGUY/2022/08/26/MIPS%E6%B1%87%E7%BC%96%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[<div class="table-container">
 <table>
 <thead>
@@ -557,7 +557,7 @@ Dp[i][j]=max(Dp[i][j],\; Dp[i][j-k]+Dp[i_{new}]+W_{new}*Times);\\
   </entry>
   <entry>
     <title>JSOI2011 柠檬</title>
-    <url>/AlanTuringLi/2020/11/21/JSOI2011-%E6%9F%A0%E6%AA%AC/</url>
+    <url>/STPGUY/2020/11/21/JSOI2011-%E6%9F%A0%E6%AA%AC/</url>
     <content><![CDATA[<h1 id="JSOI2011-柠檬"><a href="#JSOI2011-柠檬" class="headerlink" title="[JSOI2011]柠檬"></a><a href="https://www.luogu.com.cn/problem/P5504">[JSOI2011]柠檬</a></h1><p>还是先有一些约定：</p>
 <ul>
 <li>$f_i$ 表示到消除到 $i$ 时的最大值。</li>
@@ -590,7 +590,7 @@ f_{j-1}-2c_is_is_j+c_i{s_j}^2-f_{k-1}-2c_is_is_k+c_i{s_k}^2&>c_i(s_k-s_j)\\
   </entry>
   <entry>
     <title>MooFest</title>
-    <url>/AlanTuringLi/2020/09/15/MooFest/</url>
+    <url>/STPGUY/2020/09/15/MooFest/</url>
     <content><![CDATA[<h1 id="MooFest"><a href="#MooFest" class="headerlink" title="MooFest"></a><a href="https://www.luogu.com.cn/problem/P5094">MooFest</a></h1><h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>其实我们发现这个$\max$十分不好维护</p>
 <p>就是说，如果已经保证了$v_i\ge v_j$，那么原式可以写为</p>
 <script type="math/tex; mode=display">
@@ -614,7 +614,7 @@ sum\{x_p[x_p>x_i]\}-cnt\{[x_p>x_i]\}*x_i+cnt\{[x_p<x_i]\}*x_i-sum\{x_p[x_p<x_i]\
   </entry>
   <entry>
     <title>[NOI2015]寿司晚宴</title>
-    <url>/AlanTuringLi/2020/10/07/NOI2015-%E5%AF%BF%E5%8F%B8%E6%99%9A%E5%AE%B4/</url>
+    <url>/STPGUY/2020/10/07/NOI2015-%E5%AF%BF%E5%8F%B8%E6%99%9A%E5%AE%B4/</url>
     <content><![CDATA[<h1 id="NOI2015-寿司晚宴"><a href="#NOI2015-寿司晚宴" class="headerlink" title="[NOI2015]寿司晚宴"></a><a href="https://www.luogu.com.cn/problem/P2150">[NOI2015]寿司晚宴</a></h1><h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>你有数集 ${1,2,3\cdots n-1}$ ，问你把这些数分派到两个集合中（可以是空集）且这两个集合的没有公共的素因子的方案数</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>这个是可以暴力枚举的，期望 $30$ 分？</p>
 <p>考虑把所有数的素因子列出来，可以发现，对于每个数，它一定不会有两个及以上大于 $22$ 的素因子</p>
@@ -631,7 +631,7 @@ sum\{x_p[x_p>x_i]\}-cnt\{[x_p>x_i]\}*x_i+cnt\{[x_p<x_i]\}*x_i-sum\{x_p[x_p<x_i]\
   </entry>
   <entry>
     <title>[NOI2018]屠龙勇士</title>
-    <url>/AlanTuringLi/2020/09/23/NOI2018-%E5%B1%A0%E9%BE%99%E5%8B%87%E5%A3%AB/</url>
+    <url>/STPGUY/2020/09/23/NOI2018-%E5%B1%A0%E9%BE%99%E5%8B%87%E5%A3%AB/</url>
     <content><![CDATA[<h1 id="NOI2018-屠龙勇士"><a href="#NOI2018-屠龙勇士" class="headerlink" title="[NOI2018]屠龙勇士"></a><a href="https://www.luogu.com.cn/problem/P4774">[NOI2018]屠龙勇士</a></h1><h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>你有一些刀，然后要去杀龙吃</p>
 <p>没把刀都有自己的攻击力</p>
 <p>然后固定每次砍它多少刀，然后龙还会回血。。。</p>
@@ -661,7 +661,7 @@ atk_3\cdot x\equiv a_3\pmod {p_3}\\
   </entry>
   <entry>
     <title>Min_25筛</title>
-    <url>/AlanTuringLi/2020/09/20/Min-25%E7%AD%9B/</url>
+    <url>/STPGUY/2020/09/20/Min-25%E7%AD%9B/</url>
     <content><![CDATA[<h1 id="Min-25筛"><a href="#Min-25筛" class="headerlink" title="Min_25筛"></a>Min_25筛</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>用来处理积性函数前缀和的不错选择， 时间复杂度为$O(\frac{n^{\frac 34}}{\log_2n})$，空间复杂度为$O(\sqrt n)$</p>
 <p><strong>限制：</strong>要求质数$p$处的函数值是个多项式，且$p^k$处的函数值也容易计算</p>
 <p><strong>规定：</strong></p>
@@ -782,7 +782,7 @@ S(n,j)=g(n,cnt)-g(p_j,j)+\sum_{k=j}^{p_k^2\le n}\sum_{e=1}^{p_k^e\le n}F(p_k^e)(
   </entry>
   <entry>
     <title>NOI2020游记</title>
-    <url>/AlanTuringLi/2020/08/18/NOI2020%E6%B8%B8%E8%AE%B0/</url>
+    <url>/STPGUY/2020/08/18/NOI2020%E6%B8%B8%E8%AE%B0/</url>
     <content><![CDATA[
 
 	<div class="row">
@@ -802,7 +802,7 @@ S(n,j)=g(n,cnt)-g(p_j,j)+\sum_{k=j}^{p_k^2\le n}\sum_{e=1}^{p_k^e\le n}F(p_k^e)(
   </entry>
   <entry>
     <title>NOIP2019</title>
-    <url>/AlanTuringLi/2020/09/16/NOIP2019/</url>
+    <url>/STPGUY/2020/09/16/NOIP2019/</url>
     <content><![CDATA[<h1 id="Day1T1-格雷码"><a href="#Day1T1-格雷码" class="headerlink" title="Day1T1 格雷码"></a>Day1T1 <a href="https://www.luogu.com.cn/problem/P5657">格雷码</a></h1><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>这个找找规律模拟一下即可, 注意要开$\text{ULL}$, 否则会挂掉</p>
 <p><del>规律记不得了</del></p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">N</span><span class="params">(<span class="number">1</span>)</span>, M, K</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; M &gt;&gt; K;</span><br><span class="line">    <span class="keyword">while</span> (--M) N &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (N)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (K &gt;= N) <span class="built_in">putchar</span>(<span class="string">&#x27;1&#x27;</span>), K = N - K % N - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">putchar</span>(<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">        N &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -827,7 +827,7 @@ S(n,j)=g(n,cnt)-g(p_j,j)+\sum_{k=j}^{p_k^2\le n}\sum_{e=1}^{p_k^e\le n}F(p_k^e)(
   </entry>
   <entry>
     <title>CF703D Mishaka and Interesting sum</title>
-    <url>/AlanTuringLi/2020/09/15/Mishaka-and-Interesting-sum/</url>
+    <url>/STPGUY/2020/09/15/Mishaka-and-Interesting-sum/</url>
     <content><![CDATA[<h1 id="CF703D-Mishka-and-Interesting-sum"><a href="#CF703D-Mishka-and-Interesting-sum" class="headerlink" title="CF703D Mishka and Interesting sum"></a><a href="https://www.luogu.com.cn/problem/CF703D">CF703D Mishka and Interesting sum</a></h1><h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意:"></a>题目大意:</h2><p>给定一个序列, 有$m$次询问</p>
 <p>每次询问会给你一个$[l, r]$, 让你求区间内出现偶数次的数的异或和</p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路:"></a>思路:</h2><p>首先我们可以想到异或的某些性质:$x\otimes y \otimes x = y$</p>
@@ -844,12 +844,12 @@ S(n,j)=g(n,cnt)-g(p_j,j)+\sum_{k=j}^{p_k^2\le n}\sum_{e=1}^{p_k^e\le n}F(p_k^e)(
   </entry>
   <entry>
     <title>NOIP2020-退役记</title>
-    <url>/AlanTuringLi/2020/12/07/NOIP2020-%E9%80%80%E5%BD%B9%E8%AE%B0/</url>
+    <url>/STPGUY/2020/12/07/NOIP2020-%E9%80%80%E5%BD%B9%E8%AE%B0/</url>
     <content><![CDATA[<link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>]]></content>
   </entry>
   <entry>
     <title>P1587[NOI2016]循环之美</title>
-    <url>/AlanTuringLi/2020/08/06/P1587%5BNOI2016%5D%E5%BE%AA%E7%8E%AF%E4%B9%8B%E7%BE%8E/</url>
+    <url>/STPGUY/2020/08/06/P1587%5BNOI2016%5D%E5%BE%AA%E7%8E%AF%E4%B9%8B%E7%BE%8E/</url>
     <content><![CDATA[<h1 id="P1587-NOI2016-循环之美"><a href="#P1587-NOI2016-循环之美" class="headerlink" title="P1587[NOI2016]循环之美"></a><a href="https://www.luogu.com.cn/problem/P1587">P1587[NOI2016]循环之美</a></h1><p>emmmmm</p>
 <p>这是一道莫比乌斯反演+杜教筛的好题</p>
 <p>题目就不赘述了，即求：</p>
@@ -892,7 +892,7 @@ f(n,m,k)&=\sum_{i=1}^n\sum_{j=1}^m[i\perp j][j\perp k]\\
   </entry>
   <entry>
     <title>P2675三角圣地</title>
-    <url>/AlanTuringLi/2020/07/20/P2675%E4%B8%89%E8%A7%92%E5%9C%A3%E5%9C%B0/</url>
+    <url>/STPGUY/2020/07/20/P2675%E4%B8%89%E8%A7%92%E5%9C%A3%E5%9C%B0/</url>
     <content><![CDATA[<h1 id="P2675-《瞿葩的数字游戏》T3-三角圣地"><a href="#P2675-《瞿葩的数字游戏》T3-三角圣地" class="headerlink" title="P2675 《瞿葩的数字游戏》T3-三角圣地"></a><a href="https://www.luogu.com.cn/problem/P2675">P2675 《瞿葩的数字游戏》T3-三角圣地</a></h1><blockquote>
 <p> emmmmm, 这眨眼一看像是个杨辉三角之类的东西, 定眼一看好像不太对啊</p>
 </blockquote>
@@ -912,7 +912,7 @@ Ans = \sum\limits_{i=1}^nc_i\cdot A_i</script><p>打一个表, 与似乎发现�
   </entry>
   <entry>
     <title>P2599取石子游戏</title>
-    <url>/AlanTuringLi/2020/07/13/P2599%E5%8F%96%E7%9F%B3%E5%AD%90%E6%B8%B8%E6%88%8F/</url>
+    <url>/STPGUY/2020/07/13/P2599%E5%8F%96%E7%9F%B3%E5%AD%90%E6%B8%B8%E6%88%8F/</url>
     <content><![CDATA[<h1 id="P2599-ZJOI2009-取石子游戏"><a href="#P2599-ZJOI2009-取石子游戏" class="headerlink" title="P2599 [ZJOI2009]取石子游戏"></a><a href="https://www.luogu.com.cn/problem/P2599"><strong>P2599 [ZJOI2009]取石子游戏</strong></a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在研究过$Nim$游戏及各种变种之后，$Orez$又发现了一种全新的取石子游戏，这个游戏是这样的： 有$n$堆石子，将这$n$堆石子摆成一排。游戏由两个人进行，两人轮流操作，每次操作者都可以从最左或最右的一堆中取出若干颗石子，可以将那一堆全部取掉，但不能不取，不能操作的人就输了。 $Orez$问：对于任意给出一个初始一个局面，是否存在先手必胜策略。</p>
 <h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>文件的第一行为一个整数$T$，表示有 $T$组测试数据。</p>
 <p>对于每组测试数据，第一行为一个整数$n$，表示有$n$堆石子; 第二行为$n$个整数$a_i$，依次表示每堆石子的数目。</p>
@@ -932,7 +932,7 @@ Ans = \sum\limits_{i=1}^nc_i\cdot A_i</script><p>打一个表, 与似乎发现�
   </entry>
   <entry>
     <title>P1491集合位置</title>
-    <url>/AlanTuringLi/2020/07/20/P1491%E9%9B%86%E5%90%88%E4%BD%8D%E7%BD%AE/</url>
+    <url>/STPGUY/2020/07/20/P1491%E9%9B%86%E5%90%88%E4%BD%8D%E7%BD%AE/</url>
     <content><![CDATA[<h1 id="P1491-集合位置"><a href="#P1491-集合位置" class="headerlink" title="P1491 集合位置"></a><a href="https://www.luogu.com.cn/problem/P1491">P1491 集合位置</a></h1><p>简言之: 求<strong>不严格</strong>的次短路</p>
 <p>emmmm, 这个我们考虑$A^*$算法</p>
 <p>估价函数$f(x)=g(x)+h(x)$, 其中$g(x)$表示从起点到$x$的花费, $h(x)$表示从$x$到终点的期望最小花费, 这个可以先跑一遍最短路处理出来</p>
@@ -946,7 +946,7 @@ Ans = \sum\limits_{i=1}^nc_i\cdot A_i</script><p>打一个表, 与似乎发现�
   </entry>
   <entry>
     <title>P3810[模板]三位偏序</title>
-    <url>/AlanTuringLi/2020/07/27/P3810%5B%E6%A8%A1%E6%9D%BF%5D%E4%B8%89%E4%BD%8D%E5%81%8F%E5%BA%8F/</url>
+    <url>/STPGUY/2020/07/27/P3810%5B%E6%A8%A1%E6%9D%BF%5D%E4%B8%89%E4%BD%8D%E5%81%8F%E5%BA%8F/</url>
     <content><![CDATA[<h1 id="P3810-【模板】三维偏序（陌上花开）"><a href="#P3810-【模板】三维偏序（陌上花开）" class="headerlink" title="P3810 【模板】三维偏序（陌上花开）"></a><a href="https://www.luogu.com.cn/problem/P3810">P3810 【模板】三维偏序（陌上花开）</a></h1><p>这道题, 刚看题时, 感觉就是把三个元素压缩成一个元素, 然后就是一个逆序对这样的一个问题 .</p>
 <p>但是, 三个条件要求的是要同时成立, 所以, 不能这样做</p>
 <p>既然想到逆序对了, 那么我们就可以先让其中的两维变成有序的, 剩下的一维, 就类似一个逆序对了</p>
@@ -964,7 +964,7 @@ Ans = \sum\limits_{i=1}^nc_i\cdot A_i</script><p>打一个表, 与似乎发现�
   </entry>
   <entry>
     <title>P4180严格次小生成树</title>
-    <url>/AlanTuringLi/2020/07/21/P4180%E4%B8%A5%E6%A0%BC%E6%AC%A1%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/</url>
+    <url>/STPGUY/2020/07/21/P4180%E4%B8%A5%E6%A0%BC%E6%AC%A1%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/</url>
     <content><![CDATA[<h1 id="P4180-BJWC2010-严格次小生成树"><a href="#P4180-BJWC2010-严格次小生成树" class="headerlink" title="P4180 [BJWC2010]严格次小生成树"></a><a href="https://www.luogu.com.cn/problem/P4180">P4180 [BJWC2010]严格次小生成树</a></h1><p>题意同标题</p>
 <p>最小生成树就不用说了, 那么次小生成树就是枚举剩下的边, 把它加入到我们的最小生成树中, 这样就构成了一个奇环树, 考虑这条新加入的边能够取代哪一条边, 能使新生成的树为一颗与原来全职不相等的树?</p>
 <p>显然答案是取代第一个长度严格小于新加入的边的那一条, 关于这一条边, 我们可以维护树上两点间的最大边权和严格次大边权</p>
@@ -981,7 +981,7 @@ Ans = \sum\limits_{i=1}^nc_i\cdot A_i</script><p>打一个表, 与似乎发现�
   </entry>
   <entry>
     <title>P4655[CEO2017]Building Bridges</title>
-    <url>/AlanTuringLi/2020/08/05/P4655%5BCEO2017%5DBuildingBridges/</url>
+    <url>/STPGUY/2020/08/05/P4655%5BCEO2017%5DBuildingBridges/</url>
     <content><![CDATA[<h1 id="Building-Bridges"><a href="#Building-Bridges" class="headerlink" title="Building Bridges"></a><a href="https://www.luogu.com.cn/problem/P4655">Building Bridges</a></h1><h2 id="CDQ-分治"><a href="#CDQ-分治" class="headerlink" title="$CDQ$分治"></a>$CDQ$分治</h2><p>对, 这道题我的第一反应就是斜率优化</p>
 <p>先推一波式子：</p>
 <script type="math/tex; mode=display">
@@ -1025,7 +1025,7 @@ Dp[i]=h[i]+S[i-1]+\min_{t=1}^{i-1}f_t(H[i])</script><p>相当于是向一个坐�
   </entry>
   <entry>
     <title>P6216 回文匹配</title>
-    <url>/AlanTuringLi/2020/11/10/P6216-%E5%9B%9E%E6%96%87%E5%8C%B9%E9%85%8D/</url>
+    <url>/STPGUY/2020/11/10/P6216-%E5%9B%9E%E6%96%87%E5%8C%B9%E9%85%8D/</url>
     <content><![CDATA[<h1 id="P6216-回文匹配"><a href="#P6216-回文匹配" class="headerlink" title="P6216 回文匹配"></a><a href="https://www.luogu.com.cn/problem/P6216">P6216 回文匹配</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>对于一对字符串 $(s_1,s_2)$，若 $s_1$ 的长度为奇数的子串 $(l,r)$ 满足 $(l,r)$ 是回文的，那么 $s_1$ 的“分数”会增加 $s_2$ 在 $(l,r)$ 中出现的次数。</p>
 <p>现在给出一对 $(s_1,s_2)$，请计算出 $s_1$ 的“分数”。</p>
 <p>答案对 $2 ^ {32}$ 取模。</p>
@@ -1066,7 +1066,7 @@ ans &= \sum_{i=mid}^{len_a}(sum^{\prime\prime}_{i+p_i-len_b}-sum^{\prime\prime}_
   </entry>
   <entry>
     <title>Present</title>
-    <url>/AlanTuringLi/2020/09/15/Present/</url>
+    <url>/STPGUY/2020/09/15/Present/</url>
     <content><![CDATA[<h1 id="Present"><a href="#Present" class="headerlink" title="Present"></a><a href="https://ac.nowcoder.com/acm/problem/110615">Present</a></h1><h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意:"></a>题目大意:</h2><p>先给你一串序列,你至多有$\text{m}$次操作使得一段长度为$w$的区间加一</p>
 <p>问这串序列的最小值最大可以是多少?</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析:"></a>分析:</h2><p>最小值最大或者最大值最小,我们的第一反应可能都是二分答案</p>
@@ -1085,7 +1085,7 @@ ans &= \sum_{i=mid}^{len_a}(sum^{\prime\prime}_{i+p_i-len_b}-sum^{\prime\prime}_
   </entry>
   <entry>
     <title>[SCOI2009]游戏</title>
-    <url>/AlanTuringLi/2020/09/18/SCOI2009-%E6%B8%B8%E6%88%8F/</url>
+    <url>/STPGUY/2020/09/18/SCOI2009-%E6%B8%B8%E6%88%8F/</url>
     <content><![CDATA[<h1 id="SCOI2009-游戏"><a href="#SCOI2009-游戏" class="headerlink" title="[SCOI2009]游戏)"></a><a href="[https://ac.nowcoder.com/acm/problem/20271](https://ac.nowcoder.com/acm/problem/20271">[SCOI2009]游戏</a>)</h1><h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>有一个$1$到$n$的序列, 每个数可能对应另一个数</p>
 <p>不停的变换, 直到变回串, 一次变换记作一次花费</p>
 <p>问你对于所有可能的对应关系, 有多少种不同的花费</p>
@@ -1106,7 +1106,7 @@ ans &= \sum_{i=mid}^{len_a}(sum^{\prime\prime}_{i+p_i-len_b}-sum^{\prime\prime}_
   </entry>
   <entry>
     <title>[SDOI2017]数字表格</title>
-    <url>/AlanTuringLi/2020/09/30/SDOI2017-%E6%95%B0%E5%AD%97%E8%A1%A8%E6%A0%BC/</url>
+    <url>/STPGUY/2020/09/30/SDOI2017-%E6%95%B0%E5%AD%97%E8%A1%A8%E6%A0%BC/</url>
     <content><![CDATA[<h1 id="SDOI2017-数字表格"><a href="#SDOI2017-数字表格" class="headerlink" title="[SDOI2017]数字表格"></a><a href="https://www.luogu.com.cn/problem/P3704">[SDOI2017]数字表格</a></h1><h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>求：</p>
 <script type="math/tex; mode=display">
 \prod_{i=1}^n\prod_{j=1}^mf_{\gcd(i,j)}</script><p>其中：</p>
@@ -1149,7 +1149,7 @@ ans=\prod_{t=1}^nF_t^{\left\lfloor\frac mt\right\rfloor\left\lfloor\frac nt\righ
   </entry>
   <entry>
     <title>SP26037 DIVCNT1</title>
-    <url>/AlanTuringLi/2020/09/21/SP26037-DIVCNT1/</url>
+    <url>/STPGUY/2020/09/21/SP26037-DIVCNT1/</url>
     <content><![CDATA[<h1 id="SP26073-DIVCNT1-Counting-Divisors"><a href="#SP26073-DIVCNT1-Counting-Divisors" class="headerlink" title="SP26073 DIVCNT1 - Counting Divisors"></a><a href="https://www.luogu.com.cn/problem/SP26073">SP26073 DIVCNT1 - Counting Divisors</a></h1><p>先看了一眼数据范围$n\le 2^{63}$，可以了，这与$Min_25$筛无缘了</p>
 <h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>求：</p>
 <script type="math/tex; mode=display">
@@ -1176,7 +1176,7 @@ ans=\prod_{t=1}^nF_t^{\left\lfloor\frac mt\right\rfloor\left\lfloor\frac nt\righ
   </entry>
   <entry>
     <title>SDOI2015约数个数和</title>
-    <url>/AlanTuringLi/2020/11/29/SDOI2015%E7%BA%A6%E6%95%B0%E4%B8%AA%E6%95%B0%E5%92%8C/</url>
+    <url>/STPGUY/2020/11/29/SDOI2015%E7%BA%A6%E6%95%B0%E4%B8%AA%E6%95%B0%E5%92%8C/</url>
     <content><![CDATA[<h1 id="SDOI2015-约数个数和"><a href="#SDOI2015-约数个数和" class="headerlink" title="[SDOI2015]约数个数和"></a><a href="https://www.luogu.com.cn/problem/P3327">[SDOI2015]约数个数和</a></h1><h2 id="题目简述"><a href="#题目简述" class="headerlink" title="题目简述"></a>题目简述</h2><p>求：</p>
 <script type="math/tex; mode=display">
 \sum_{i=1}^n\sum_{j=1}^m\sigma(ij)</script><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><script type="math/tex; mode=display">
@@ -1215,7 +1215,7 @@ ij=\prod_{k=1}{p_k}^{a_k+b_k},\sigma(ij)=\prod_{k=1}(a_k+b_k+1)</script><p>所�
   </entry>
   <entry>
     <title>SP34096 DIVCNTK</title>
-    <url>/AlanTuringLi/2020/09/21/SP34096-DIVCNTK/</url>
+    <url>/STPGUY/2020/09/21/SP34096-DIVCNTK/</url>
     <content><![CDATA[<h1 id="P34096-DIVCNTK-Counting-Divisors-general"><a href="#P34096-DIVCNTK-Counting-Divisors-general" class="headerlink" title="P34096 DIVCNTK - Counting Divisors (general)"></a><a href="https://www.luogu.com.cn/problem/SP34096">P34096 DIVCNTK - Counting Divisors (general)</a></h1><h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>求：</p>
 <script type="math/tex; mode=display">
 S_k=\sum_{i=1}^n\sigma_0(i^k)\mod{2^{64}}</script><h2 id="Sulotion"><a href="#Sulotion" class="headerlink" title="Sulotion"></a>Sulotion</h2><p>观察发现，$\sigma_0(p^k)=k+1$，不完全积性函数，很好，满足$\text{Min_25}$筛的条件</p>
@@ -1233,7 +1233,7 @@ S_k=\sum_{i=1}^n\sigma_0(i^k)\mod{2^{64}}</script><h2 id="Sulotion"><a href="#Su
   </entry>
   <entry>
     <title>SP7001 VLATTICE - Visible Lattice Points</title>
-    <url>/AlanTuringLi/2020/10/12/SP7001-VLATTICE-Visible-Lattice-Points/</url>
+    <url>/STPGUY/2020/10/12/SP7001-VLATTICE-Visible-Lattice-Points/</url>
     <content><![CDATA[<h1 id="SP7001-VLATTICE-Visible-Lattice-Points"><a href="#SP7001-VLATTICE-Visible-Lattice-Points" class="headerlink" title="SP7001 VLATTICE - Visible Lattice Points"></a><a href="https://www.luogu.com.cn/problem/SP7001">SP7001 VLATTICE - Visible Lattice Points</a></h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>求：</p>
 <script type="math/tex; mode=display">
 3+3\sum_{i=1}^n\sum_{j=1}^n[\gcd(i,j)==1]+\sum_{i=1}^n\sum_{j=1}^n\sum_{k=1}^n[\gcd(i,j,k)==1]</script><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>没啥分析的，直接考虑化简</p>
@@ -1263,7 +1263,7 @@ ans&=3+3\sum_{i=1}^n\sum_{j=1}^n[\gcd(i,j)==1]+\sum_{i=1}^n\sum_{j=1}^n\sum_{k=1
   </entry>
   <entry>
     <title>STEVE JOBS</title>
-    <url>/AlanTuringLi/2021/05/15/STEVE-JOBS/</url>
+    <url>/STPGUY/2021/05/15/STEVE-JOBS/</url>
     <content><![CDATA[<p>Today my topic is about Steve Jobs’ speech at stanford.</p>
 <iframe class="bilibili" src="//player.bilibili.com/player.html?aid=17203668&bvid=BV1oW411h7Ea&cid=28116082&page=1&high_quality=1&danmaku=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 500px; max-width: 100%；align:center; padding:20px 0;"> </iframe>
 
@@ -1374,7 +1374,7 @@ ans&=3+3\sum_{i=1}^n\sum_{j=1}^n[\gcd(i,j)==1]+\sum_{i=1}^n\sum_{j=1}^n\sum_{k=1
   </entry>
   <entry>
     <title>T20200529</title>
-    <url>/AlanTuringLi/2020/05/29/T20200529/</url>
+    <url>/STPGUY/2020/05/29/T20200529/</url>
     <content><![CDATA[<h1 id="单词-words"><a href="#单词-words" class="headerlink" title="单词(words)"></a>单词(words)</h1><p><strong>Description</strong></p>
 <p> 给你两个由小写字母组成的单词$A$和$B$，我们称一个单词为<strong>幸运单词</strong>，当且仅当它是由$A$的某个非 空前缀和$B$的某个非空后缀拼接而成的（$A$的前缀在$B$的后缀的前面）。</p>
 <p> 例如，当单词$A$为$tree$，单词$B$为$heap$时，$trap$就是一个幸运单词，而$traep,aptr$则不是。 请问对于给定的单词$A$和$B$，共有多少个不同的幸运单词？ </p>
@@ -1496,7 +1496,7 @@ ans&=3+3\sum_{i=1}^n\sum_{j=1}^n[\gcd(i,j)==1]+\sum_{i=1}^n\sum_{j=1}^n\sum_{k=1
   </entry>
   <entry>
     <title>T20200603</title>
-    <url>/AlanTuringLi/2020/06/03/T20200603/</url>
+    <url>/STPGUY/2020/06/03/T20200603/</url>
     <content><![CDATA[<h1 id="1、种树（trees-cpp-1S-128M）"><a href="#1、种树（trees-cpp-1S-128M）" class="headerlink" title="1、种树（trees. cpp/1S/128M）"></a>1、种树（trees. cpp/1S/128M）</h1><p><strong>【问题描述】</strong></p>
 <p> 一条街的一边有几座房子。因为环保原因居民想要在路边种些树。路边的地区被分割成$n$块，并被编号为 $1„n$。每个块的大小为一个单位尺寸并最多可种一棵树。每个居民想在门前 种些树并指定了三个号码 $b,e,t$。这三个数表示该居民想在 $b$ 和 $e$ 之间最少种 $t$ 棵树。当 然，$b\le e$，居民必须保证在指定地区不能种多于地区被分割成块数的树，即要求 $t\le e-b+1$， 允许居民想种树的各自区域可以交叉。出于资金短缺的原因，环保部门请你求出能够满足所 有居民的要求，需要种树的最少数量。 </p>
 <p><strong>【文件输入】</strong> 第一行为 $n$，表示区域的个数；第二行为 $h$，表示房子的数目；下面 $h$ 行描述居民的需要：$b\;e\;t\left(0&lt;b\le e \le 30000, r \le e-b+l\right)$分别用一个空格分开</p>
@@ -1658,7 +1658,7 @@ ans&=3+3\sum_{i=1}^n\sum_{j=1}^n[\gcd(i,j)==1]+\sum_{i=1}^n\sum_{j=1}^n\sum_{k=1
   </entry>
   <entry>
     <title>T20200607</title>
-    <url>/AlanTuringLi/2020/06/07/T20200607/</url>
+    <url>/STPGUY/2020/06/07/T20200607/</url>
     <content><![CDATA[<h2 id="题一：答题比赛"><a href="#题一：答题比赛" class="headerlink" title="题一：答题比赛"></a>题一：答题比赛</h2><p><strong>【问题描述】</strong></p>
 <p>$YYH$报名参加了一个特殊的电视问答节目。这个节目共有$n$个问题，每回答正确$1$题，$YYH$就会获得$1$分，而每当$YYH$连续答对k题，那么他的现有得分乘以$2$，注意答对第$k$题后，是先加$1$分到总分中，再把总分乘以$2$，此时连续答对题目计数器会清零。现在$YYH$成功对了$m$题，他想知道他的最小得分。因为这个数字可能很大，你只需要输出这个数对$1,000,000,009$取模的结果即可。</p>
 <p><strong>【输入格式】</strong></p>
@@ -1817,7 +1817,7 @@ ans&=3+3\sum_{i=1}^n\sum_{j=1}^n[\gcd(i,j)==1]+\sum_{i=1}^n\sum_{j=1}^n\sum_{k=1
   </entry>
   <entry>
     <title>T20200610</title>
-    <url>/AlanTuringLi/2020/06/10/T20200610/</url>
+    <url>/STPGUY/2020/06/10/T20200610/</url>
     <content><![CDATA[<h2 id="1-第一题-eat-cpp-c-pas"><a href="#1-第一题-eat-cpp-c-pas" class="headerlink" title="1.第一题 (eat.cpp/c/pas)"></a>1.第一题 (eat.cpp/c/pas)</h2><p><strong>【问题描述】</strong></p>
 <p>凶猛的XX出来吃人了!</p>
 <p>每天早晨，XX从大山里出来，到达一个城市，然后花费一整天的时间把这座城市里的人 吃光。直到夜晚，XX才回到山中去。当XX经过一个城市时，不管是否吃人，它都会把这座城 市彻底破坏，以至于下次不能再到这个城市吃人了。 </p>
@@ -1987,7 +1987,7 @@ ans&=3+3\sum_{i=1}^n\sum_{j=1}^n[\gcd(i,j)==1]+\sum_{i=1}^n\sum_{j=1}^n\sum_{k=1
   </entry>
   <entry>
     <title>T20200824</title>
-    <url>/AlanTuringLi/2020/08/24/T20200824/</url>
+    <url>/STPGUY/2020/08/24/T20200824/</url>
     <content><![CDATA[
 
 	<div class="row">
@@ -2070,7 +2070,7 @@ Ans&=\sum_{i=1}^{cnt}(dis(u_i)+dis(x)-2\times dis(lca(u_i,x)))
   </entry>
   <entry>
     <title>T20200825</title>
-    <url>/AlanTuringLi/2020/08/25/T20200825/</url>
+    <url>/STPGUY/2020/08/25/T20200825/</url>
     <content><![CDATA[
 
 	<div class="row">
@@ -2103,7 +2103,7 @@ Ans&=\sum_{i=1}^{cnt}(dis(u_i)+dis(x)-2\times dis(lca(u_i,x)))
   </entry>
   <entry>
     <title>T20200826</title>
-    <url>/AlanTuringLi/2020/08/26/T20200826/</url>
+    <url>/STPGUY/2020/08/26/T20200826/</url>
     <content><![CDATA[<h1 id="T1-砍树-tree"><a href="#T1-砍树-tree" class="headerlink" title="T1 砍树(tree)"></a>T1 砍树(tree)</h1><p>树型$Dp$吧，水水过</p>
 <p>注意开$long\;long$</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> Maxn = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line">ll N, X, U, V, Cur;</span><br><span class="line">ll Sum[Maxn], Ans[Maxn];</span><br><span class="line"><span class="type">int</span> Head[Maxn], E[Maxn &lt;&lt; <span class="number">1</span>], Next[Maxn &lt;&lt; <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">AddEdge</span><span class="params">(<span class="type">int</span> U, <span class="type">int</span> V)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Next[++Cur] = Head[U];</span><br><span class="line">	Head[U] = Cur;</span><br><span class="line">	E[Cur] = V; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">DFS</span><span class="params">(<span class="type">int</span> U, <span class="type">int</span> F)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Ans[U] = Sum[U];</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = Head[U]; i; i = Next[i])</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (E[i] == F) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="built_in">DFS</span>(E[i], U);</span><br><span class="line">		Sum[U] += Ans[E[i]];<span class="comment">//Sum表示以U为根的最大答案</span></span><br><span class="line">	&#125;</span><br><span class="line">	Ans[U] = <span class="built_in">max</span>(-X, Sum[U]);<span class="comment">//如果-X比Sum[U]大，这个节点就可以直接砍掉了</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span> (<span class="string">&quot;%lld %lld&quot;</span>, &amp;N, &amp;X);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= N; ++i) <span class="built_in">scanf</span> (<span class="string">&quot;%lld&quot;</span>, Sum + i);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; N; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span> (<span class="string">&quot;%lld %lld&quot;</span>, &amp;U, &amp;V);</span><br><span class="line">		<span class="built_in">AddEdge</span>(U, V), <span class="built_in">AddEdge</span>(V, U); </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">DFS</span>(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">	<span class="built_in">printf</span> (<span class="string">&quot;%lld\n&quot;</span>, Ans[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -2145,7 +2145,7 @@ Ans&=\sum_{i=1}^{cnt}(dis(u_i)+dis(x)-2\times dis(lca(u_i,x)))
   </entry>
   <entry>
     <title>T20200827</title>
-    <url>/AlanTuringLi/2020/08/27/T20200827/</url>
+    <url>/STPGUY/2020/08/27/T20200827/</url>
     <content><![CDATA[
 
 	<div class="row">
@@ -2189,7 +2189,7 @@ Ans&=\sum_{i=1}^{cnt}(dis(u_i)+dis(x)-2\times dis(lca(u_i,x)))
   </entry>
   <entry>
     <title>T20200828</title>
-    <url>/AlanTuringLi/2020/08/29/T20200828/</url>
+    <url>/STPGUY/2020/08/29/T20200828/</url>
     <content><![CDATA[
 
 	<div class="row">
@@ -2240,7 +2240,7 @@ Ans&=\sum_{i=1}^{cnt}(dis(u_i)+dis(x)-2\times dis(lca(u_i,x)))
   </entry>
   <entry>
     <title>T20200831</title>
-    <url>/AlanTuringLi/2020/08/31/T20200831/</url>
+    <url>/STPGUY/2020/08/31/T20200831/</url>
     <content><![CDATA[
 
 	<div class="row">
@@ -2278,7 +2278,7 @@ Ans&=\sum_{i=1}^{cnt}(dis(u_i)+dis(x)-2\times dis(lca(u_i,x)))
   </entry>
   <entry>
     <title>T20200901</title>
-    <url>/AlanTuringLi/2020/09/01/T20200901/</url>
+    <url>/STPGUY/2020/09/01/T20200901/</url>
     <content><![CDATA[
 
 	<div class="row">
@@ -2322,7 +2322,7 @@ x^m\equiv x\pmod n</script><p>然后$\text{n}$又是一个无平方因子数</p>
   </entry>
   <entry>
     <title>T20200902</title>
-    <url>/AlanTuringLi/2020/09/02/T20200902/</url>
+    <url>/STPGUY/2020/09/02/T20200902/</url>
     <content><![CDATA[
 
 	<div class="row">
@@ -2369,7 +2369,7 @@ x^m\equiv x\pmod n</script><p>然后$\text{n}$又是一个无平方因子数</p>
   </entry>
   <entry>
     <title>P4900食堂</title>
-    <url>/AlanTuringLi/2020/11/29/P4900%E9%A3%9F%E5%A0%82/</url>
+    <url>/STPGUY/2020/11/29/P4900%E9%A3%9F%E5%A0%82/</url>
     <content><![CDATA[<h1 id="P4900-食堂"><a href="#P4900-食堂" class="headerlink" title="P4900 食堂"></a><a href="https://www.luogu.com.cn/problem/P4900">P4900 食堂</a></h1><h2 id="方案一-O-n-sqrt-n-："><a href="#方案一-O-n-sqrt-n-：" class="headerlink" title="方案一 $O(n\sqrt n)$："></a>方案一 $O(n\sqrt n)$：</h2><p>首先可以考虑一下这个小数部分该如何处理，显然是可以利用这个高斯函数的性质的：${p}=p-[p]$。</p>
 <p>所以第 $n$ 行的和就可以写作：</p>
 <script type="math/tex; mode=display">
@@ -2404,7 +2404,7 @@ sum_n&=\sum_{i=1}^n\frac {n\mod i}i\\
   </entry>
   <entry>
     <title>T20200903赛后总结(转载)</title>
-    <url>/AlanTuringLi/2020/09/03/T20200903(%E8%BD%AC%E8%BD%BD)/</url>
+    <url>/STPGUY/2020/09/03/T20200903(%E8%BD%AC%E8%BD%BD)/</url>
     <content><![CDATA[<h2 id="特别鸣谢：DeNeRATe"><a href="#特别鸣谢：DeNeRATe" class="headerlink" title="特别鸣谢：DeNeRATe"></a>特别鸣谢：<a href="https://denerate-cool.github.io/DeNeRATe.github.io/">DeNeRATe</a></h2><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这次是真的全考<strong>数学</strong>了<strong>/kk</strong></p>
 <p><strong>死磕T1</strong>，结果自我感觉最难的就是T1了。。。</p>
 <p>最后直接<strong>雪崩</strong>。。。</p>
@@ -2493,7 +2493,7 @@ Ans = (2^{-j-1}) \times \sum^{n}_{n=2} {n \choose v} \times (2^j)^v \times (k \,
   </entry>
   <entry>
     <title>T20200904</title>
-    <url>/AlanTuringLi/2020/09/04/T20200904/</url>
+    <url>/STPGUY/2020/09/04/T20200904/</url>
     <content><![CDATA[
 
 	<div class="row">
@@ -2547,7 +2547,7 @@ Ans = (2^{-j-1}) \times \sum^{n}_{n=2} {n \choose v} \times (2^j)^v \times (k \,
   </entry>
   <entry>
     <title>T20200922</title>
-    <url>/AlanTuringLi/2020/09/22/T20200922/</url>
+    <url>/STPGUY/2020/09/22/T20200922/</url>
     <content><![CDATA[
 
 	<div class="row">
@@ -2604,7 +2604,7 @@ ans=\sum_{i=1}^\sqrt n\mu(i)i^2S(\left\lfloor\frac n{i^2}\right\rfloor)</script>
   </entry>
   <entry>
     <title>T20200924</title>
-    <url>/AlanTuringLi/2020/09/25/T20200924/</url>
+    <url>/STPGUY/2020/09/25/T20200924/</url>
     <content><![CDATA[
 
 	<div class="row">
@@ -2669,7 +2669,7 @@ ans=\sum_{i=2}^nai*a_{i-1}+\min_{i=1}^na_i</script><p>最后加起来，再加�
   </entry>
   <entry>
     <title>T20200929</title>
-    <url>/AlanTuringLi/2020/09/29/T20200929/</url>
+    <url>/STPGUY/2020/09/29/T20200929/</url>
     <content><![CDATA[<h1 id="T1维护序列"><a href="#T1维护序列" class="headerlink" title="T1维护序列"></a>T1<a href="https://www.luogu.com.cn/problem/P2023">维护序列</a></h1><p>线段树二的板子题，没什么好说的吧。。。</p>
 <blockquote>
 <p>失算了，区间乘法可以乘$0$，我直接忽略了</p>
@@ -2697,7 +2697,7 @@ ans=\sum_{i=2}^nai*a_{i-1}+\min_{i=1}^na_i</script><p>最后加起来，再加�
   </entry>
   <entry>
     <title>T20201109</title>
-    <url>/AlanTuringLi/2020/11/09/T20201109/</url>
+    <url>/STPGUY/2020/11/09/T20201109/</url>
     <content><![CDATA[
 
 	<div class="row">
@@ -2811,7 +2811,7 @@ ans_v = ans_u - g_v + k_v - f_v;</script><p>然后 $f、g$ 的求法是十分的
   </entry>
   <entry>
     <title>T20201111</title>
-    <url>/AlanTuringLi/2020/11/11/T20201111/</url>
+    <url>/STPGUY/2020/11/11/T20201111/</url>
     <content><![CDATA[
 
 	<div class="row">
@@ -2900,7 +2900,7 @@ b(n+l)-a(m+l)&=m-n
   </entry>
   <entry>
     <title>T20201112</title>
-    <url>/AlanTuringLi/2020/11/12/T20201112/</url>
+    <url>/STPGUY/2020/11/12/T20201112/</url>
     <content><![CDATA[
 
 	<div class="row">
@@ -2942,7 +2942,7 @@ b(n+l)-a(m+l)&=m-n
   </entry>
   <entry>
     <title>T20201113</title>
-    <url>/AlanTuringLi/2020/11/13/T20201113/</url>
+    <url>/STPGUY/2020/11/13/T20201113/</url>
     <content><![CDATA[
 
 	<div class="row">
@@ -3004,7 +3004,7 @@ f[i][j][suf(a_{i-1},j)]=\min_k(f[i-1][k][pre(a_i,k)]+len-k-temp)+temp</script><p
   </entry>
   <entry>
     <title>T20201116</title>
-    <url>/AlanTuringLi/2020/11/16/T20201116/</url>
+    <url>/STPGUY/2020/11/16/T20201116/</url>
     <content><![CDATA[
 
 	<div class="row">
@@ -3058,7 +3058,7 @@ f[i][j][suf(a_{i-1},j)]=\min_k(f[i-1][k][pre(a_i,k)]+len-k-temp)+temp</script><p
   </entry>
   <entry>
     <title>T20201117</title>
-    <url>/AlanTuringLi/2020/11/17/T20201117/</url>
+    <url>/STPGUY/2020/11/17/T20201117/</url>
     <content><![CDATA[<h1 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h1><h2 id="Subtask-1-amp-2"><a href="#Subtask-1-amp-2" class="headerlink" title="Subtask 1 &amp; 2"></a>Subtask 1 &amp; 2</h2><p>$O(nk)$ 的暴力，对于 $f_m(n)$ 有：</p>
 <script type="math/tex; mode=display">
 f_m(n)=
@@ -3097,7 +3097,7 @@ ans=\sum_{i=0}len_i\log len_i</script><p>然后把那个$32000$ 带进去算，�
   </entry>
   <entry>
     <title>T20201118</title>
-    <url>/AlanTuringLi/2020/11/18/T20201118/</url>
+    <url>/STPGUY/2020/11/18/T20201118/</url>
     <content><![CDATA[<h1 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h1><p><a href="https://imgchr.com/i/DupWSH"><img src="https://s3.ax1x.com/2020/11/19/DupWSH.png" alt="DupWSH.png" border="0" /></a></p>
 <p>就是因为数据随机，还有充足的限制条件。</p>
 <p>所以爆搜 + 可行性剪枝就可以过了。</p>
@@ -3162,7 +3162,7 @@ g_i=\sum_{j=1}^if_j\left(\dbinom {i-1}{j-1}h_{i-j}d_j+\dbinom{i-1}{j}g_{i-j}\rig
   </entry>
   <entry>
     <title>T20201119</title>
-    <url>/AlanTuringLi/2020/11/19/T20201119/</url>
+    <url>/STPGUY/2020/11/19/T20201119/</url>
     <content><![CDATA[
 
 	<div class="row">
@@ -3224,7 +3224,7 @@ g_i=\sum_{j=1}^if_j\left(\dbinom {i-1}{j-1}h_{i-j}d_j+\dbinom{i-1}{j}g_{i-j}\rig
   </entry>
   <entry>
     <title>T20201120</title>
-    <url>/AlanTuringLi/2020/11/20/T20201120/</url>
+    <url>/STPGUY/2020/11/20/T20201120/</url>
     <content><![CDATA[
 
 	<div class="row">
@@ -3300,7 +3300,7 @@ g_i=\sum_{j=1}^if_j\left(\dbinom {i-1}{j-1}h_{i-j}d_j+\dbinom{i-1}{j}g_{i-j}\rig
   </entry>
   <entry>
     <title>T20201125</title>
-    <url>/AlanTuringLi/2020/11/25/T20201125/</url>
+    <url>/STPGUY/2020/11/25/T20201125/</url>
     <content><![CDATA[
 
 	<div class="row">
@@ -3357,7 +3357,7 @@ g_i=\sum_{j=1}^if_j\left(\dbinom {i-1}{j-1}h_{i-j}d_j+\dbinom{i-1}{j}g_{i-j}\rig
   </entry>
   <entry>
     <title>T20221120</title>
-    <url>/AlanTuringLi/2022/11/20/T20221120/</url>
+    <url>/STPGUY/2022/11/20/T20221120/</url>
     <content><![CDATA[<h1 id="A-Awa开小车"><a href="#A-Awa开小车" class="headerlink" title="A   Awa开小车"></a>A   <a href="https://ac.nowcoder.com/acm/contest/44887/A">Awa开小车</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Awa正在玩一款名叫明日方舟的游戏。 </p>
 <p>这款游戏在一个高度为n，宽度为m的网格上进行，玩家可以部署干员在格子上来击败敌人。</p>
 <p>在这个问题中，我们定义第x行，第y列的格子的坐标为(x,y)，也就是说，从左上角到左下角依次为(1,1),(2,1),…,(n-1,1),(n,1)，从左上角到右上角依次为(1,1),(1,2),…,(1,m-1),(1,m)，右下角的格子坐标为(n,m) </p>
@@ -3475,7 +3475,7 @@ g_i=\sum_{j=1}^if_j\left(\dbinom {i-1}{j-1}h_{i-j}d_j+\dbinom{i-1}{j}g_{i-j}\rig
   </entry>
   <entry>
     <title>Telephone Line S</title>
-    <url>/AlanTuringLi/2020/09/15/Telephone-Line-S/</url>
+    <url>/STPGUY/2020/09/15/Telephone-Line-S/</url>
     <content><![CDATA[<h1 id="Telephone-Line-S"><a href="#Telephone-Line-S" class="headerlink" title="Telephone Line S"></a><a href="https://ac.nowcoder.com/acm/problem/24950">Telephone Line S</a></h1><h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意:"></a>题目大意:</h2><p>首先你有一张图，问你从$1$到$n$的路径中第$k+1$条最大的边最小有多大</p>
 <h2 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h2><p>这个题很显然是可以二分答案的</p>
 <p>但是我们考虑换一种做法：分层图</p>
@@ -3489,7 +3489,7 @@ g_i=\sum_{j=1}^if_j\left(\dbinom {i-1}{j-1}h_{i-j}d_j+\dbinom{i-1}{j}g_{i-j}\rig
   </entry>
   <entry>
     <title>Tree</title>
-    <url>/AlanTuringLi/2020/09/15/Tree/</url>
+    <url>/STPGUY/2020/09/15/Tree/</url>
     <content><![CDATA[<h1 id="Tree"><a href="#Tree" class="headerlink" title="Tree"></a><a href="https://ac.nowcoder.com/acm/problem/112609">Tree</a></h1><h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><ul>
 <li>首先，我们有$Q$次操作</li>
 </ul>
@@ -3515,7 +3515,7 @@ g_i=\sum_{j=1}^if_j\left(\dbinom {i-1}{j-1}h_{i-j}d_j+\dbinom{i-1}{j}g_{i-j}\rig
   </entry>
   <entry>
     <title>[USACO19DEC]Greedy Pie Eaters P</title>
-    <url>/AlanTuringLi/2020/09/24/USACO19DEC-Greedy-Pie-Eaters-P/</url>
+    <url>/STPGUY/2020/09/24/USACO19DEC-Greedy-Pie-Eaters-P/</url>
     <content><![CDATA[<h1 id="USACO19DEC-Greedy-Pie-Eaters-P"><a href="#USACO19DEC-Greedy-Pie-Eaters-P" class="headerlink" title="[USACO19DEC]Greedy Pie Eaters P"></a><a href="https://www.luogu.com.cn/problem/P5851">[USACO19DEC]Greedy Pie Eaters P</a></h1><h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>有$n$个派可以吃</p>
 <p>有$m$头牛来吃</p>
 <p>第$m$头牛的重量为$w_i$，这头牛要吃的区间为$[l_i,r_i]$</p>
@@ -3538,7 +3538,7 @@ ans = max(\sum_{i=1}^nw_{c_i})</script><h2 id="分析"><a href="#分析" class="
   </entry>
   <entry>
     <title>UVA11475</title>
-    <url>/AlanTuringLi/2020/09/04/UVA11475/</url>
+    <url>/STPGUY/2020/09/04/UVA11475/</url>
     <content><![CDATA[<h1 id="UVA11475-Extend-to-Palindrome"><a href="#UVA11475-Extend-to-Palindrome" class="headerlink" title="UVA11475[Extend to Palindrome]"></a><a href="https://www.luogu.com.cn/problem/UVA11475">UVA11475[Extend to Palindrome]</a></h1><h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>给你一个字符串$S$，让你找一个长度最小的回文串$P$使得$S$是$P$的前缀</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>我们能够构造出的最简单的回文串$P\prime=S+reverse(S)$</p>
 <p>显然$P\prime$要尽量的小，那么$S$与$reverse(S)$就要尽可能地重叠</p>
@@ -3555,7 +3555,7 @@ ans = max(\sum_{i=1}^nw_{c_i})</script><h2 id="分析"><a href="#分析" class="
   </entry>
   <entry>
     <title>ToMyself</title>
-    <url>/AlanTuringLi/2020/07/23/ToMyself/</url>
+    <url>/STPGUY/2020/07/23/ToMyself/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
   <script id="hbeData" type="hbeData" data-hmacdigest="d1800325a337b9704271aa3b9020defd54667d4e2a82d8b40c069ad29a581b77">5a41be0f4c6cd2d64bf090e37c9b5e424d5357e499f5c4706c3f96f582d73f9375f1f301821494b900ad31bad1316dbb9d955334f8b49bf1484d3264e5af7dccc41aff40634df7ccfa7a249e14dad4a1eb230351e284c407f8ade62c6162412f28e61f194db320fa85e694dbf2b7cb7569cf84e7937f34a27ee60b0c0b9b40deec08e01c037ff5127cc8f7aaebf8126b7b6cb9c2d9db4237a6f9b1bac5fe65ad5f8fc5aad131ea5d1d95db73e7476a14e82be04a1ed7516f1767cd2caf4982da8b5aa463a5dcee44c9a3d48ce387c255b54ba5c7edc3456656daa193390acc3bf3569570124a54495e1b07fe54bde2a15e885f87d8928907e08c240b6811ef0b7fad308b531b8be16f85cc06c88531eafb144951fedda374d488bacfeb633e059839b9543fcd5ad44ab047d9cad0ba5ac72572c0f29db5a5075483b8b141fdd4fefbe77c61c366bc9ab03cb849d413988052bb0afb2731e0d603acfcef17b00317c7e7b6e29fa0c09d63bd5ca5209ecc68e467ed5572d383b4574f087088ae7b3b3a5f24115739207c3d360ba1db023ecb47004e409191014c9cd767834a872d671e6863e4c70108f4a99c02aea8ae84c2eb860894385fa6cd6a154d0c6adda6ef418746dc4d33e0adc294dbf1cf341ce0747aeddd01a5cfc99440042f360beb682283ef2149f1b2b66da19a92b3c395bb8a8ca067ab37b23827e248000e87c4308ec1933e16aca340a583bae7637c9571fcb4f147f50ba3b4d85bf4c332622b2066965d45a511d7783698b7b97ae5a024c71368e02160b16870bfc192f3712ba86afe40a206494b06dce07a60795e3e9255e5fb4c9f9803fb3b504262f2729c6a7f675ef6511e007f07d2a3f8a0892ee3dcbbdd587b76cb4b80d55957405527599bda340e43dc5533e51a335e6148d64afa16cd2d52a1946793f02006a9fe158e01e8e6cfe4303b33c0144177558e579d07d945b3b888f8298e4c5f35cc0cb98bf864b533b5df0ffa9d9153db8ae2f5a40d02f70b2612da256676450d53486bfba62e3e67870e685ec50e77fd912318e507f1969fcf26fa117e5eee8bb843dafccb7c9f3f5801b4ad06635dd1e71efe3e3a20de8320460773e748182ab6e14a15d3ccec294c2a78d4608fb5abaa020e01d430adc8575e86d1f2463161db6ee6b9cd53334db7014e52fdc0665dbd7d5373eaffeaa6b91b03bdbdc57eb05f74bc9974608f6f844c8c15a4937625ae7c4bca44169ec400f43ed4b64c3cd051b8f65c7d6af49f53ce4cca613e6047de8b70dd1c6fba8aca2e85957f57e01701ead5f25ecd9843ef23112604caa60a178e90ffd29a9d13d45dfdd0e5d4806898dfa676446130eccfb065a525b6483334ecef877df15ebdc305e4b4671841e2f1f26c9c06f31c72bf279caa5ba4bea4ed2566b2364ff2bd9e1f348b8658b61cc714025469ad4b2d37a7b8ee72325177de3625157565e0d91321204a4ac435e04c3dd89fc359f64515ec149b27ea3713c01620e4c66b9eee5fafd86369b5e689b0fe6a9dcbbb1d59bd55d4526a7a137f3b14158315eb1be7ba696f948e7cde22120c618c6baf4c0ebd5e186c3a5635a9483521497b457c438fa5789a68b696224367d3b4d3303db9315567a4e1f60e3e552b41b3ccb33142b41ddf0f608e1b7abd5090f31c439d0704a81007f97227835aba63c400b67eaf6c184df1ef7b79e9cad55f32ad1433ce76f07b04c281eb42ab9778382aa84e574d2eb54ad4a2830105c2f2c9a318a19b27bc001b65adbe184cfc68985c365f6491782a6ba8349aaf1c15bec640f10f5dd1aaf12ea48a77c5644c289494bc1baf2cb75b0fa3c2c15dea5c42c9842d4e8d7bb68a218f7fa17cac80905cb95c82a65d26f8ccc4831c2988da12889573dde232589f01b7e8c0bc9f264bb4219225ad5a76f2892d6b6eee1e898c68f3a21b10b208a5a53f126c6c913ec163e675acf90f65d9d3ad183e807d6c1e50e5578666bcf019c5ef2c0ea0c9473926b69b27f5f3713a10f2a0a46e6ab8a22ab40ceb05821290291ccc80619b84f4857d90c7ea2bdb72aca81bc1df5ba16d43bdb421d29a31bc7f9378cdb902469b0d00bc28fb8355a6848e858ef2851c3ec3382edb20b467410f44375aeb91e3aaa91d18799d61f71bc9184682969e585e0826eb1de6052a5e303dc166d2778f5498b9fcfb499fc559d343f479a136298c67700019373e9fb8c15030c48c57963d50df1c77b4c966efa9a10d196b5227abb3f5189f1aa8f09db48e390d368b4e6d2d0ad904fbe7ed824689c013e0b3c50b6060c79d9a7a66b9e92a8b2e60d7105d21d87baaa3b418def46dbc72be2c4ebb60d4ec802216939e86519ab00f096d3ce32d5bc59e54071ab394564f6e92b0360145af0357cb7cf472724fa5a3c405928b08377872d4667e177cf796b9f9a3b9b11fd1223eb00feab152b1261bf33423bc9cbcff63e9372d2fa19f01453b482e5af19b3071e75d7bb87028da6f5db21058daaa288ddf2a180ee4dfc6e20c0e4af318653c2ec06e638a7259c205ad37d166678f687ebaa4141b5279ae14eff391e3002e02c3db8e936879ad55c4e2f8d9918337ab4358651af098576ed206f0e57b2de00fc03bc20f293754fa32110b65017eda81c365b686b7714b94a83aa2d8c718153f603b5797cb1d191273d11d3a4a00990c7b3c0364600363d0252ecbcb402bfe83d0e4e8666b6b8297d1b49d77769e47b033e52722cdb2190fdafa4d900d2826d8ceab2c70ab6cbdec41e42e95800bc83112f0149b161af0ba8d731cb2ae778bc9945196c5aeb629efc48eaa9d32ad8b055bebda2eac6aff57ab9c62eadefc2e7d75279585cf98ccfaa92ab2c8418062ac52a569ba5b9a1cb12b4dd69fe0892b269222e158ec8a0ec7c37dc3f61e0faa0953bca01b9e11e567db44f603320524635bce5884c0f4435046981e54cfc95804939589a73b732ac2b9161d439951f4efe11fa2fcd8ee124d14dc753225f84aa322c297f4836dfc15cc35b68e8c68812673e7b9d6f7612e6140ef6caff76faa648682df62f8557173112ec22e1327d2438132a7133e2a0e3b87d83b3551824424ff674c2fd1f77e2a9a6077ca5894e1952e5bc1e025216c8d977e0c4b392801d197d1a26d08744cb4ad43ac2240575b5c61146685121aea127f117508ca2a0ba567045f0223acd4c50b854d1f032574d8c23a6f08100dd52c8e845965db31428290fcf3be0a85b50d4582e96b200679cae0dc1cbdd9fcee29641f56da99790e002595052377feaef3f574b42532184f8a0b9831153c4fd39317f1db8e282b7c7003c34ed5aa755c713b0ec014d0c409841b1c036797a3bcd2e84a39b5ce77b1fb3c65486c1532a2afd423590b3c49bfc10f7db323c4996da99a80c10ae125e75079fe8779d8331812afb95867ac97835364bb5d6fb7173a574c5a64e5df7289f8913733b5d00c3b05b08db1012d06cfd5050c53599eb222a0c1d34b19864158f90cb8961eaf54119d892b500b2b48a1d5f4fc73087932ffd814657353095c3e44a22177693536163962f19038dec8d2363767ea7e420273a17f3ad97e32c7bf33d0be673e0a23f3618385f8be2cbaa56bbbff52e9f6ac7a90da6ec2cae46ae72fa8bda9cdb26b4f7965dcb41605f9a1d1093fa0d6e6439a99d7a26dc99814cef0a16231974482ae20b9be27862959368b81e6121df568a6b7f89cf4aecda83e180d85b5dd4573f4d32797f844b6f4b88223e0b28a438fa7132ecd1dafc01dc966f6d26f48a8a78d596ee9c5ff2cfeecfbe32f9d4fc02fd8d3c5c97edbc1e258a73eb101a9a128b4ebff7933708073e2c63ed96cbfc0b993fc1a48cbed00ca89f2c99f32dd0ae3f12c4b717002b07e67cb870a79c8611e131b79afababc3f990b1da7315b5b50591fe42881e08ffb3f47a6b06e005ffe6b9e5fcc524d52c491a45fdec449cb4d6f1b8253179933aae0d01cb0c24dc7b3512d3bd6f90acd94e81274a97a271937d49c760830d49e1b8eb0f3da1b4c2e1648871776de77ea52738fb228f12e34f110504ffebee43ece4b4dc3dd66655a69c4830f2628b438fe646aeaac52e829de50c28440102d7131937a66ef0fc2d642db46c424592510bf0b28dd8773bb504bfaa50f5ed26719710c915f17008b892a43f1acdd16807e3ef0cf27769ffd6f34a566612b78a18d4a3f4199778efe22704565c60fd634e849e0c279e1e348d44340ef494a7dd5dc45eb782decb1f004791239f00dc82d01d688f3bd160a390e7246862add9e1f8c9a9062ba26e9c94c8522dd954af7197be101472026f198b2da4459a8a79fd333f95b78ee854b84dc4bd2ce3afd7f7a516f041e3cb2152e57c0d21cd9eca0d705e191217a2a772bfc0755fbb47eaf1d7e82380abfa1d8408a6f55d800b6a311804c42a979bbfaae5069b30524fd84671a0665a64b5415dbce01a022b567c1d950f0be41f21a2fe563d8fbcd28cdeac88802c3d914c0f842d31e89ef84fc0210a3b6a7fa411789b7e3e0075f5240201dcbbb8f29b4018f0f453d49dbba49acef3cae89bb4996391e297717c27cd024d408414fa338558fbfab33021357b4e67ab5d235d6fb0092a4f63d12ff9e3f7cbbc22a306f7d6a068cc5d763dcfe91c677f6e61ee509262a0031aa265f5236d131379d8912f95d01059027fa749a98927cea710ebaa68db0dc84b709cb526e247cacfc90c1588250e7b289b84fabaffa5d2ae281c596f91196cbeb3d278d67a409f84fae95b27a527f3db191da13c29935b303c795b17c968a35dfdd99e66b8aafcded96d70de0b14ee769231af624873c4dbd8e70d881d2513509b22d23040603a0b045e61ddaf3f0dcb22827e1765b2f82f2ba0195669625d18a07f242dabac956b8dfad06e57e167e5aaf1fd6cccf51a5c0aa5997bd5e8d288be2a47e4379a53151d9c9f8cd0bc87d024c3a0735e8be678492c1fa4264a9b2cfbb078d8aec96f734b90cd638bdae3b15564d5ec2448d2412a58e0e22b2f2937516da36e2d33b45a37eb5acf6e1a370c8c5eb07a4ee45942b9d28ab07602b5a465a141d86e78af3f3b844f7599aad68c75945152faf86a49c6721ae9bcf60b14b746ce23c37883ca47269fee2a7f5885430e28cd8551745549b95225713cc9183e0fba2c074854040ae5961c7cf2d2d5c007e483a2a984659517f850227c17cfb9b7f52d69b82bba736baa618045b9659b72266bd28296020d278aa97873dea2abc335cc45c95402c490ae6de4ade0053d8be252e31923fc9c15c41219926335f355360102e655a048ad7423fc8001738b6051d067fb378d641c8cc6e1ae607a424218619a564cd82587b26f1f38107d0bfc8510f7fe68f624964818faca474c2f28ecae00c91d1214c4954c1827bf6540f1b9173fd2a519afc3699f9f08d882f34f3d202a5ef5acf855affb598f45f54f6a4cb479f593c8d1a263481c2fac97de6931b36d3feefcde69547ce5ab41db5eab1f330ef0d2938481b763a214c81391d3a64342998bb9be64653e2c1f0a372878adf9999680f5342b801b44d4b186469be0104e7ca23803a0c1afabcda2f61f9488efd88125a5da8f3fa33bc7fd875c440050490105a3d23de61a4160d50622a8383ce006c0c90adeb64a15701d28ce24ab215230329fe8c59ea89f349b3c386b9ee945fb52cbcd631b11ac6144e28ddbbfcce5990de4d918923c54b0243b0423b829452179b3305522dfd2b3f3601f896adc1d50d1b62ec2540468c58437f1e2eafc4c1303f69488c0e5c1768fa7e9c85a6bce8f5fe58684e999de0a4e15218706ca1bc1617be4d476abe697fc8edb97cffddd62c1a0b0b0b7faae763299e19734ed9b439eb19110951e471db408f0a24cfa7391770c3d318599a0f517e8a4e6247cf4cd8d1ed8d492d9c0cb59c1682596cdce22c4d7eb1de6d404fad459d90b0d7ed296eea5c8a85b6bf7b05164566f9bbc71f96815f7027fddd41a251e5a4abe013b4b98603c6d59174cef69451bddba9fb10715cad309b17b667d99ffad9da4594d6ca42a068b8c5a6a9b03c6b554b0f8dcf05a386ebf8a814aa4d29b70fa48a2dde41a34f8d74dedc6014ca1d130fd2920308704912af309ef88072a6103f3d050f1661b8dc1fb8f530d577f9fe9a5d6deb4d79740e5bf2daf437aeef83ab75ded960199cb5fa61694b944537cb27ed83bf9f7207729f12dc14869f4af089b8fde9d2c72d299992534db9df1e29359a10fa476572ecd2b00eff7b536d6a05e3c3c1fd6e72bcd634bfc7a22f32c61b9c21320f18e3748974625af5c1f833be9856f880d1d683025c278fba31e29cf6661b6c518cee0cf67d6caeb39f590dede5b39a850ee89ff2c36c3452852a6046d01eddfc8d4c2b32b622b07735a03c20920272cb862aa0f8e5e26bf8ffc36a10fa2c6c082f5eb9d0aebf85c382fe4dc3d1b8967a8967e8d2545bfda036008ef595fcf679fcd29d5366feec9f20cb2ead776ca113def018be869659f32bc7bcc1d1607855ea33678f2348895cb20df1ff9c725aa5c714fccc89dd16abb5bc3305c1ff64fdd126b9c115eaa8a830e463b14914e19e2b0e433005314ef6c7148db2e88951eee8d444f25e8aa8efb417fe9b40b4f0280d02e500d76ef2feccfd16c9c5bf872612d6041108be20e13b58aa91e8b2ded6a6ca89c44ec551111472c314e949222368a8b9ecc814f6fc4789467f75fcdc528d0c8eeb60647a88edbb2fd503814e0cbf60a9269935f18eb01c317d07e6ca708b761e8e8215a7686230d8ffea64b6883cde80e0f2d896ade783ea906b05e73bafa5d3adf90f2884e76681ab0c9387ecad2219f2824fdc6384bfed2a711dcfef2c86fd1f6a3228d07ba363e17cc3665af7c4b9bc7893a83efb0ee4bafd734ed63a48dc47ebb5be439e277757a2c8f783f27f2b5b8296ea198db8375d6518c9c4d6eeaf110f0233d203debef53e15efb8a491958e018680c0b5f725ffb71d38d0da3dcd762becac86d08b45c1855e1e3bab2d5516548f492ee168e2a59a7ca2a9fc04097c4343c08258607d26b0e6d2c502021b134e3ba92407b6c040bc3abfb07327419879a416151817c4e53b84bb560b72c06d69a1505b44ae80c60828b7c39971fb82601979d600b971beb6c6a3e48184085fb95bf8c72e1c90abac921d06e618675df2ffd45faeeeddac3ae2672a0a18c9423abf31031d3f21f312713f65ee2c0d1d59817f0ebb7b967a54e3a98f06f107b0a92fd3e2771ce59d3e5df4e05ac8858f21a416890e38b89e412127925cb04b3d3e71ec8be4e6c5926a07624ce388fc23cc0e9fed597c336402899fc452ca61daa3fe775d44a06ed88e433ca28195c4a51fa09c544edd687dfaf60a77531c6097d4fd857805f67abf1c4834c808ad9bb0db11a352d4f1cc83da40c940917f1e2ae45f3e880df28b279d3688e69068c13058a44e4b9e06ebcd3daf8868a7222f8f9830c93a318a3c71257b9794341e5407d1f865c85ef056d167af2a96bd02b26de434bf7e79c62d46a64c4a5740a7c81ae29057317d6f07d3ec0178d5e4d77a4c5d5cfb7d17c0e722d5ddecc93163a2fb2bf34234309de08f7f8a4585a5788d8a0edafcf58c0c676b12210b0f479f604f49f4d842949f1d93654c4788e9b7f52cebddca31d1b3effab16fcb5b2a4714c4d7a544738944f155347cd6c26ac1f3fc98707b8bf465de2d7b1b5e79ffd7338f0d09ec986e7d2fe0ef8a8196c2ded99931f9cbd000d8a535f30de87933d792db0ef595955ddbbf376931b9d28d43e0d67f2c4097a67e0fd6ef3a21185c0297d98206e089814b198bc8fb2fd066eb220768de1c594ae92351acb667a545f54a9f71e96a5fc83979dc4196963ab82239dd702a3935c7d76f75728dda12bae7415238d36cad62a02b58ac167666d330bb76f7e1ae63060b0c45275313dcb18e183cdd5666d705613864ca21bd4ba324c963bf4e6040b154f0ce86939fc24442b23443b546079f13a1f286d9b22299c41b3e334af13cf8b4a4b7f2ffe0b219f46ba4ba3f1932f04eeb09c0a32bd1c355bcdaa5ec60af5ae5b877682201d8969556e5a17ddc8eaafc5aafb1718d23b242c4c720be191705338123d85e3dd4a3d47d9d7b28d6fad2cccab2d80a2ad9b7b8987fe4f161d470372e38d87becec643395d9b5b95d75e078e2a67404d30cab5e53e93a8088897ab197f5f5b419f2c7f09f5d8e02afc4d9c55c4d2bb9328f79be60fc2a201c993d4040004b65b5fb82e434a5ba18db4ea823f257872d7ec50dcb6c32a4c36463a0cbe01d3be3e3e97f6caf949b6311040771b12105bfc96dece427e315816def70fac59fd0e3ba52d84558cd9f9c9d565b3a06a2f889a43823bcd26633a9a17edef4ad223622fd09731da161150ae172735d751f5408cbcf69fadfe322771a040882c03233b518ef5c28f56619990d7c8f4c97dec350c4347e7e972aa3424a843a0bc52e805417ab7287def97ef40fb2b791b18c49aed23c588f29916d5fa3b1637ac92836ef9fb9669d14136ff154d933584ace0eb0b9644afb4db09abce1c92300eecad20e9d88317905051190bd5ebc0c5b956de61b2b67cc9aeb182440eaa36dc56afb90e38905912bcf6b932dea4c996001ac57de5375e391be1cf515552e9694595c8e3b5926834412ff72587c4155d88ed24bbce69aba789c3700b2666fd3033a619eb5c70be2b79295c43d1ff2bf68425685095092571428cf4c959bf17b7c8300f6129aab3112459a402d671db50e79cb4c4570eea3985aee95ebd90bca4f5fbc84946a44bfe2891469c8f03dc2c87ee6612c0a3b34cda3afb9cf07e49dc532e6d9502c9b972206071b9d8705fc28645f8b991010fc79b035bb39e0c5e9327f87f83b3206ffc35432674037631676b1ec2b49998a00259167e934b5f3c2093b1a6d8b88c</script>
   <div class="hbe hbe-content">
@@ -3574,7 +3574,7 @@ ans = max(\sum_{i=1}^nw_{c_i})</script><h2 id="分析"><a href="#分析" class="
   </entry>
   <entry>
     <title>UVa11536 Smallest Sub-Array</title>
-    <url>/AlanTuringLi/2020/09/17/UVa11536-Smallest-Sub-Array/</url>
+    <url>/STPGUY/2020/09/17/UVa11536-Smallest-Sub-Array/</url>
     <content><![CDATA[<h1 id="UVa11536-Smallest-Sub-Array"><a href="#UVa11536-Smallest-Sub-Array" class="headerlink" title="UVa11536 Smallest Sub-Array"></a><a href="https://www.luogu.com.cn/problem/UVA11536">UVa11536 Smallest Sub-Array</a></h1><h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>给定一个长度为$n$的序列, 然你找一个最小的区间, 是的这个区间内包含了$[1,k]$</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>易证的我们可以贪心的去找这个区间</p>
 <p>贪心方案就是尽可能的让没用的数字不在这个区间内</p>
@@ -3592,7 +3592,7 @@ ans = max(\sum_{i=1}^nw_{c_i})</script><h2 id="分析"><a href="#分析" class="
   </entry>
   <entry>
     <title>JSOI平衡点</title>
-    <url>/AlanTuringLi/2020/07/24/%5BJSOI%5D%E5%B9%B3%E8%A1%A1%E7%82%B9/</url>
+    <url>/STPGUY/2020/07/24/%5BJSOI%5D%E5%B9%B3%E8%A1%A1%E7%82%B9/</url>
     <content><![CDATA[<h1 id="JSOI2004-平衡点-吊打XXX"><a href="#JSOI2004-平衡点-吊打XXX" class="headerlink" title="[JSOI2004]平衡点 / 吊打XXX"></a><a href="https://www.luogu.com.cn/problem/P1337">[JSOI2004]平衡点 / 吊打XXX</a></h1><p>被吊打了啊 !</p>
 <p><del>这道题, 看上去真的挺难的 .</del></p>
 <p>简言之, 就是求平衡状态时, 中心点的位置 .</p>
@@ -3609,7 +3609,7 @@ ans = max(\sum_{i=1}^nw_{c_i})</script><h2 id="分析"><a href="#分析" class="
   </entry>
   <entry>
     <title>Working Out</title>
-    <url>/AlanTuringLi/2020/09/15/Working-Out/</url>
+    <url>/STPGUY/2020/09/15/Working-Out/</url>
     <content><![CDATA[<h1 id="Working-Out"><a href="#Working-Out" class="headerlink" title="Working Out"></a><a href="https://ac.nowcoder.com/acm/problem/110489">Working Out</a></h1><h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意:"></a>题目大意:</h2><p>给定一个矩阵，每个点都有一个点权，让你求从矩阵中某一点到矩阵四个顶点的权值之和减去自己的四倍的值最大(就是这个点没有贡献)</p>
 <h2 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h2><p>我们画两张图，看看他们的路径，就会发现其实只有两种情况<br><strong>一</strong>:<br><img src="https://uploadfiles.nowcoder.com/files/20200908/675676897_1599549981026_wQibfx.md.png" alt=""><br><strong>二</strong>：<br><img src="https://uploadfiles.nowcoder.com/files/20200908/675676897_1599550140637_wQFl90.png" alt=""></p>
 <p>就是说其实只有两种转移的方式</p>
@@ -3622,7 +3622,7 @@ ans=\max_{1<i<n,1<j<m}(dp[1][i - 1][j] + dp[3][i + 1][j] + dp[2][i][j + 1] + dp[
   </entry>
   <entry>
     <title>fc MOS BJT</title>
-    <url>/AlanTuringLi/2023/11/04/fc-MOS-BJT/</url>
+    <url>/STPGUY/2023/11/04/fc-MOS-BJT/</url>
     <content><![CDATA[<p>由于公式渲染的问题，这里放入 $PDF$ 预览文件<br>
 
 	<div class="row">
@@ -3638,7 +3638,7 @@ ans=\max_{1<i<n,1<j<m}(dp[1][i - 1][j] + dp[3][i + 1][j] + dp[2][i][j + 1] + dp[
   </entry>
   <entry>
     <title>kmp</title>
-    <url>/AlanTuringLi/2020/06/24/kmp/</url>
+    <url>/STPGUY/2020/06/24/kmp/</url>
     <content><![CDATA[<h1 id="模板KMP"><a href="#模板KMP" class="headerlink" title="模板KMP"></a><a href="https://www.luogu.com.cn/problem/P3375"><strong>模板KMP</strong></a></h1><p>$KMP$简单的来是用一个串在另一个串中匹配</p>
 <p>那么对于这样一个模板我们可以怎么处理呢?</p>
 <p>假象现在我们在进行暴力匹配，此时情况如下:</p>
@@ -3658,7 +3658,7 @@ s2="abcabb"....</script><p>可以看见现在的$s2$的最后一个$b$对齐的�
   </entry>
   <entry>
     <title>$&#92;LaTeX$[置顶]</title>
-    <url>/AlanTuringLi/2223/10/22/latex/</url>
+    <url>/STPGUY/2223/10/22/latex/</url>
     <content><![CDATA[<h1 id="声调-变音符号"><a href="#声调-变音符号" class="headerlink" title="声调/变音符号"></a>声调/变音符号</h1><figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="keyword">\dot</span>&#123;a&#125; <span class="keyword">\ddot</span>&#123;a&#125; <span class="keyword">\acute</span>&#123;a&#125; <span class="keyword">\grave</span>&#123;a&#125;<span class="built_in">$</span></span><br></pre></td></tr></table></figure>
 <p> $\dot{a}\quad \ddot{a}\quad \acute{a}\quad \grave{a}$</p>
 <figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="keyword">\check</span>&#123;a&#125; <span class="keyword">\breve</span>&#123;a&#125; <span class="keyword">\tilde</span>&#123;a&#125; <span class="keyword">\bar</span>&#123;a&#125;<span class="built_in">$</span> </span><br></pre></td></tr></table></figure>
@@ -3883,7 +3883,7 @@ f(x)=\begin{cases}x-1&x\leqslant3\\ x^2+3x-1&x>3\end{cases}</script><h2 id="方�
   </entry>
   <entry>
     <title>位运算好题</title>
-    <url>/AlanTuringLi/2020/09/28/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%A5%BD%E9%A2%98/</url>
+    <url>/STPGUY/2020/09/28/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%A5%BD%E9%A2%98/</url>
     <content><![CDATA[<p>位运算是一个十分有助的工具</p>
 <p>还是要好好学的</p>
 <h1 id="P6034-Ryoku-与最初之人笔记"><a href="#P6034-Ryoku-与最初之人笔记" class="headerlink" title="P6034 Ryoku 与最初之人笔记"></a><a href="https://www.luogu.com.cn/problem/P6034">P6034 Ryoku 与最初之人笔记</a></h1><h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>求：</p>
@@ -3925,7 +3925,7 @@ s(2n)&=\sum_{i=1}^{2n}s^{f(i)}\\
   </entry>
   <entry>
     <title>关于子集枚举的时间复杂度证明</title>
-    <url>/AlanTuringLi/2020/11/17/%E5%85%B3%E4%BA%8E%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BE%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E8%AF%81%E6%98%8E/</url>
+    <url>/STPGUY/2020/11/17/%E5%85%B3%E4%BA%8E%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BE%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E8%AF%81%E6%98%8E/</url>
     <content><![CDATA[<p>最近不知道为什么，感觉很多题多需要有子集枚举这样的操作来做一些优化，然后就不太会分析这个时间复杂度，这里就是简单证明一下啊。</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= ((<span class="number">1</span> &lt;&lt; len) - <span class="number">1</span>); ++i)</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> sta = i; sta; sta = (sta - <span class="number">1</span>) &amp; i)</span><br><span class="line">    <span class="keyword">do</span> something;</span><br></pre></td></tr></table></figure>
 <p>就是这样的一个玩意，为什么它的时间复杂度是 $O(3^{len})$ 呢？</p>
@@ -3954,7 +3954,7 @@ sum&=\sum_{i=0}^{len}\binom {len}i2^i\\
   </entry>
   <entry>
     <title>从1开始的数论</title>
-    <url>/AlanTuringLi/2020/07/28/%E4%BB%8E1%E5%BC%80%E5%A7%8B%E7%9A%84%E6%95%B0%E8%AE%BA/</url>
+    <url>/STPGUY/2020/07/28/%E4%BB%8E1%E5%BC%80%E5%A7%8B%E7%9A%84%E6%95%B0%E8%AE%BA/</url>
     <content><![CDATA[<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><ul>
 <li>整除</li>
 <li>互质</li>
@@ -4110,7 +4110,7 @@ m=\sum_{i=0}^{k-1}m_i\cdot p^i</script><p>那么有</p>
   </entry>
   <entry>
     <title>初赛整合-临门一脚[转载]</title>
-    <url>/AlanTuringLi/2020/10/20/%E5%88%9D%E8%B5%9B%E6%95%B4%E5%90%88-%E4%B8%B4%E9%97%A8%E4%B8%80%E8%84%9A/</url>
+    <url>/STPGUY/2020/10/20/%E5%88%9D%E8%B5%9B%E6%95%B4%E5%90%88-%E4%B8%B4%E9%97%A8%E4%B8%80%E8%84%9A/</url>
     <content><![CDATA[<p><a href="https://denerate.ink/articles/%E5%88%9D%E8%B5%9B%E6%95%B4%E5%90%88-%E4%B8%B4%E9%97%A8%E4%B8%80%E8%84%9A/">🔗原文链接</a></p>
 <ul>
 <li><p>CSP一年三次，分为”入门组”，”提高组”，”专业认证”，到今年为止，CCF已成功举办19次CSP</p>
@@ -4234,7 +4234,7 @@ m=\sum_{i=0}^{k-1}m_i\cdot p^i</script><p>那么有</p>
   </entry>
   <entry>
     <title>动态DP</title>
-    <url>/AlanTuringLi/2020/09/18/%E5%8A%A8%E6%80%81DP/</url>
+    <url>/STPGUY/2020/09/18/%E5%8A%A8%E6%80%81DP/</url>
     <content><![CDATA[<h1 id="DDp"><a href="#DDp" class="headerlink" title="DDp"></a><a href="https://www.luogu.com.cn/problem/P4719">DDp</a></h1><h2 id="大意"><a href="#大意" class="headerlink" title="大意"></a>大意</h2><p>大概就是说, 有一棵树, 点权是会发生改变的, 让你动态求最大权独立集</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>考虑到我们每次修改一个点, 能够受到影响的点就只有链上的点, 可以直接暴力更新</p>
 <p>貌似这道题数据随机, 没有出到链的情况, 所以暴力更新是可以随便过的</p>
@@ -4263,7 +4263,7 @@ f_{u,1}&=val_u+\sum_{v\in sonu} f_{v,0}
   </entry>
   <entry>
     <title>名探偵コナン</title>
-    <url>/AlanTuringLi/2021/04/30/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97/</url>
+    <url>/STPGUY/2021/04/30/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97/</url>
     <content><![CDATA[<h1 id="Part-One"><a href="#Part-One" class="headerlink" title="Part One"></a>Part One</h1><div class="table-container">
 <table>
 <thead>
@@ -4767,7 +4767,7 @@ f_{u,1}&=val_u+\sum_{v\in sonu} f_{v,0}
   </entry>
   <entry>
     <title>基础多项式</title>
-    <url>/AlanTuringLi/2020/07/29/%E5%9F%BA%E7%A1%80%E5%A4%9A%E9%A1%B9%E5%BC%8F/</url>
+    <url>/STPGUY/2020/07/29/%E5%9F%BA%E7%A1%80%E5%A4%9A%E9%A1%B9%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="快速傅里叶变换"><a href="#快速傅里叶变换" class="headerlink" title="快速傅里叶变换"></a>快速傅里叶变换</h1><h2 id="多项式"><a href="#多项式" class="headerlink" title="多项式"></a>多项式</h2><p>一个环 $R$ 上的关于 $x$ 的多项式可以写作 </p>
 <script type="math/tex; mode=display">
 A(x) = \sum_{i=0}^na_ix^i</script><p>其中 $a_i \in \mathbb{R}$</p>
@@ -4984,7 +4984,7 @@ A\prime(x)=\frac{\mathrm d}{\mathrm dx}A(x)=\sum_{n\ge1}na_nx^{n-1}</script><p>�
   </entry>
   <entry>
     <title>复数入门</title>
-    <url>/AlanTuringLi/2021/02/07/%E5%A4%8D%E6%95%B0%E5%85%A5%E9%97%A8/</url>
+    <url>/STPGUY/2021/02/07/%E5%A4%8D%E6%95%B0%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[<h1 id="一-复数"><a href="#一-复数" class="headerlink" title="(一) 复数"></a>(一) 复数</h1><h2 id="一-定义"><a href="#一-定义" class="headerlink" title="一.定义"></a>一.定义</h2><p>若$i$符合方程$X^2+1=0$, 则$i$被称为虚数单位</p>
 <p>复数$z=a+bi \left(a,b\in \mathbb{R}\right)$</p>
 <p>$a$为实部, $b$为虚部, 记$:a=Re(z),b=Im(z)$</p>
@@ -5138,7 +5138,7 @@ z_1&z_2&z_3\\
   </entry>
   <entry>
     <title>大素数</title>
-    <url>/AlanTuringLi/2020/10/17/%E5%A4%A7%E7%B4%A0%E6%95%B0/</url>
+    <url>/STPGUY/2020/10/17/%E5%A4%A7%E7%B4%A0%E6%95%B0/</url>
     <content><![CDATA[<h1 id="记号声明"><a href="#记号声明" class="headerlink" title="记号声明"></a>记号声明</h1><p>首先，声明几个记号：</p>
 <ul>
 <li>$p_i$ 表示第 $i$ 个素数</li>
@@ -5171,7 +5171,7 @@ P_2(m,n)=\sum_{y<p\le \sqrt m}\left(\pi\left(\frac mp\right)-\pi(p)+1\right)</sc
   </entry>
   <entry>
     <title>如何理解递归</title>
-    <url>/AlanTuringLi/2022/11/25/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E9%80%92%E5%BD%92/</url>
+    <url>/STPGUY/2022/11/25/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E9%80%92%E5%BD%92/</url>
     <content><![CDATA[<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>函数在一任何语言里，都起着无比重要的作用。但是对初学者来说，计算机的函数可能会比较抽象，那么就先来看看数学里的函数。</p>
 <p>数学里的函数可以简单的看作一个数集通过一定法则到另一个数集的映射。</p>
 <p>那么，在计算机中，带有返回值的函数也可以同样理解。只不过计算机的函数的功能远远大于数学中函数的，除了得到值于值之间的关系，你可以在一个函数中写出你想拥有的任何功能 （<del>只要你会写</del>）。</p>
@@ -5265,12 +5265,12 @@ f(x) = g(x) + h(x) + \varphi(x)</script><p>那么在程序里，也可以有同�
   </entry>
   <entry>
     <title>子段和</title>
-    <url>/AlanTuringLi/2022/10/10/%E5%AD%90%E6%AE%B5%E5%92%8C/</url>
+    <url>/STPGUY/2022/10/10/%E5%AD%90%E6%AE%B5%E5%92%8C/</url>
     <content><![CDATA[<link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>]]></content>
   </entry>
   <entry>
     <title>字符串</title>
-    <url>/AlanTuringLi/2020/11/04/%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <url>/STPGUY/2020/11/04/%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
     <content><![CDATA[<h1 id="回文串"><a href="#回文串" class="headerlink" title="回文串"></a>回文串</h1><h2 id="Manacher"><a href="#Manacher" class="headerlink" title="Manacher"></a><a href="https://www.luogu.com.cn/problem/P3805">Manacher</a></h2><p>就是处理回文串的一个玩意，时间复杂度空间复杂度均为 $O(n)$，挺有用的一种工具吧。</p>
 <h3 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h3><p>由于串的长度有奇数也有偶数就很烦，为了方便讨论，就会往字符串里插入一些字符变得规整一点。</p>
 <p>如：${abcba}\rightarrow$，${abccba}\rightarrow$</p>
@@ -5309,7 +5309,7 @@ f(x) = g(x) + h(x) + \varphi(x)</script><p>那么在程序里，也可以有同�
   </entry>
   <entry>
     <title>完全平方数</title>
-    <url>/AlanTuringLi/2020/09/23/%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/</url>
+    <url>/STPGUY/2020/09/23/%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/</url>
     <content><![CDATA[<h1 id="完全平方数"><a href="#完全平方数" class="headerlink" title="完全平方数"></a><a href="https://www.luogu.com.cn/problem/P4318">完全平方数</a></h1><h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>就是请你求第$n$无平方因字数</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>有感觉的同学会发现，这个似乎和$\mu$有关</p>
 <p>此话怎讲？</p>
@@ -5396,7 +5396,7 @@ S(n)=n-\sum_{i=2}^\sqrt n S(\left\lfloor\frac n{i^2}\right\rfloor)</script><figu
   </entry>
   <entry>
     <title>强连通分量(CSS)</title>
-    <url>/AlanTuringLi/2023/01/09/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F-SCC/</url>
+    <url>/STPGUY/2023/01/09/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F-SCC/</url>
     <content><![CDATA[<h1 id="前置芝士"><a href="#前置芝士" class="headerlink" title="前置芝士"></a>前置芝士</h1><p><strong>强连通：</strong>有向图 $G$ 中任意两个节点相连</p>
 <p>$DFS$ <strong>树：</strong></p>
 <ul>
@@ -5422,7 +5422,7 @@ S(n)=n-\sum_{i=2}^\sqrt n S(\left\lfloor\frac n{i^2}\right\rfloor)</script><figu
   </entry>
   <entry>
     <title>悬线Dp</title>
-    <url>/AlanTuringLi/2020/07/24/%E6%82%AC%E7%BA%BFDp/</url>
+    <url>/STPGUY/2020/07/24/%E6%82%AC%E7%BA%BFDp/</url>
     <content><![CDATA[<h1 id="ZJOI2007-棋盘制作"><a href="#ZJOI2007-棋盘制作" class="headerlink" title="[ZJOI2007]棋盘制作"></a><a href="https://www.luogu.com.cn/problem/P1169">[ZJOI2007]棋盘制作</a></h1><p>这比较模板, 算是裸的悬线$dp$</p>
 <p>看见$N,M\leqslant2000$, 对了, 那就是了</p>
 <p>时间复杂度$O(NM)$妥妥的</p>
@@ -5437,7 +5437,7 @@ S(n)=n-\sum_{i=2}^\sqrt n S(\left\lfloor\frac n{i^2}\right\rfloor)</script><figu
   </entry>
   <entry>
     <title>搜索专题</title>
-    <url>/AlanTuringLi/2020/09/05/%E6%90%9C%E7%B4%A2%E4%B8%93%E9%A2%98/</url>
+    <url>/STPGUY/2020/09/05/%E6%90%9C%E7%B4%A2%E4%B8%93%E9%A2%98/</url>
     <content><![CDATA[<h1 id="必备技能"><a href="#必备技能" class="headerlink" title="必备技能"></a>必备技能</h1><ul>
 <li>STL</li>
 </ul>
@@ -5638,7 +5638,7 @@ f[i][j]=max(f[i-1][j], f[i+1][j],f[i][j-1],f[i][j+1])+1</script><p>当然，这�
   </entry>
   <entry>
     <title>摆渡车</title>
-    <url>/AlanTuringLi/2020/09/15/%E6%91%86%E6%B8%A1%E8%BD%A6/</url>
+    <url>/STPGUY/2020/09/15/%E6%91%86%E6%B8%A1%E8%BD%A6/</url>
     <content><![CDATA[<h1 id="摆渡车"><a href="#摆渡车" class="headerlink" title="摆渡车"></a><a href="https://ac.nowcoder.com/acm/problem/21471">摆渡车</a></h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>你可以操控一辆车的发车时间，你也知道跑一次往返的时间，你还知道每一个人到达车站的时间</p>
 <p>让你找到一种方案使得所有人的等待时间之和最少，求这个最小时间</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>第一反应是把到达车站的人作为一个整体<br>然后我们可以枚举最近的一次发车时间</p>
@@ -5657,7 +5657,7 @@ f[i][j]=max(f[i-1][j], f[i+1][j],f[i][j-1],f[i][j+1])+1</script><p>当然，这�
   </entry>
   <entry>
     <title>数位DP</title>
-    <url>/AlanTuringLi/2020/07/22/%E6%95%B0%E4%BD%8DDP/</url>
+    <url>/STPGUY/2020/07/22/%E6%95%B0%E4%BD%8DDP/</url>
     <content><![CDATA[<h1 id="HDU3652-B-Number"><a href="#HDU3652-B-Number" class="headerlink" title="HDU3652 B-Number"></a><a href="https://vjudge.net/problem/HDU-3652#author=0">HDU3652 B-Number</a></h1><p>这道题, 是非常典型的一个例子, 堪称数位$Dp$的模板</p>
 <h2 id="状态设计"><a href="#状态设计" class="headerlink" title="状态设计:"></a>状态设计:</h2><p>令$Dp[Pos][Lst][Num]$表示当前枚举的这个数是第$Pos$位, 前面数字的状态为$Lst$, 前面的数的和对$13$取模的结果为$Num$</p>
 <p>可以枚举第$Pos$为可能的值$i$, 并有如下转移</p>
@@ -5685,7 +5685,7 @@ Ans=\sum\limits_{i=1}^{\min(limit,\;9)}Dp[pos-1][State][(Num*10+i)\%13]</script>
   </entry>
   <entry>
     <title>旧试题</title>
-    <url>/AlanTuringLi/2020/08/23/%E6%97%A7%E8%AF%95%E9%A2%98/</url>
+    <url>/STPGUY/2020/08/23/%E6%97%A7%E8%AF%95%E9%A2%98/</url>
     <content><![CDATA[<h1 id="P4619-SDOI2018-旧试题"><a href="#P4619-SDOI2018-旧试题" class="headerlink" title="P4619 [SDOI2018]旧试题"></a><a href="https://www.luogu.com.cn/problem/P4619">P4619 [SDOI2018]旧试题</a></h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>这里没有奇奇怪怪的描述</p>
 <p>这道题说白了就是求：</p>
 <script type="math/tex; mode=display">
@@ -5760,7 +5760,7 @@ g(n,1)&=\sum_{i=1}^n\mu(i)\qquad\text{这个可以直接前缀和预处理}
   </entry>
   <entry>
     <title>最长异或路径</title>
-    <url>/AlanTuringLi/2020/09/16/%E6%9C%80%E9%95%BF%E5%BC%82%E6%88%96%E8%B7%AF%E5%BE%84/</url>
+    <url>/STPGUY/2020/09/16/%E6%9C%80%E9%95%BF%E5%BC%82%E6%88%96%E8%B7%AF%E5%BE%84/</url>
     <content><![CDATA[<h1 id="The-XOR-longest-Path"><a href="#The-XOR-longest-Path" class="headerlink" title="The XOR-longest Path"></a><a href="https://ac.nowcoder.com/acm/problem/50349">The XOR-longest Path</a></h1><h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>给定一棵树, 让你求树上异或和最大的简单路径的异或和</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>想要异或和最大, 那么我们想要的显然是贪心, 那就是尽量让他们在二进制下不相同</p>
 <p>这样考虑的话, 我们可以想到的是$01$字典树, 从高次项向低处贪心, 能保证最值</p>
@@ -5776,7 +5776,7 @@ g(n,1)&=\sum_{i=1}^n\mu(i)\qquad\text{这个可以直接前缀和预处理}
   </entry>
   <entry>
     <title>有的没的</title>
-    <url>/AlanTuringLi/2021/02/02/%E6%9C%89%E7%9A%84%E6%B2%A1%E7%9A%84/</url>
+    <url>/STPGUY/2021/02/02/%E6%9C%89%E7%9A%84%E6%B2%A1%E7%9A%84/</url>
     <content><![CDATA[<h1 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h1><p>有向量 $\overrightarrow{a}=(x_a,y_a,z_a), \overrightarrow{b}=(x_b,y_b,z_b)$</p>
 <ul>
 <li><strong>点乘</strong> <ul>
@@ -5819,7 +5819,7 @@ q=n\frac{\Delta \phi}{R+r}</script><link rel="stylesheet" href="/AlanTuringLi/cs
   </entry>
   <entry>
     <title>Reviwe</title>
-    <url>/AlanTuringLi/2020/07/12/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</url>
+    <url>/STPGUY/2020/07/12/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="T1-生物实验"><a href="#T1-生物实验" class="headerlink" title="T1:生物实验"></a>T1:生物实验</h1><ul>
 <li><p>你有$n$个瓶子,其中$m$瓶有毒,然后你有$k\left(k\geqslant m\right)$ 只老鼠</p>
 </li>
@@ -5849,7 +5849,7 @@ Dp[i] = \frac{\mathrm{C}_n^k}{\mathrm{C}_{n + i}^k}\times\left(Dp[i] + 1\right) 
   </entry>
   <entry>
     <title>李超线段树</title>
-    <url>/AlanTuringLi/2020/08/02/%E6%9D%8E%E8%B6%85%E7%BA%BF%E6%AE%B5%E6%A0%91/</url>
+    <url>/STPGUY/2020/08/02/%E6%9D%8E%E8%B6%85%E7%BA%BF%E6%AE%B5%E6%A0%91/</url>
     <content><![CDATA[<h1 id="HEOI2013-Segment"><a href="#HEOI2013-Segment" class="headerlink" title="[HEOI2013]Segment"></a><a href="https://www.luogu.com.cn/problem/P4097">[HEOI2013]Segment</a></h1><p>不厚道得借鉴一些$OI\;Wiki$的好东西</p>
 <p>此题, 大概就是模板题了</p>
 <p>其实, 如果按照常规思路, 想到的东西大概也是一样的</p>
@@ -5902,7 +5902,7 @@ Dp[i] = \frac{\mathrm{C}_n^k}{\mathrm{C}_{n + i}^k}\times\left(Dp[i] + 1\right) 
   </entry>
   <entry>
     <title>杜教筛</title>
-    <url>/AlanTuringLi/2020/08/19/%E6%9D%9C%E6%95%99%E7%AD%9B/</url>
+    <url>/STPGUY/2020/08/19/%E6%9D%9C%E6%95%99%E7%AD%9B/</url>
     <content><![CDATA[<h1 id="杜教筛"><a href="#杜教筛" class="headerlink" title="杜教筛"></a>杜教筛</h1><p>简单的说是用来求数论函数的前缀和，时间复杂度低于线性时间复杂度</p>
 <p>如求：$S(n)=\sum_{i=1}^nf(i)$</p>
 <p>常规思路，构造类似数论分块的玩意儿$S(\lfloor\frac ni\rfloor)$，就这个</p>
@@ -5952,7 +5952,7 @@ S_2 = \sum_{i=1}^n\mu(i)</script><p>先来看看第一问：</p>
   </entry>
   <entry>
     <title>树状数组</title>
-    <url>/AlanTuringLi/2020/09/22/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/</url>
+    <url>/STPGUY/2020/09/22/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<h1 id="一维树状数组"><a href="#一维树状数组" class="headerlink" title="一维树状数组"></a>一维树状数组</h1><p>这是一个单次修改、查询都为$O(\log n)$的数据结构，空间复杂度为 $O(n)$</p>
 <p>当然有时候还是会用一些辅助数组的</p>
 <h2 id="树状数组-1-：单点修改，区间查询"><a href="#树状数组-1-：单点修改，区间查询" class="headerlink" title="树状数组 1 ：单点修改，区间查询"></a><a href="https://loj.ac/problem/130">树状数组 1 ：单点修改，区间查询</a></h2><p>有这样一个区间查询，首先想到的就是用左右端点的前缀和做差去维护</p>
@@ -6025,7 +6025,7 @@ ans&=\sum_{x=1}^{xr}\sum_{y=1}^{yr}\sum_{i=1}^x\sum_{j=1}^ycf[i][j]\\
   </entry>
   <entry>
     <title>洛谷十月月赛--第二场</title>
-    <url>/AlanTuringLi/2020/10/18/%E6%B4%9B%E8%B0%B7%E5%8D%81%E6%9C%88%E6%9C%88%E8%B5%9B-%E7%AC%AC%E4%BA%8C%E5%9C%BA/</url>
+    <url>/STPGUY/2020/10/18/%E6%B4%9B%E8%B0%B7%E5%8D%81%E6%9C%88%E6%9C%88%E8%B5%9B-%E7%AC%AC%E4%BA%8C%E5%9C%BA/</url>
     <content><![CDATA[<h1 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>就是问你在一个有 $n$ 个点的完全图中，从一个点出发，最多能不重复经过多少条边</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><ul>
 <li>如果 $n$ 是奇数，那么完全图中的所有边都可以访问一次，个数为 $\dbinom n2$</li>
@@ -6104,7 +6104,7 @@ s(n,m)&=\sum_{a=1}^n\sum_{b=1}^m[a\perp b]\\
   </entry>
   <entry>
     <title>模板</title>
-    <url>/AlanTuringLi/2020/06/24/%E6%A8%A1%E6%9D%BF/</url>
+    <url>/STPGUY/2020/06/24/%E6%A8%A1%E6%9D%BF/</url>
     <content><![CDATA[<h1 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h1> <video id="video" controls="" preload="none" poster="http://media.w3.org/2010/05/sintel/poster.png">
       <source id="mp4" src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
       <source id="webm" src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm">
@@ -6175,7 +6175,7 @@ s(n,m)&=\sum_{a=1}^n\sum_{b=1}^m[a\perp b]\\
   </entry>
   <entry>
     <title>生成函数</title>
-    <url>/AlanTuringLi/2020/09/06/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0/</url>
+    <url>/STPGUY/2020/09/06/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h1 id="生成函数简介"><a href="#生成函数简介" class="headerlink" title="生成函数简介"></a>生成函数简介</h1><p>生成函数（$\text{generating function}$），又称母函数，是一种形式幂级数，其每一项的系数可以提供关于这个序列的信息。</p>
 <p>生成函数有许多不同的种类，但大多可以表示为单一的形式：</p>
 <script type="math/tex; mode=display">
@@ -6291,7 +6291,7 @@ b=\frac{1-\sqrt5}2\\
   </entry>
   <entry>
     <title>电学复习</title>
-    <url>/AlanTuringLi/2021/02/04/%E7%94%B5%E5%AD%A6%E5%A4%8D%E4%B9%A0/</url>
+    <url>/STPGUY/2021/02/04/%E7%94%B5%E5%AD%A6%E5%A4%8D%E4%B9%A0/</url>
     <content><![CDATA[<h2 id="电场部分"><a href="#电场部分" class="headerlink" title="电场部分"></a>电场部分</h2><script type="math/tex; mode=display">
 E=\frac Fq\qquad E=k\frac Q{r^2}\qquad矢量\\
 \varphi=\frac {E_p}q\qquad\varphi=k\frac Qr\qquad 标量\\
@@ -6317,7 +6317,7 @@ T=\frac{2\pi m}{qB}</script><link rel="stylesheet" href="/AlanTuringLi/css/spoil
   </entry>
   <entry>
     <title>矩阵</title>
-    <url>/AlanTuringLi/2022/08/02/%E7%9F%A9%E9%98%B5/</url>
+    <url>/STPGUY/2022/08/02/%E7%9F%A9%E9%98%B5/</url>
     <content><![CDATA[<h1 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>由 $m\times n$  个数 $a_{i,j}(i\in [1,m],j\in[i,n])$ 排成的 $m$ 行 $n$ 列的数表：</p>
 <script type="math/tex; mode=display">
 \begin{pmatrix}
@@ -6528,7 +6528,7 @@ tr(A)=\sum_{i=1}^na_{ii}</script><h3 id="运算性质-1"><a href="#运算性质-
   </entry>
   <entry>
     <title>组合计数</title>
-    <url>/AlanTuringLi/2020/11/14/%E7%BB%84%E5%90%88%E8%AE%A1%E6%95%B0/</url>
+    <url>/STPGUY/2020/11/14/%E7%BB%84%E5%90%88%E8%AE%A1%E6%95%B0/</url>
     <content><![CDATA[
 
 	<div class="row">
@@ -6545,7 +6545,7 @@ tr(A)=\sum_{i=1}^na_{ii}</script><h3 id="运算性质-1"><a href="#运算性质-
   </entry>
   <entry>
     <title>联赛Day1</title>
-    <url>/AlanTuringLi/2020/10/12/%E8%81%94%E8%B5%9BDay1/</url>
+    <url>/STPGUY/2020/10/12/%E8%81%94%E8%B5%9BDay1/</url>
     <content><![CDATA[<h1 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h1><p>应该是水的，所有前后缀减重复的应该就可以了</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn = <span class="number">1e7</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">char</span> s[maxn], t[maxn];</span><br><span class="line"><span class="type">int</span> cnts[<span class="number">26</span>], cntt[<span class="number">26</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span> (<span class="string">&quot;%s %s&quot;</span>, s, t);</span><br><span class="line">	<span class="type">int</span> strs = <span class="built_in">strlen</span>(s), strt = <span class="built_in">strlen</span>(t);</span><br><span class="line">	ll ans = <span class="number">1ll</span> * (strs + <span class="number">1</span>) * (strt + <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; strs; ++i) cnts[s[i] - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; strt; ++i) cntt[t[i] - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i) ans -= <span class="number">1ll</span> * cntt[i] * cnts[i];</span><br><span class="line">	cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h1 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h1><p>好像还是不太好搞，先跳</p>
@@ -6595,7 +6595,7 @@ d(i+1, j+2)&=\min(d(i+1,j+2), next(i+1,t_{i+1}))\\
   </entry>
   <entry>
     <title>联赛Day2</title>
-    <url>/AlanTuringLi/2020/10/13/%E8%81%94%E8%B5%9BDay2/</url>
+    <url>/STPGUY/2020/10/13/%E8%81%94%E8%B5%9BDay2/</url>
     <content><![CDATA[<h1 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h1><p>对所有的边建一张新图，可以发现，图中所有的环一定都是长度为偶数的，那么对于每个环的方案数就是 $2$，用并查集就可以了</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> f[maxn &lt;&lt; <span class="number">1</span>], in[maxn], out[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (x == f[x]) <span class="keyword">return</span> x;</span><br><span class="line">	<span class="keyword">return</span> f[x] = <span class="built_in">find</span>(f[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">merge</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	f[<span class="built_in">find</span>(x)] = <span class="built_in">find</span>(y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">inline</span> <span class="type">int</span> __read()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">x</span><span class="params">(<span class="number">0</span>)</span>, <span class="title">t</span><span class="params">(<span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">char</span> <span class="title">o</span> <span class="params">(getchar())</span></span>;</span><br><span class="line">    <span class="keyword">while</span> (o &lt; <span class="string">&#x27;0&#x27;</span> || o &gt; <span class="string">&#x27;9&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (o == <span class="string">&#x27;-&#x27;</span>) t = <span class="number">-1</span>;</span><br><span class="line">        o = <span class="built_in">getchar</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (; o &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; o &lt;= <span class="string">&#x27;9&#x27;</span>; o = <span class="built_in">getchar</span>()) &#123;</span><br><span class="line">        x = (x &lt;&lt; <span class="number">1</span>) + (x &lt;&lt; <span class="number">3</span>) + (o ^ <span class="number">48</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x * t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> n = __read() &lt;&lt; <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) f[i] = i;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">		<span class="type">int</span> u = __read(), v = __read();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (in[v]) <span class="built_in">merge</span>(in[v], i);</span><br><span class="line">		<span class="keyword">else</span> in[v] = i;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (out[u]) <span class="built_in">merge</span>(out[u], i);</span><br><span class="line">		<span class="keyword">else</span> out[u] = i;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="type">int</span> <span class="title">ans</span><span class="params">(<span class="number">1</span>)</span></span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) </span><br><span class="line">		<span class="keyword">if</span> (f[i] == i) ans = ans * <span class="number">2</span> % mod;</span><br><span class="line">	<span class="built_in">printf</span> (<span class="string">&quot;%d\n&quot;</span>, ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h1><p>题目可以转化一下，因为对于一个 $a[i]!=i$ 的东西来说，这个点可以是左移，也可以是右移那么就可以得到一系列 $p_i$ 的关系，那么就可以根据建立的 $p_i$ 的关系来做一个 $n^2$ 的 $dp$</p>
@@ -6641,7 +6641,7 @@ f(i,j)=p+\max_{0\le k<j}f(j,k)-t\times s_k</script><p>若对于 $s_a&lt;s_b$ 有
   </entry>
   <entry>
     <title>联赛day3</title>
-    <url>/AlanTuringLi/2020/10/14/%E8%81%94%E8%B5%9BDay3/</url>
+    <url>/STPGUY/2020/10/14/%E8%81%94%E8%B5%9BDay3/</url>
     <content><![CDATA[<h1 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h1><p>直接异或 $HASH$ 判断集合是否正确</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> lowbit(x) (x &amp; -x)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">inline</span> <span class="type">int</span> __read()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">x</span><span class="params">(<span class="number">0</span>)</span>, <span class="title">t</span><span class="params">(<span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">char</span> <span class="title">o</span> <span class="params">(getchar())</span></span>;</span><br><span class="line">    <span class="keyword">while</span> (o &lt; <span class="string">&#x27;0&#x27;</span> || o &gt; <span class="string">&#x27;9&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (o == <span class="string">&#x27;-&#x27;</span>) t = <span class="number">-1</span>;</span><br><span class="line">        o = <span class="built_in">getchar</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (; o &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; o &lt;= <span class="string">&#x27;9&#x27;</span>; o = <span class="built_in">getchar</span>()) &#123;</span><br><span class="line">        x = (x &lt;&lt; <span class="number">1</span>) + (x &lt;&lt; <span class="number">3</span>) + (o ^ <span class="number">48</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x * t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m, a[maxn], dfn[maxn], size[maxn], f[maxn][<span class="number">25</span>], depth[maxn];</span><br><span class="line"><span class="type">int</span> id, cur, head[maxn], edge[maxn &lt;&lt; <span class="number">1</span>], Prev[maxn &lt;&lt; <span class="number">1</span>]; </span><br><span class="line">ll reflect[maxn], pre[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">addedge</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Prev[++cur] = head[u];</span><br><span class="line">    head[u] = cur;</span><br><span class="line">    edge[cur] = v;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ll t[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> x, ll d)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (x &lt;= n) &#123;</span><br><span class="line">        t[x] ^= d;</span><br><span class="line">        x += <span class="built_in">lowbit</span>(x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">query</span><span class="params">(<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">ll <span class="title">ans</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">while</span> (x) &#123;</span><br><span class="line">        ans ^= t[x];</span><br><span class="line">        x -= <span class="built_in">lowbit</span>(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">rnd</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">rand</span>() * <span class="number">114514ll</span> * <span class="number">233ll</span> % mod;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> fa)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    dfn[u] = ++id, depth[u] = depth[fa] + <span class="number">1</span>;</span><br><span class="line">    size[u] = <span class="number">1</span>, f[u][<span class="number">0</span>] = fa;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">18</span>; ++i)</span><br><span class="line">        f[u][i] = f[f[u][i - <span class="number">1</span>]][i - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = head[u]; i; i = Prev[i]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (edge[i] == fa) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="built_in">dfs</span>(edge[i], u);</span><br><span class="line">        size[u] += size[edge[i]];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">lca</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (depth[x] &lt; depth[y]) <span class="built_in">swap</span>(x, y);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">18</span>; ~i; --i)</span><br><span class="line">        <span class="keyword">if</span> (depth[f[x][i]] &gt;= depth[y]) x = f[x][i];</span><br><span class="line">    <span class="keyword">if</span> (x == y) <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">18</span>; ~i; --i) </span><br><span class="line">        <span class="keyword">if</span> (f[x][i] ^ f[y][i]) x = f[x][i], y = f[y][i];</span><br><span class="line">    <span class="keyword">return</span> f[x][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    id = cur = <span class="number">0</span>;</span><br><span class="line">    n = __read(), m = __read();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt;= <span class="number">18</span>; ++j) f[i][j] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        a[i] = __read(), t[i] = head[i] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        reflect[i] = <span class="built_in">rnd</span>(), pre[i] = pre[i - <span class="number">1</span>]  ^ reflect[i];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        <span class="type">int</span> u = __read(), v = __read();</span><br><span class="line">        <span class="built_in">addedge</span>(u, v), <span class="built_in">addedge</span>(v, u);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">dfs</span>(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) <span class="built_in">add</span>(dfn[i], reflect[a[i]]), <span class="built_in">add</span>(dfn[i] + size[i], reflect[a[i]]);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> o, x, y;</span><br><span class="line">    <span class="keyword">while</span> (m--) &#123;</span><br><span class="line">        o = __read(), x = __read(), y = __read();</span><br><span class="line">        <span class="keyword">if</span> (o == <span class="number">1</span>) &#123;</span><br><span class="line">            ll tmp = <span class="built_in">query</span>(dfn[x]) ^ <span class="built_in">query</span>(dfn[y]);</span><br><span class="line">            <span class="type">int</span> rca = <span class="built_in">lca</span>(x, y), len = depth[x] + depth[y] - <span class="number">2</span> * depth[rca] + <span class="number">1</span>;</span><br><span class="line">            tmp ^= reflect[a[rca]];</span><br><span class="line">            <span class="keyword">if</span> (tmp == pre[len]) <span class="built_in">puts</span>(<span class="string">&quot;Yes&quot;</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">&quot;No&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">add</span>(dfn[x], reflect[a[x]] ^ reflect[y]);</span><br><span class="line">            <span class="built_in">add</span>(dfn[x] + size[x], reflect[a[x]] ^ reflect[y]);</span><br><span class="line">            a[x] = y;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">srand</span>(<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    <span class="type">int</span> t = __read();</span><br><span class="line">    <span class="keyword">while</span> (t--) <span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -6659,7 +6659,7 @@ f(i,j)=p+\max_{0\le k<j}f(j,k)-t\times s_k</script><p>若对于 $s_a&lt;s_b$ 有
   </entry>
   <entry>
     <title>莫比乌斯反演</title>
-    <url>/AlanTuringLi/2020/06/14/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/</url>
+    <url>/STPGUY/2020/06/14/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/</url>
     <content><![CDATA[<h3 id="P3911-最小公倍数之和"><a href="#P3911-最小公倍数之和" class="headerlink" title="P3911 最小公倍数之和"></a><a href="https://www.luogu.com.cn/problem/P3911">P3911 最小公倍数之和</a></h3><script type="math/tex; mode=display">
 求\sum\limits_{i=1}^n\sum\limits_{j=1}^n{lcm(a_i,a_j)}\\
 \forall a_i \in \left[ 1, \;Maxn\right]</script><h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><script type="math/tex; mode=display">
@@ -6721,7 +6721,7 @@ h=id*\mu\\\\
   </entry>
   <entry>
     <title>行列式($Determinant$)入门</title>
-    <url>/AlanTuringLi/2022/07/24/%E8%A1%8C%E5%88%97%E5%BC%8F%E5%85%A5%E9%97%A8/</url>
+    <url>/STPGUY/2022/07/24/%E8%A1%8C%E5%88%97%E5%BC%8F%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[<h1 id="行列式的概念"><a href="#行列式的概念" class="headerlink" title="行列式的概念"></a>行列式的概念</h1><h2 id="n-阶行列式"><a href="#n-阶行列式" class="headerlink" title="$n$ 阶行列式"></a>$n$ 阶行列式</h2><h3 id="二阶行列式"><a href="#二阶行列式" class="headerlink" title="二阶行列式"></a>二阶行列式</h3><p>由 $2^2$ 个数排列成的两行两列，记作：</p>
 <script type="math/tex; mode=display">
 \begin{vmatrix}
@@ -6876,7 +6876,7 @@ a_{n, 1}&a_{n, 2}&\dots&a_{n, n}\\
   </entry>
   <entry>
     <title>象棋与马</title>
-    <url>/AlanTuringLi/2022/02/06/%E8%B1%A1%E6%A3%8B%E4%B8%8E%E9%A9%AC/</url>
+    <url>/STPGUY/2022/02/06/%E8%B1%A1%E6%A3%8B%E4%B8%8E%E9%A9%AC/</url>
     <content><![CDATA[<h1 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h1><p>有一个马最开始在 $(0,0)$，它的每一步可以走一个 $a\times b$ 的矩形（ 即能够从 $(x,y)$ 到达 $(x\pm a,y\pm b)$ 或 $(x\pm b,y\pm a)$ ）。</p>
 <p>若马通过上述移动方式可以到达棋盘中任意一个点，那么 $p(a,b)=1$，否则 $p(a,b)=0$。</p>
 <p>给你 $T$ 组询问，每组给你一个 $n$，让你求：</p>
@@ -6938,7 +6938,7 @@ s(n,m)&=\sum_{a=1}^n\sum_{b=1}^m[a\perp b]\\
   </entry>
   <entry>
     <title>进阶数据结构1</title>
-    <url>/AlanTuringLi/2020/07/27/%E8%BF%9B%E9%98%B6%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%841/</url>
+    <url>/STPGUY/2020/07/27/%E8%BF%9B%E9%98%B6%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%841/</url>
     <content><![CDATA[<h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><h2 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法:"></a>基本方法:</h2><ul>
 <li>前缀和</li>
 <li>差分</li>
@@ -7084,7 +7084,7 @@ s(n,m)&=\sum_{a=1}^n\sum_{b=1}^m[a\perp b]\\
   </entry>
   <entry>
     <title>道路和航线</title>
-    <url>/AlanTuringLi/2020/09/15/%E9%81%93%E8%B7%AF%E5%92%8C%E8%88%AA%E7%BA%BF/</url>
+    <url>/STPGUY/2020/09/15/%E9%81%93%E8%B7%AF%E5%92%8C%E8%88%AA%E7%BA%BF/</url>
     <content><![CDATA[<h1 id="道路和航线"><a href="#道路和航线" class="headerlink" title="道路和航线"></a><a href="https://ac.nowcoder.com/acm/problem/50381">道路和航线</a></h1><p>本质就是一个最短路，有负边，题目保证无环</p>
 <p>$SPFA$直接跑的正确性就不用证明了</p>
 <p>这道题卡掉了朴素的$SPFA$，用双端队列优化即可？</p>
@@ -7095,7 +7095,7 @@ s(n,m)&=\sum_{a=1}^n\sum_{b=1}^m[a\perp b]\\
   </entry>
   <entry>
     <title>HFSS入门-波导优化设计</title>
-    <url>/AlanTuringLi/2023/11/06/HFSS%E5%85%A5%E9%97%A8-%E6%B3%A2%E5%AF%BC%E4%BC%98%E5%8C%96%E8%AE%BE%E8%AE%A1/</url>
+    <url>/STPGUY/2023/11/06/HFSS%E5%85%A5%E9%97%A8-%E6%B3%A2%E5%AF%BC%E4%BC%98%E5%8C%96%E8%AE%BE%E8%AE%A1/</url>
     <content><![CDATA[<h1 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h1><iframe src="//player.bilibili.com/player.html?aid=385016188&bvid=BV1vZ4y1q7gt&cid=749447813&p=3&high_quality=1&danmaku=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 500px; max-width: 100%；align:center; padding:20px 0;"> </iframe>
 
 <ul>
@@ -7139,7 +7139,7 @@ s(n,m)&=\sum_{a=1}^n\sum_{b=1}^m[a\perp b]\\
   </entry>
   <entry>
     <title>HFSS功能概述</title>
-    <url>/AlanTuringLi/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/</url>
+    <url>/STPGUY/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/</url>
     <content><![CDATA[<blockquote>
 <p>截止到目前，这篇博客的主要内容来自《HFSS 射频仿真设计 实例大全》。</p>
 </blockquote>
@@ -7222,7 +7222,7 @@ s(n,m)&=\sum_{a=1}^n\sum_{b=1}^m[a\perp b]\\
   </entry>
   <entry>
     <title>HFSS中的建模操作</title>
-    <url>/AlanTuringLi/2023/11/12/HFSS%E4%B8%AD%E7%9A%84%E5%BB%BA%E6%A8%A1%E6%93%8D%E4%BD%9C/</url>
+    <url>/STPGUY/2023/11/12/HFSS%E4%B8%AD%E7%9A%84%E5%BB%BA%E6%A8%A1%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<h1 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h1><iframe src="//player.bilibili.com/player.html?aid=385016188&bvid=BV1vZ4y1q7gt&cid=749472031&p=6&high_quality=1&danmaku=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 500px; max-width: 100%；align:center; padding:20px 0;"> </iframe>
 
 <ul>
@@ -7257,7 +7257,7 @@ s(n,m)&=\sum_{a=1}^n\sum_{b=1}^m[a\perp b]\\
 </li>
 <li>建模相关选项设置</li>
 </ul>
-<h1 id="基本模型"><a href="#基本模型" class="headerlink" title="基本模型"></a>基本模型</h1><p><img src="./image-20231112144017589.png" alt="image-20231112144017589" style="zoom: 67%;" /><img src="./image-20231112144054027.png" alt="image-20231112144054027" style="zoom: 67%;" /></p>
+<h1 id="基本模型"><a href="#基本模型" class="headerlink" title="基本模型"></a>基本模型</h1><p><img src="./image-20231112144017589.png" alt="image-20231112144017589" style="zoom:67%;" /><img src="./image-20231112144054027.png" alt="image-20231112144054027" style="zoom: 67%;" /></p>
 <h1 id="创建基本物体模型"><a href="#创建基本物体模型" class="headerlink" title="创建基本物体模型"></a>创建基本物体模型</h1><ul>
 <li>状态栏输入位置坐标及大小尺寸<img src="./image-20231112144612788.png" alt="image-20231112144612788"><img src="./image-20231112144706735.png" alt="image-20231112144706735"></li>
 <li>属性对话框设置位置坐标及大小尺寸<img src="./image-20231112145035444.png" alt="image-20231112145035444"></li>
@@ -7337,14 +7337,14 @@ s(n,m)&=\sum_{a=1}^n\sum_{b=1}^m[a\perp b]\\
 <p>工作树下的相对坐标系设置。<img src="./image-20231112192611679.png" alt="image-20231112192611679"></p>
 <h2 id="面坐标系："><a href="#面坐标系：" class="headerlink" title="面坐标系："></a>面坐标系：</h2><p>选中一个面，并确定 $\text{x,y}$ 轴的方向。</p>
 <p><img src="./image-20231112193425563.png" alt="image-20231112193425563"></p>
-<link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>]]></content>
+<link rel="stylesheet" href="/STPGUY/css/spoiler.css" type="text/css"><script src="/STPGUY/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <tags>
         <tag>HFSS入门</tag>
       </tags>
   </entry>
   <entry>
     <title>微波工程笔记</title>
-    <url>/AlanTuringLi/2023/11/07/%E5%BE%AE%E6%B3%A2%E5%B7%A5%E7%A8%8B%E7%AC%94%E8%AE%B0/</url>
+    <url>/STPGUY/2023/11/07/%E5%BE%AE%E6%B3%A2%E5%B7%A5%E7%A8%8B%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>我得承认现阶段不能很深刻的理解每一个公式的含义，目前这篇博客的目的仅仅是为了方便查找公式。</p>
 <p>本书采用的是 $\text{MKS}$ 单位制，即用<strong>米</strong>作为长度单位，用<strong>千克</strong>作为质量单位，用<strong>秒</strong>作为时间单位。且带上标的书写体表示的是矢量场，表示坐标 $x, y, z$ 和时间变量 $t$ 的实函数。</p>
@@ -7427,7 +7427,7 @@ s(n,m)&=\sum_{a=1}^n\sum_{b=1}^m[a\perp b]\\
   </entry>
   <entry>
     <title>HFSS中的激励方式</title>
-    <url>/AlanTuringLi/2023/11/14/HFSS%E4%B8%AD%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E5%BC%8F/</url>
+    <url>/STPGUY/2023/11/14/HFSS%E4%B8%AD%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="关于激励方式"><a href="#关于激励方式" class="headerlink" title="关于激励方式"></a>关于激励方式</h1><p>$\text{HFSS}$ 中，激励是一种定义在三维物体表面或者二维物体上的激励源，这种激励源可以是电磁波激励、电压源或者电流源。激励端口是一种允许能量进入或流出几何结构的特殊边界条件类型：</p>
 <ul>
 <li>波端口 ($\text{Wave Port}$)</li>
@@ -7557,7 +7557,7 @@ e^{\gamma_1l_1} & 0 & 0\newline
   </entry>
   <entry>
     <title>HFSS中的边界条件</title>
-    <url>/AlanTuringLi/2023/11/12/HFSS%E4%B8%AD%E7%9A%84%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6/</url>
+    <url>/STPGUY/2023/11/12/HFSS%E4%B8%AD%E7%9A%84%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6/</url>
     <content><![CDATA[<h1 id="关于边界条件"><a href="#关于边界条件" class="headerlink" title="关于边界条件"></a>关于边界条件</h1><p>在电磁场理论学习中我们知道，电磁场问题的求解都归结于麦克斯韦 ($\text{Maxwell}$) 方程组的求解在 $\text{HFSS}$ 中波动方程的求解同样是由微分形式的麦克斯韦方程推导出来的。而边界条件定义了求解区域的边界以及不同物体交界处的电磁场特性，是求解麦克斯韦方程的基础。<br>只有在假定场矢量是单值、有界、并且沿空间连续分布的前提下，微分形式的麦克斯韦方程组才是有效的；而在求解区域的边界、不同介质的交界处私场源处，场矢量是不连续的，那么场的导数也就失去了意义。边界条件就是定义跨越不连续边界处的电磁场的特性，因此，正确地理解、定义并设置边界条件，是正确使用 $\text{HFSS}$ 仿真分析电磁场场特性的前提。<br>使用 $\text{HFSS}$ 时，用户应该时刻意识到: 边界条件确定场。正确地使用边界条件，是$\text{HFSS}$能够仿真分析出准确结果的前提。</p>
 <h1 id="调整边界条件的优先级"><a href="#调整边界条件的优先级" class="headerlink" title="调整边界条件的优先级"></a>调整边界条件的优先级</h1><p><img src="./image-20231112203416703.png" alt="image-20231112203416703"></p>
 <h1 id="边界条件的详细说明"><a href="#边界条件的详细说明" class="headerlink" title="边界条件的详细说明"></a>边界条件的详细说明</h1><p>在<a href="https://alanturingli.gitee.io/alanturingli/2023/11/06/HFSS功能概述/">这篇</a> $\text{Blog}$ 中有简单提到边界条件的大致使用，这里详细展开说明一下。</p>
@@ -7667,7 +7667,7 @@ e^{\gamma_1l_1} & 0 & 0\newline
   </entry>
   <entry>
     <title>HFSS求解类型和求解设置</title>
-    <url>/AlanTuringLi/2023/11/15/HFSS%E6%B1%82%E8%A7%A3%E7%B1%BB%E5%9E%8B%E5%92%8C%E6%B1%82%E8%A7%A3%E8%AE%BE%E7%BD%AE/</url>
+    <url>/STPGUY/2023/11/15/HFSS%E6%B1%82%E8%A7%A3%E7%B1%BB%E5%9E%8B%E5%92%8C%E6%B1%82%E8%A7%A3%E8%AE%BE%E7%BD%AE/</url>
     <content><![CDATA[<h1 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h1><iframe src="//player.bilibili.com/player.html?aid=385016188&bvid=BV1vZ4y1q7gt&cid=749565157&p=13&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 500px; max-width: 100%；align:center; padding:20px 0;"> </iframe>
 
 <ul>
@@ -7726,7 +7726,7 @@ e^{\gamma_1l_1} & 0 & 0\newline
   </entry>
   <entry>
     <title>HFSS变量设置及 $&#92;text{Optimetrics}$模块</title>
-    <url>/AlanTuringLi/2023/11/16/HFSS%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/</url>
+    <url>/STPGUY/2023/11/16/HFSS%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/</url>
     <content><![CDATA[<h1 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h1><iframe src="//player.bilibili.com/player.html?aid=385016188&bvid=BV1vZ4y1q7gt&cid=749596441&p=14&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 500px; max-width: 100%；align:center; padding:20px 0;"> </iframe>
 
 <p>$\text{HFSS}$ 作为一款功能强大的三维电磁仿真软件当然不是仅能够提供常规的电磁分析，它还能够提供优化设计、参数扫描分析、灵敏度分析和统计分析等功能，这些功能都集成在 $\text{HFSS}$ 的 $\text{Optimetrics}$ 模块中。在 $\text{HFSS}$ 中，要使用 $\text{Optimetrics}$ 模块的这些分析和设计功能，首先需要做的就是定义和添加相关变量。</p>
@@ -7921,7 +7921,7 @@ C_{x_i}^{s_{jk}}=\frac{\part S_{jk}}{\part X_i}</script><p>灵敏度计算可以
   </entry>
   <entry>
     <title>Optimetrics模块设计</title>
-    <url>/AlanTuringLi/2023/11/20/Optimetrics%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1/</url>
+    <url>/STPGUY/2023/11/20/Optimetrics%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1/</url>
     <content><![CDATA[<h1 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h1><iframe src="//player.bilibili.com/player.html?aid=385016188&bvid=BV1vZ4y1q7gt&cid=749632133&p=15&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 500px; max-width: 100%；align:center; padding:20px 0;"> </iframe>
 
 <p>$\text{Optimetrics}$ 简介参考<a href="https://alanturingli.gitee.io/alanturingli/2023/11/16/HFSS变量设置/">这篇博客</a>。</p>
@@ -7973,7 +7973,7 @@ Z_0=\frac{376.7}{2\pi\sqrt{\epsilon_e}}\ln\left[\frac{6+(2\pi-6)e^{-(\frac{30.67
   </entry>
   <entry>
     <title>pip换源操作</title>
-    <url>/AlanTuringLi/2223/10/22/pip%E6%8D%A2%E6%BA%90%E6%93%8D%E4%BD%9C/</url>
+    <url>/STPGUY/2223/10/22/pip%E6%8D%A2%E6%BA%90%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<h1 id="国内常用镜像源："><a href="#国内常用镜像源：" class="headerlink" title="国内常用镜像源："></a>国内常用镜像源：</h1><ul>
 <li><p>中科大源：</p>
 <figure class="highlight text"><table><tr><td class="code"><pre><span class="line">https://pypi.mirrors.ustc.edu.cn/simple</span><br></pre></td></tr></table></figure>

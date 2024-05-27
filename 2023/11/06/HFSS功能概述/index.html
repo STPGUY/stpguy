@@ -46,21 +46,21 @@
 
 
 
-<link rel="stylesheet" href="/AlanTuringLi/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+<link rel="stylesheet" href="/STPGUY/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
 
-<link rel="stylesheet" href="/AlanTuringLi/css/main.css?v=6.7.0"/>
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/AlanTuringLi/images/apple-touch-icon-next.png?v=6.7.0">
+<link rel="stylesheet" href="/STPGUY/css/main.css?v=6.7.0"/>
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/AlanTuringLi/images/favicon-32x32-next.png?v=6.7.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/STPGUY/images/apple-touch-icon-next.png?v=6.7.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/AlanTuringLi/images/favicon-16x16-next.png?v=6.7.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/STPGUY/images/favicon-32x32-next.png?v=6.7.0">
 
 
-  <link rel="mask-icon" href="/AlanTuringLi/images/logo.svg?v=6.7.0" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="/STPGUY/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/STPGUY/images/logo.svg?v=6.7.0" color="#222">
 
 
 
@@ -97,29 +97,29 @@
   <meta name="description" content="一天至少搞一节吧。。。 and 我是小丑，赵导有长周期的出差计划，还是得11月8号汇报。。。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HFSS功能概述">
-<meta property="og:url" content="https://alanturingli.gitee.io/AlanTuringLi/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/index.html">
+<meta property="og:url" content="https://github.com/STPGUY/stpguy.io/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/index.html">
 <meta property="og:site_name" content="STPGUY&#39;s Blog">
 <meta property="og:description" content="一天至少搞一节吧。。。 and 我是小丑，赵导有长周期的出差计划，还是得11月8号汇报。。。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://alanturingli.gitee.io/AlanTuringLi/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/求解过程.png">
-<meta property="og:image" content="https://alanturingli.gitee.io/AlanTuringLi/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/求解步骤.png">
-<meta property="og:image" content="https://alanturingli.gitee.io/AlanTuringLi/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/WavePort和LumpedPort比较.png">
-<meta property="og:image" content="https://alanturingli.gitee.io/AlanTuringLi/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/Solution_Setup.png">
-<meta property="og:image" content="https://alanturingli.gitee.io/AlanTuringLi/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/image-20231107165653191.png">
-<meta property="og:image" content="https://alanturingli.gitee.io/AlanTuringLi/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/image-20231107170121684.png">
+<meta property="og:image" content="https://github.com/STPGUY/stpguy.io/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/求解过程.png">
+<meta property="og:image" content="https://github.com/STPGUY/stpguy.io/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/求解步骤.png">
+<meta property="og:image" content="https://github.com/STPGUY/stpguy.io/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/WavePort和LumpedPort比较.png">
+<meta property="og:image" content="https://github.com/STPGUY/stpguy.io/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/Solution_Setup.png">
+<meta property="og:image" content="https://github.com/STPGUY/stpguy.io/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/image-20231107165653191.png">
+<meta property="og:image" content="https://github.com/STPGUY/stpguy.io/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/image-20231107170121684.png">
 <meta property="article:published_time" content="2023-11-06T12:03:25.000Z">
 <meta property="article:modified_time" content="2023-11-07T09:17:16.122Z">
 <meta property="article:author" content="STPGUY LEE">
 <meta property="article:tag" content="HFSS入门">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://alanturingli.gitee.io/AlanTuringLi/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/求解过程.png">
+<meta name="twitter:image" content="https://github.com/STPGUY/stpguy.io/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/求解过程.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://AlanTuringLi.gitee.io/AlanTuringLi/2023/11/06/HFSS功能概述/"/>
+  <link rel="canonical" href="https://github.com/STPGUY/stpguy.io/2023/11/06/HFSS功能概述/"/>
 
 
 
@@ -186,7 +186,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/AlanTuringLi/" class="brand" rel="start">
+      <a href="/STPGUY/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">STPGUY's Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -229,7 +229,7 @@
 
     
 
-    <a href="/AlanTuringLi/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+    <a href="/STPGUY/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
 
   </li>
         
@@ -246,7 +246,7 @@
 
     
 
-    <a href="/AlanTuringLi/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+    <a href="/STPGUY/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
 
   </li>
         
@@ -263,7 +263,7 @@
 
     
 
-    <a href="/AlanTuringLi/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+    <a href="/STPGUY/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
 
   </li>
         
@@ -280,7 +280,7 @@
 
     
 
-    <a href="/AlanTuringLi/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+    <a href="/STPGUY/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
 
   </li>
 
@@ -363,12 +363,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://AlanTuringLi.gitee.io/AlanTuringLi/AlanTuringLi/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/"/>
+    <link itemprop="mainEntityOfPage" href="https://github.com/STPGUY/stpguy.io/STPGUY/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="STPGUY LEE"/>
       <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/AlanTuringLi/images/shixiang.jpg"/>
+      <meta itemprop="image" content="/STPGUY/images/shixiang.jpg"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -437,8 +437,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/AlanTuringLi/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/AlanTuringLi/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/" itemprop="commentCount"></span>
+                <a href="/STPGUY/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/STPGUY/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -446,7 +446,7 @@
 
           
           
-             <span id="/AlanTuringLi/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/" class="leancloud_visitors" data-flag-title="HFSS功能概述">
+             <span id="/STPGUY/2023/11/06/HFSS%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/" class="leancloud_visitors" data-flag-title="HFSS功能概述">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -605,7 +605,7 @@
       
         <div class="post-tags">
           
-            <a href="/AlanTuringLi/tags/HFSS%E5%85%A5%E9%97%A8/" rel="tag"><i class="fa fa-tag"></i> HFSS入门</a>
+            <a href="/STPGUY/tags/HFSS%E5%85%A5%E9%97%A8/" rel="tag"><i class="fa fa-tag"></i> HFSS入门</a>
           
         </div>
       
@@ -618,7 +618,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/AlanTuringLi/2023/11/06/HFSS%E5%85%A5%E9%97%A8-%E6%B3%A2%E5%AF%BC%E4%BC%98%E5%8C%96%E8%AE%BE%E8%AE%A1/" rel="next" title="HFSS入门-波导优化设计">
+              <a href="/STPGUY/2023/11/06/HFSS%E5%85%A5%E9%97%A8-%E6%B3%A2%E5%AF%BC%E4%BC%98%E5%8C%96%E8%AE%BE%E8%AE%A1/" rel="next" title="HFSS入门-波导优化设计">
                 <i class="fa fa-chevron-left"></i> HFSS入门-波导优化设计
               </a>
             
@@ -628,7 +628,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/AlanTuringLi/2023/11/07/%E5%BE%AE%E6%B3%A2%E5%B7%A5%E7%A8%8B%E7%AC%94%E8%AE%B0/" rel="prev" title="微波工程笔记">
+              <a href="/STPGUY/2023/11/07/%E5%BE%AE%E6%B3%A2%E5%B7%A5%E7%A8%8B%E7%AC%94%E8%AE%B0/" rel="prev" title="微波工程笔记">
                 微波工程笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -694,7 +694,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="/AlanTuringLi/images/shixiang.jpg"
+                src="/STPGUY/images/shixiang.jpg"
                 alt="STPGUY LEE"/>
             
               <p class="site-author-name" itemprop="name">STPGUY LEE</p>
@@ -705,7 +705,7 @@
             <nav class="site-state motion-element">
               
                 <div class="site-state-item site-state-posts">
-                  <a href="/AlanTuringLi/archives">
+                  <a href="/STPGUY/archives">
                     <span class="site-state-item-count">131</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
@@ -718,7 +718,7 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  <a href="/AlanTuringLi/tags/index.html">
+                  <a href="/STPGUY/tags/index.html">
                     
                     
                       
@@ -888,7 +888,7 @@
                   
                     
                   
-                  <a href="https://github.com/AlanJimmy" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;AlanJimmy" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  <a href="https://github.com/AlanJimmy" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;AlanJimmy"><i class="fa fa-fw fa-github"></i>GitHub</a>
                 </span>
               
                 <span class="links-of-author-item">
@@ -1111,44 +1111,44 @@
 
 
   
-  <script src="/AlanTuringLi/lib/jquery/index.js?v=2.1.3"></script>
+  <script src="/STPGUY/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script src="/AlanTuringLi/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/STPGUY/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script src="/AlanTuringLi/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/AlanTuringLi/js/src/utils.js?v=6.7.0"></script>
-
-  <script src="/AlanTuringLi/js/src/motion.js?v=6.7.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/AlanTuringLi/js/src/affix.js?v=6.7.0"></script>
-
-  <script src="/AlanTuringLi/js/src/schemes/pisces.js?v=6.7.0"></script>
-
-
-
-  
-  <script src="/AlanTuringLi/js/src/scrollspy.js?v=6.7.0"></script>
-<script src="/AlanTuringLi/js/src/post-details.js?v=6.7.0"></script>
-
+  <script src="/STPGUY/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script src="/AlanTuringLi/js/src/bootstrap.js?v=6.7.0"></script>
+  <script src="/STPGUY/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/STPGUY/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/STPGUY/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/STPGUY/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/STPGUY/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/STPGUY/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/STPGUY/js/src/bootstrap.js?v=6.7.0"></script>
 
 
 
@@ -1207,7 +1207,7 @@
     } else if (/json$/i.test(search_path)) {
       isXml = false;
     }
-    var path = "/AlanTuringLi/" + search_path;
+    var path = "/STPGUY/" + search_path;
     // monitor main search box;
 
     var onPopupClose = function (e) {
@@ -1661,7 +1661,7 @@
   
   
   
-  <script src="/AlanTuringLi/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script src="/STPGUY/lib/bookmark/bookmark.min.js?v=1.0"></script>
   <script>
   
     bookmark.scrollToMark('auto', "#more");
