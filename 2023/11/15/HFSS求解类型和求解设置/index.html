@@ -551,7 +551,7 @@
 <li>快速扫频 $\text{Fast}$：采用 $\text{ALPS}$ 算法，在很宽的频带范围内搜寻出传输函数的全部零、极点。快速扫频适用于谐振问题和高 $\text Q$ 值问题的分析，可以得到场在谐振点附近行为的精确描述。使用快速扫频，一般选择频带中心频率作为自适应网格剖分频率，进行网格剖分，计算出该频点的 $\text{S}$ 参数和场分布，然后使用基于 $\text{ALPS}$ 算法的求解器从中心频率处的S参数解和场解来外推整个频带范围的 $\text{S}$ 参数解和场解。使用快速扫频，计算时只会求解中心频点处的场解，但在数据后处理时整个扫频范围内的任意频点的场都可以显示。</li>
 <li>插值扫频 $\text{Interpolating}$ ：插值扫频使用二分法来计算整个频段内的 $\text {S}$ 参数和场解。使用插值扫频，$\text{HFSS}$ 自适应选择计算场解的频率点，并计算相邻两个频点之间的解的误差，找出最大误差，当两点之间的最大误差达到指定的误差收敛标准或者达到了设定的最大频点数目后，扫描完成;其它频率点上的 $\text S$ 参数和场解由内插给出。</li>
 </ul>
-<link rel="stylesheet" href="/AlanTuringLi/css/spoiler.css" type="text/css"><script src="/AlanTuringLi/js/spoiler.js" type="text/javascript" async></script>
+<link rel="stylesheet" href="/STPGUY/css/spoiler.css" type="text/css"><script src="/STPGUY/js/spoiler.js" type="text/javascript" async></script>
       
     </div>
 
